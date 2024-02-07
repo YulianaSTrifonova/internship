@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        div {
+            margin: 5px 0;
+        }
+        
+        #button {
+            color: green;
+            border-color: green;
+            border-radius: 15px;
+            padding: 5px;
+            background-color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div>
+            <label for="name">Member name:</label>
+            <input type="text" id="name" required>
+            <strong>*req</strong>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <strong>*req</strong>
+        </div>
+        <div>
+            <label for="school">School:</label>
+            <input type="text" id="school" required> 
+            <strong>*req</strong>
+        </div>
+        <input type="button" value="Submit" id="button">
+    </form>
+</body>
+</html>
