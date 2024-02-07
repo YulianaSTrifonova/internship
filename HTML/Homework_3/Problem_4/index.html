@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Grid Component</title>
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        table {
+            background-color: #E7E8EA;
+        }
+
+        .table-content {
+            background-color: white;
+        }
+
+        table, th, td {
+            border: 1px solid #A9B0B7;
+            border-collapse: collapse;
+            padding: 5px;
+            font-weight: 100;
+            text-align: left;
+        }
+
+        #input-row {
+            background-color: #DFE3E8;
+        }
+
+        .first-col {
+            width: 70px;
+        }
+
+        .second-col {
+            width: 300px;
+        }
+
+        .third-col {
+            width: 100px;
+        }
+
+        .btn {
+            background-color: #EDEFF0;
+            border: 1px solid #DFE3E8;
+            border-radius: 5px;
+            padding: 3px 5px;
+            box-shadow: inset 0 0 3px gray;
+        }
+
+        img {
+            height: 10px;
+        }
+
+        a {
+            color: black;
+            border: 1px solid #E7E8EA;
+            padding: 2px;
+            text-decoration: none; 
+
+        }
+
+        a:hover {
+            border: 1px solid #CC7026;
+            border-radius: 3px;
+            padding: 2px;
+        }
+
+        #psize-lbl {
+            margin-left: 40px;
+        }
+
+        span:last-child {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+            <td colspan="6">Drag a column header and drop it here to group by that column</td> 
+            </tr>
+            <tr>
+                <th>ProductID</th>
+                <th>Product name</th>
+                <th>Unit price</th>
+                <th>Quantity per unit</th>
+                <th>Units in stock</th>
+                <th>Discontinued</th>
+            </tr>
+            <tr id="input-row">
+                <td><input type="number" class="first-col"></td>
+                <td><input type="text" class="second-col"></td>
+                <td>
+                    <input type="number" class="third-col">
+                    <button class="btn">
+                        <img src="filter.png">
+                    </button>
+                </td>
+                <td><input type="number"></td>
+                <td>
+                    <input type="number">
+                    <button class="btn">
+                        <img src="filter.png">
+                    </button>
+                </td>
+                <td>
+                    <input type="checkbox">
+                    <button class="btn">
+                        <img src="filter.png">
+                    </button>
+                </td>
+            </tr>
+            <tr class="table-content">
+                <td>1</td>
+                <td>Chai</td>
+                <td>$18.00</td>
+                <td>10 boxes x 20 bags</td>
+                <td>39</td>
+                <td><input type="checkbox" disabled></td>
+            </tr>
+            <tr class="table-content">
+                <td>2</td>
+                <td>Chang</td>
+                <td>$19.00</td>
+                <td>24 - 12 oz bottles</td>
+                <td>17</td>
+                <td><input type="checkbox" disabled></td>
+            </tr>
+            <tr class="table-content">
+                <td>3</td>
+                <td>Aniseed Syrup</td>
+                <td>$10.00</td>
+                <td>12 - 550 ml bottles</td>
+                <td>13</td>
+                <td><input type="checkbox" disabled></td>
+            </tr>
+            <tr class="table-content"> 
+                <td>4</td>
+                <td>Chef Anton's Cajun Seasoning</td>
+                <td>$22.00</td>
+                <td>48 - 6 oz jars</td>
+                <td>53</td>
+                <td><input type="checkbox" disabled></td>
+            </tr>
+            <tr class="table-content">
+                <td>5</td>
+                <td>Chef Anton's Gumbo Mix</td>
+                <td>$21.35</td>
+                <td>36 boxes</td>
+                <td>0</td>
+                <td><input type="checkbox" checked disabled></td>
+            </tr>
+            <tr class="table-content">
+                <td>6</td>
+                <td>Grandma's Boysenberry Spread</td>
+                <td>$25.00</td>
+                <td>12 - 8 oz jars</td>
+                <td>120</td>
+                <td><input type="checkbox" disabled></td>
+            </tr>
+            <tr class="table-content">
+                <td>7</td>
+                <td>Uncle Bob's Organic Dried Pears</td>
+                <td>$30.00</td>
+                <td>12 - 1 lb pkgs.</td>
+                <td>15</td>
+                <td><input type="checkbox" disabled></td>
+            </tr>
+            <tr class="table-content">
+                <td>8</td>
+                <td>Northwoods Cranberry Sauce</td>
+                <td>$40.00</td>
+                <td>12 - 12 oz jars</td>
+                <td>6</td>
+                <td><input type="checkbox" disabled></td>
+            </tr>
+            <tr class="table-content">
+                <td>9</td>
+                <td>Mishi Kobe Niku</td>
+                <td>$97.00</td>
+                <td>18 - 500 g pkgs.</td>
+                <td>29</td>
+                <td><input type="checkbox" checked disabled></td>
+            </tr>
+            <tr class="table-content">
+                <td>10</td>
+                <td>Ikura</td>
+                <td>$31.00</td>
+                <td>12 - 200 ml jars</td>
+                <td>31</td>
+                <td><input type="checkbox" disabled></td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <input type="button" value="|◀" class="btn">
+                    <input type="button" value="◀" class="btn">
+                    <a href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">7</a>
+                    <a href="#">8</a>
+                    <a href="#">9</a>
+                    <a href="#">10</a>
+                    <span>...</span>
+                    <input type="button" value="▶" class="btn">
+                    <input type="button" value="▶|" class="btn">
+                    <label for="psize" id="psize-lbl">Page size: </label>
+                    <select id="psize">
+                        <option>5</option>
+                        <option>10</option>
+                        <option>15</option>
+                    </select>
+                    <span>335104 items in 33511 pages</span>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
