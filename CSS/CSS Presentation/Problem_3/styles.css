@@ -1,0 +1,13 @@
+div {
+    background-color: black;
+    border-radius: 100px;
+    margin-right: 25px;
+}
+
+.red-border {
+    border: 1px solid red;
+}
+
+.black-border {
+    border-right: 1px solid black;
+}

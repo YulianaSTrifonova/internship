@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <table>
+        <tr class="main-container">
+            <td colspan="7">🖩 Calculator</td>
+            <td><button class="btn-m">🗕</button></td>
+            <td><button class="btn-r">☐</button></td>
+            <td><button class="btn-c">✕</button></td>
+        </tr>
+        <tr class="menu">
+            <td colspan="10"> 
+                <span class="menu-item">View</span>
+                <span class="menu-item">Edit</span>
+                <span class="menu-item">Help</span>
+            </td>
+        </tr>
+        <tr class="result">
+            <td colspan="10">
+                <span>8854455</span>
+            </td>
+        </tr>
+        <tr class="b-num-row">
+            <td colspan="10">
+                <span>0000</span>
+                <span>0000</span>
+                <span>0000</span>
+                <span>0000</span>
+                <span>0000</span>
+                <span>0000</span>
+                <span>0000</span>
+                <span>0000</span>
+            </td>
+        </tr>
+        <tr class="d-num-row">
+            <td colspan="3" class="first">63</td>
+            <td colspan="5" class="second">47</td>
+            <td colspan="3" class="third">32</td>
+        </tr>
+        <tr class="b-num-row">
+            <td colspan="10">
+                <span>0000</span>
+                <span>0000</span>
+                <span>1000</span>
+                <span>0111</span>
+                <span>0001</span>
+                <span>1011</span>
+                <span>1011</span>
+                <span>0111</span>
+            </td>
+        </tr>
+        <tr class="d-num-row">
+            <td colspan="3" class="first">31</td>
+            <td colspan="5" class="second">15</td>
+            <td colspan="3" class="third">0</td>
+        </tr>
+        <tr>
+            <td rowspan="3" colspan="2" class="radio-opt">
+                <input type="radio" id="hex">
+                <label for="hex">Hex</label>
+                <br>
+                <input type="radio" id="dec" checked>
+                <label for="dec">Dec</label>
+                <br>
+                <input type="radio" id="oct">
+                <label for="oct">Oct</label>
+                <br>
+                <input type="radio" id="bin">
+                <label for="bin">Bin</label>
+            </td>
+            <td>
+                <input type="button" value=" " class="btn disabled">
+            </td>
+            <td>
+                <input type="button" value="Mod" class="btn">
+            </td>
+            <td>
+                <input type="button" value="A" class="btn disabled">
+            </td>
+            <td>
+                <input type="button" value="MC" class="btn">
+            </td>
+            <td>
+                <input type="button" value="MR" class="btn">
+            </td>
+            <td>
+                <input type="button" value="MS" class="btn">
+            </td>
+            <td>
+                <input type="button" value="M+" class="btn">
+            </td>
+            <td>
+                <input type="button" value="M-" class="btn">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="(" class="btn">
+            </td>
+            <td>
+                <input type="button" value=")" class="btn">
+            </td>
+            <td>
+                <input type="button" value="B" class="btn disabled">
+            </td>
+            <td>
+                <input type="button" value="←" class="btn">
+            </td>
+            <td>
+                <input type="button" value="CE" class="btn">
+            </td>
+            <td>
+                <input type="button" value="C" class="btn">
+            </td>
+            <td>
+                <input type="button" value="±" class="btn">
+            </td>
+            <td>
+                <input type="button" value="√" class="btn disabled">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="RoL" class="btn">
+            </td>
+            <td>
+                <input type="button" value="RoR" class="btn">
+            </td>
+            <td>
+                <input type="button" value="C" class="btn disabled">
+            </td>
+            <td>
+                <input type="button" value="7" class="btn">
+            </td>
+            <td>
+                <input type="button" value="8" class="btn">
+            </td>
+            <td>
+                <input type="button" value="9" class="btn">
+            </td>
+            <td>
+                <input type="button" value="/" class="btn">
+            </td>
+            <td>
+                <input type="button" value="%" class="btn disabled">
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="3" colspan="2" class="radio-opt">
+                <input type="radio" id="qword" checked>
+                <label for="qword">Qword</label>
+                <br>
+                <input type="radio" id="dword">
+                <label for="dword">Dword</label>
+                <br>
+                <input type="radio" id="word">
+                <label for="word">Word</label>
+                <br>
+                <input type="radio" id="byte">
+                <label for="byte">Byte</label>
+            </td>
+            <td>
+                <input type="button" value="Or" class="btn">
+            </td>
+            <td>
+                <input type="button" value="Xor" class="btn">
+            </td>
+            <td>
+                <input type="button" value="D" class="btn disabled">
+            </td>
+            <td>
+                <input type="button" value="4" class="btn">
+            </td>
+            <td>
+                <input type="button" value="5" class="btn">
+            </td>
+            <td>
+                <input type="button" value="6" class="btn">
+            </td>
+            <td>
+                <input type="button" value="*" class="btn">
+            </td>
+            <td rowspan="">
+                <input type="button" value="1/x" class="btn disabled">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="Lsh" class="btn">
+            </td>
+            <td>
+                <input type="button" value="Rsh" class="btn">
+            </td>
+            <td>
+                <input type="button" value="E" class="btn disabled">
+            </td>
+            <td>
+                <input type="button" value="1" class="btn">
+            </td>
+            <td>
+                <input type="button" value="2" class="btn">
+            </td>
+            <td>
+                <input type="button" value="3" class="btn">
+            </td>
+            <td>
+                <input type="button" value="-" class="btn">
+            </td>
+            <td rowspan="2">
+                <input type="button" value="=" class="btn tall">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="Not" class="btn">
+            </td>
+            <td>
+                <input type="button" value="And" class="btn">
+            </td>
+            <td>
+                <input type="button" value="F" class="btn disabled">
+            </td>
+            <td colspan="2">
+                <input type="button" value="0" class="btn long">
+            </td>
+            <td>
+                <input type="button" value="." class="btn disabled">
+            </td>
+            <td>
+                <input type="button" value="+" class="btn">
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
