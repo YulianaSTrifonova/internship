@@ -1,0 +1,51 @@
+body {
+    color: gray;
+    background-color: #3B3B3B;
+    font-family: Calibri;
+    margin: 0;
+    padding: 0
+}
+
+header {
+    color: white;
+    background: linear-gradient(0deg, rgba(45,45,45,1) 0%, rgba(59,59,59,1) 100%);
+    display: flex;
+    flex-shrink: 1;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+img {
+    width: 50px;
+    height: auto;
+}
+
+label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+button {
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    background: url(button.png);
+    background-size: cover;
+    background-position: center;
+    flex-basis: 50px;
+    height: 30px;
+}
+
+h1 {
+    color: #FEDBA6;
+}
+
+span {
+    color: white;
+}
+
+p, h1 {
+    padding: 0 30px;
+}

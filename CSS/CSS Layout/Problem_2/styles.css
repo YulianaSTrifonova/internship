@@ -1,0 +1,50 @@
+body {
+    background-color: #EEEEEE;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-weight: 100;
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 50px;
+}
+
+table {
+    background-color: white;
+    border: 1px solid gray;
+    flex-basis: 500px;
+    font-size: 12px;
+    padding: 20px;
+}
+
+img {
+    margin-right: 15px;
+    width: 150px;
+    border: 1px solid gray;
+}
+
+.buttons {
+    float: right;
+}
+
+button {
+    border-radius: 5px;
+    height: 30px;
+    width: 40px;
+    border: none;
+    color: white;
+    background: url(button.png);
+    background-position: center;
+    background-size: cover;
+}
+
+button:first-child {
+    width: 60px;
+}

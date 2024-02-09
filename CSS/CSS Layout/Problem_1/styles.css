@@ -1,0 +1,17 @@
+.list-item {
+    list-style: none;
+}
+
+.sublist-item {
+    display: none;
+    list-style: none;
+    color: gray;
+}
+
+.list-item:hover span{
+    text-decoration: underline;
+}
+
+.list-item:hover .sublist-item {
+    display: block;
+}
