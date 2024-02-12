@@ -43,6 +43,7 @@ button {
     background: url(button.png);
     background-position: center;
     background-size: cover;
+    cursor: pointer;
 }
 
 button:first-child {
