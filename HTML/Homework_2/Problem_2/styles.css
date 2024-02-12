@@ -1,0 +1,12 @@
+div {
+    margin: 5px 0;
+}
+
+#button {
+    color: green;
+    border-color: green;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: white;
+    cursor: pointer;
+}
