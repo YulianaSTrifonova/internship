@@ -3,9 +3,6 @@
     padding: 10px;
     font-family: Corbel;
     max-width: 800px;
-}
-
-.center {
     text-align: center;
 }
 
@@ -18,7 +15,7 @@ a {
 hr {
     border: 0;
     width: 95%;               
-    background-color:black;
+    background-color: black;
     height: 1px;
     margin-bottom: 15px;
 }
@@ -26,7 +23,6 @@ hr {
 .grid-container {
     display: grid;
     grid-template-columns: 515px 260px;
-    text-align: center;
 }
 
 .laptop-grid {
@@ -42,16 +38,6 @@ hr {
     grid-column-end: 2;
 }
 
-.right {
-    grid-column-start: 2;
-    grid-column-end: 3;
-}
-
-img {
-    width: 120px;
-    height: auto;
-}
-
 .flex {
     display: flex;
     flex-wrap: wrap;
@@ -65,8 +51,17 @@ fieldset {
     float: right;
 }
 
+.right {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+img {
+    width: 120px;
+    height: auto;
+}
+
 .sliders {
-    text-align: center;
     padding: 60px;
 }
 

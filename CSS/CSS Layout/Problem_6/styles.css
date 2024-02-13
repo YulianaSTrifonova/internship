@@ -1,21 +1,25 @@
-body {
+.container {
     background-color: #1E3741;
-    max-width: 700px;
+    max-width: 770px;
+    min-height: 400px;
     font-family: Verdana;
     font-size: 12px;
     margin: 0;
+    justify-content: center;
 }
 
-nav ul{
+nav ul {
+    max-width: 650px;
     color: #93ACB6;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
     padding: 20px;
     column-gap: 1px;  
+    row-gap: 1px;
 }
 
-ul li {
+nav ul li {
     list-style-type: none;
     background-color: #4B5F67;
     flex-grow: 1;
@@ -58,8 +62,8 @@ ul li:hover {
 }
 
 img {
-    height: 275px;
-    width: auto;
+    height: auto;
+    min-width: 400px;
 }
 
 hr {
@@ -68,5 +72,4 @@ hr {
     height: 1px;
     margin: 0;
     padding: 0;
-    
 }
