@@ -1,0 +1,46 @@
+@import "variables.less";
+
+.right {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    text-align: center;
+
+    a {
+        @red-underline();
+        .mixin();
+
+        &:hover {
+            @no-underline();
+            .mixin();
+        }
+    }
+
+    .section {
+        border: 1px solid @gray;
+        margin-top: 2px;
+        background-color: #fff;
+    
+        &:first-child {
+            margin-top: 0;
+        }
+
+        input {
+            max-width: 120px;
+        }
+    
+        h4 {
+            @title-with-background();
+            .mixin();
+            margin-block-start: 0;
+        }
+    
+        .btn-styles {
+            background: @blue-gradient;
+            padding: 10px 15px;
+            margin-top: 10px;
+            border: 1px solid @dark-blue;
+            font-weight: bold;
+            color: @blue;
+        }
+    }
+}
