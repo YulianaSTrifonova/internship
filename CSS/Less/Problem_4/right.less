@@ -6,12 +6,10 @@
     text-align: center;
 
     a {
-        @red-underline();
-        .mixin();
+        .red-underline();
 
         &:hover {
-            @no-underline();
-            .mixin();
+            .no-underline();
         }
     }
 
@@ -29,9 +27,10 @@
         }
     
         h4 {
-            @title-with-background();
-            .mixin();
+            .title-with-background();
             margin-block-start: 0;
+            font-size: 13px;
+            text-transform: uppercase;
         }
     
         .btn-styles {

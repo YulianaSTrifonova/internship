@@ -6,27 +6,19 @@
 @dark-blue: #5e83a0;
 @blue-gradient: radial-gradient(circle, rgba(212,240,254,1) 70%, rgb(153, 195, 226) 100%);
 
-@red-underline: {
-    .mixin() {
-        color: @red;
-        text-decoration: underline;
-    }
+.red-underline {
+    color: @red;
+    text-decoration: underline;
 }
 
-@no-underline: {
-    .mixin() {
-        text-decoration: none;
-        color: black;
-    }
+.no-underline {
+    text-decoration: none;
+    color: black;
 }
 
-@title-with-background: {
-    .mixin() {
-        background-color: @gray;
-        color: #fff;
-        padding: 0 5px;
-        font-weight: 100;
-        font-size: 15px;
-    }
+.title-with-background {
+    background-color: @gray;
+    color: #fff;
+    padding: 0 5px;
+    font-weight: 100;
 }
-

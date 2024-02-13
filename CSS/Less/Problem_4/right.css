@@ -1,3 +1,17 @@
+.red-underline {
+  color: #8F0705;
+  text-decoration: underline;
+}
+.no-underline {
+  text-decoration: none;
+  color: black;
+}
+.title-with-background {
+  background-color: #808080;
+  color: #fff;
+  padding: 0 5px;
+  font-weight: 100;
+}
 .right {
   grid-column-start: 3;
   grid-column-end: 4;
@@ -27,8 +41,9 @@
   color: #fff;
   padding: 0 5px;
   font-weight: 100;
-  font-size: 15px;
   margin-block-start: 0;
+  font-size: 13px;
+  text-transform: uppercase;
 }
 .right .section .btn-styles {
   background: radial-gradient(circle, #d4f0fe 70%, #99c3e2 100%);

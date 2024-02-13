@@ -6,11 +6,9 @@
     border: 1px solid @gray;
     padding: 10px;
     background-color: #fff;
-
     
     .section-title {
-        @title-with-background();
-        .mixin();
+        .title-with-background();
         margin-block-start: 0;
     }
 
@@ -22,18 +20,14 @@
             height: auto;
             margin-bottom: 15px;
             margin-right: 15px;
-        }    
+        }   
     }
 
     a {
-        @red-underline();
-        .mixin();
+        .red-underline();
 
         &:hover {
-            @no-underline();
-            .mixin();
+            .no-underline();
         }
     }
-
-
 }
