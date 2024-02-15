@@ -1,0 +1,195 @@
+path {
+    stroke:black;
+    stroke-width:2;
+    stroke-linecap: round;
+}
+
+       
+#sun-glow {
+    filter: url(#glow);
+    fill: yellow;
+    visibility: hidden;
+}
+
+#moon {
+    filter: url(#glow);
+    fill: whitesmoke;
+    visibility: hidden; 
+    stroke: none;    
+}
+
+#tile-pattern-side {
+    transform: rotate(-20deg);
+}
+
+#stone-pattern {
+    transform: rotate(30deg);
+}
+
+#brick-pattern-side {
+    transform: rotate(-15deg);
+}
+
+.window{
+    fill:rgb(248, 248, 135)
+}
+
+.tree {
+    stroke: black;
+    stroke-width: 2;
+}
+
+#ground, #sky, #star-sky {
+    stroke: black;
+    stroke-width: 2;
+}
+
+#wall, #roof-side, #chimney, .tree, #ground {
+    filter: brightness(40%)
+}
+
+.front {
+    filter: brightness(80%);
+}
+
+@keyframes smokeAnimation {
+    0% {
+        transform: translateY(0);
+        transform: translateX(0);
+        opacity: 0.2;
+    }
+    50% {
+	    transform: translateY(-20px);
+	    transform: rotate(-5deg);
+	    opacity: 0.4;
+    }
+    100% {
+        transform: rotate3d(10deg);
+        opacity: 0.1;
+    }
+}
+
+@keyframes windowAnimation {
+    0%, 34%, 70% {
+        fill: rgb(248, 248, 135);
+    }
+    35%, 69% {
+        fill: white;
+    }
+}
+
+@keyframes sunAnimation {
+    0% { 
+        visibility: visible;
+        transform: rotateZ(45deg);
+    }
+    50% {
+        transform: translate(20px);
+    }
+    100% {
+        transform: rotate(-18deg);
+    }
+}
+
+@keyframes moonAnimation {
+    0% { 
+        visibility: visible;
+        transform: rotateZ(45deg);
+    }
+    50% {
+        transform: translate(20px);
+    }
+    100% {
+        transform: rotate(-18deg);
+    }
+}
+
+@keyframes starAnimation {
+    0% {
+        opacity: 1;
+      
+        animation: fadeOut 5s;
+    }
+
+    25% {
+        opacity: 0;
+    }
+    50% {
+        
+        visibility: hidden;
+       
+    }
+    75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+       
+        animation: fadeIn 5s;
+    }
+}
+
+
+@keyframes fadeOut {
+    0% { 
+        opacity: 1; 
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% { 
+        opacity: 0; 
+        visibility: hidden;
+    }
+  }
+
+  @keyframes fadeIn {
+    0% { 
+        opacity: 0; 
+        visibility: visible;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% { 
+        opacity: 1; 
+    }
+  }
+
+@keyframes skyAnimation {
+    0% {
+        fill: darkblue;
+    }
+    25% {
+        fill: lightpink;
+    }
+    50% {
+        fill: lightblue;
+    }
+    75% {
+        fill: orange;
+    }
+    100% {
+        fill: darkblue;
+    }
+}
+
+@keyframes brightnessAnimation {
+    0%, 30%, 70% {
+        filter: brightness(40%);
+    }
+    65% {
+        filter: brightness(100%)
+    }
+}
+
+
+@keyframes brightnessFrontAnimation {
+    0%, 30%, 70% {
+        filter: brightness(70%);
+    }
+    65% {
+        filter: brightness(100%);
+    }
+}
+ 

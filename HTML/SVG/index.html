@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SVG House</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+    <svg width="500" height="500" viewBox="0 0 350 350">
+        
+        <defs>
+            <pattern id="tile-pattern" x="1" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 0 10 C 5 0,15 0, 20 10 S 35 20, 20 10" fill="none" stroke="black" />
+            </pattern>
+
+            <pattern id="tile-pattern-side" x="0" y="5" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 0 10 C 5 0,15 0, 20 10 S 35 20, 20 10" fill="none" stroke="black" />
+            </pattern>
+
+            <pattern id="star-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                <circle cx="10" cy="10" r="1" fill="whitesmoke" />
+                <circle cx="25" cy="20" r="1" fill="whitesmoke" />
+                <circle cx="15" cy="30" r="1" fill="whitesmoke" />
+            </pattern>
+
+            <pattern id="stone-pattern" x="10" y="0" width="30" height="20" patternUnits="userSpaceOnUse">
+                <circle cx="5" cy="10" r="5" fill="gray" stroke="black"/>
+                <circle cx="25" cy="9" r="4" fill="rgb(207, 207, 183)" stroke="black"/>
+                <circle cx="15" cy="13" r="7" fill="darkgray" stroke="black"/>
+                <circle cx="15" cy="1" r="5" fill="gray" stroke="black"/>
+                <circle cx="5" cy="4" r="2" fill="gray" stroke="black"/>
+                <circle cx="8" cy="17" r="4" fill="darkgray" stroke="black"/>
+            </pattern>
+
+            <pattern id="brick-pattern" x="0" y="0" width="12" height="17" patternUnits="userSpaceOnUse">
+                <g id="brick">
+                    <rect width="10" height="5" x="-1" y="0" fill="rgb(207, 207, 183)" stroke="black"/>
+                    <rect width="10" height="5" x="2" y="10" fill="beige" stroke="black"/>
+                </g>
+            </pattern>
+
+            <pattern id="brick-pattern-side" x="0" y="12" width="12" height="17" patternUnits="userSpaceOnUse">
+                <g id="brick">
+                    <rect width="10" height="5" x="-1" y="0" fill="rgb(207, 207, 183)" stroke="black"/>
+                    <rect width="10" height="5" x="2" y="10" fill="beige" stroke="black"/>
+                </g>
+            </pattern>
+
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                <feComponentTransfer in="blur" result="transfer">
+                    <feFuncA type="linear" slope="2" />
+                </feComponentTransfer>
+                <feMerge>
+                    <feMergeNode in="transfer" />
+                    <feMergeNode in="SourceGraphic" />
+                </feMerge>
+            </filter>
+        </defs>
+
+        <rect width="335" height="200px" x="10" y="0" id="sky" fill="darkblue" style="animation: skyAnimation 10s ease-in-out 1; animation-delay: 5s" />
+        <rect width="335" height="200px" x="10" y="0" id="star-sky"  style="animation: starAnimation 20s ease-in-out 1; fill: url(#star-pattern)"/>       
+
+        <circle cx="280" cy="30" r="40" id="sun-glow" style="animation: sunAnimation 10s ease-in-out 1; animation-delay:5s;"/>
+<!--
+        <circle cx="280" cy="30" r="40" id="moon" style="animation: moonAnimation 10s ease-in-out 1; animation-delay: 15s"/>
+-->
+        <path d="M 270 60 A 40 40 0 1 0 270 0 30 30 0 1 1 270 60"  fill="white" id="moon" style="animation: moonAnimation 10s ease-in-out 1; animation-delay: 15s"/>
+
+        <rect id="ground" width="335" height="100px" style="fill: green; animation: brightnessAnimation 20s" x="10" y="160" />
+        
+        <rect width="15" height="80" x="265" y="120" fill="rgb(95, 67, 15)" class="tree" style="animation: brightnessAnimation 20s"/>
+        <g class="tree" style="animation: brightnessAnimation 20s">
+            <circle cx="250" cy="120" r="25" width="20" height="60" fill="green" />
+            <circle cx="295" cy="130" r="25" width="20" height="60" fill="green"/>
+            <circle cx="275" cy="90" r="30" width="20" height="60" fill="green"/>
+        </g>
+
+        <path id="wall" d="M 160 100 l 50 -15 l 0 100 l -50 15 Z " style="fill: rgb(207, 207, 183); animation: brightnessAnimation 20s"/>
+        <path id="wall" d="M 160 100 l 50 -15 l 0 100 l -50 15 Z " style="fill: url(#brick-pattern-side); animation: brightnessAnimation 20s"/>
+        <path class="front" d="M 160 100 l -115 0 l 0 100 l 115 0 Z" fill="rgb(173, 173, 143)" style="animation: brightnessFrontAnimation 20s"/>
+        <path class="front" d="M 160 100 l -115 0 l 0 100 l 115 0 Z" fill="url(#brick-pattern)" style="animation: brightnessFrontAnimation 20s"/>
+        
+        
+        <path class="front" d="M 100 30 l -80 70 l 160 0 Z " style="fill:darkred; animation: brightnessFrontAnimation 20s"/>
+        <path d="M 100 30 l -80 70 l 160 0 Z " style="fill: url(#tile-pattern);"/>
+        
+        <path d="M 100 30 l 50 -15 l 80 70 L 180 100 Z" style="fill:darkred; animation: brightnessAnimation 20s" id="roof-side"/>
+        <path d="M 100 30 l 50 -15 l 80 70 L 180 100 Z" style="fill: url(#tile-pattern-side);" />
+
+        <path id="chimney" d="M 160 40 l 0 20 l 20 -6 l 0 -20 Z l -10 -8 l 0 20 l 10 8 Z" style="fill: darkred; animation: brightnessAnimation 20s" />
+        <path d="M 160 40 l -10 -8 l 20 -6 l 10 8 Z" style="fill: black;" />
+
+
+        <path d="M 160 40 C 140 30, 170 20, 160 10" fill="none" style="animation: smokeAnimation 2s ease-in-out infinite;" />
+        <path d="M 163 40 C 175 30, 145 20, 165 10" fill="none" style="animation: smokeAnimation 2.5s ease-in-out infinite; animation-delay: 0.5s;" />
+        <path d="M 167 39 C 140 30, 170 15, 170 10" fill="none" style="animation: smokeAnimation 2s ease-in-out infinite; animation-delay: 1s;" />
+
+        <rect width="25" height="25" style="stroke-width:2;stroke:rgb(0,0,0); animation: windowAnimation 20s ease-in-out 1 " x="60" y="120" class="window"/>
+        <rect width="3" height="25" style="fill:black;" x="71" y="120" />
+        <rect width="25" height="3" style="fill:black;" x="60" y="131" />
+
+        <rect width="25" height="25" style="stroke-width:2;stroke:rgb(0,0,0); animation: windowAnimation 20s ease-in-out 1" x="110" y="120" class="window" />
+        <rect width="3" height="25" style="fill:black;" x="121" y="120" />
+        <rect width="25" height="3" style="fill:black;" x="110" y="131" />
+
+        <path d="M 175 115 l 0 25 l 20 -6 l 0 -25 Z" class="window" style="animation: windowAnimation 20s ease-in-out 1" />
+        <path d="M 175 128 l 21 -6 " style="stroke: black; stroke-width:3; fill:black"/>
+        <path d="M 185 112 l 0 25 " style="stroke: black; stroke-width:3; fill:black"/>
+
+        <rect class="front" width="25" height="40" style="fill:rgb(95, 67, 15);stroke-width:2;stroke:rgb(0,0,0); animation: brightnessFrontAnimation 20s" x="85" y="160" />
+        <rect width="5" height="2" style="fill:black;stroke-width:2;stroke:rgb(0,0,0)" x="105" y="180" />
+        
+        <path d="M 90 200 C 0 200, -10 270, 230 259 l 0 0 C 60 200, 120 200, 160 200 Z" fill="darkgray" style="animation: brightnessAnimation 20s" />
+        <path class="front" d="M 90 200 C 0 200, -10 270, 230 259 l 0 0 C 60 200, 120 200, 160 200 Z" fill="url(#stone-pattern)" style="animation: brightnessFrontAnimation 20s" />
+        
+    </svg>
+</body>
+</html>
