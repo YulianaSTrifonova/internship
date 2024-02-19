@@ -4,12 +4,24 @@ const a = parseFloat(inputArray[0]);
 const b = parseFloat(inputArray[1]);
 const c = parseFloat(inputArray[2]);
 
-let multiplicationSign;
+const product = a*b*c;
 
-if ( a == 0 || b == 0 || c == 0) {
-    multiplicationSign = "0";
-} else if ( (a > 0 && b > 0 && c > 0) || (a < 0 && b < 0 && c > 0) || (a < 0 && b > 0 && c < 0) || (a > 0 && b < 0 && c < 0)) {
-    multiplicationSign = "+";
+if(product > 0) {
+    console.log("+");
+} else if(product < 0) {
+    console.log("-");
 } else {
-    multiplicationSign = "-";
+    console.log("0");
 }
+
+/*
+const sign = product > 0 ? 
+                '+' : 
+                (
+                    product < 0 ?
+                        '-' :
+                        '0' 
+                );
+
+console.log(sign);
+*/
