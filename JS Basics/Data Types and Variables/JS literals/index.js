@@ -12,3 +12,5 @@ const objectLiteral = {
 }
 
 let regExpLiteral = /exp/;
+
+let templateLiteral = `exp1 ${exp2}`;
