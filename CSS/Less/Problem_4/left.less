@@ -1,0 +1,18 @@
+@import "variables.less";
+
+.left {
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    a {
+        .no-underline();
+
+        &:hover {
+            .red-underline();
+        }
+    }
+
+    p {
+        margin-bottom: -10px;
+    }
+}

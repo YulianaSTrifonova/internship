@@ -1,0 +1,14 @@
+.red-underline {
+  color: #8F0705;
+  text-decoration: underline;
+}
+.no-underline {
+  text-decoration: none;
+  color: black;
+}
+.title-with-background {
+  background-color: #808080;
+  color: #fff;
+  padding: 0 5px;
+  font-weight: 100;
+}
