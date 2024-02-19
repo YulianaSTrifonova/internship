@@ -1,0 +1,30 @@
+body {
+    font-family: Corbel;
+    font-weight: 600;
+}
+
+table, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+a {
+    color: #0096FF;
+    margin: 0 3px;
+}
+
+#laptop-table, #laptop-table tr td{
+    border: none;
+}
+
+fieldset {
+    text-align: center;
+}
+
+table tr td:last-child input, label {
+    margin-bottom: 40px ;
+}
+
+table td:last-child {
+    text-align: center;
+}

@@ -1,0 +1,31 @@
+table {
+    border: 2px solid #b3cdd3;
+    background-color: #eefcff;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table td {
+    border: 2px solid #b3cdd3;
+}
+
+tr td input {
+    border: none;
+    background-color: #eefcff;
+    height: 100%;
+    font-size: 30px;
+    color: cyan;
+    text-shadow: 1px 1px 2px gray;
+    cursor: pointer;
+}
+
+tr td input::placeholder {
+    background-color: #eefcff;
+    border: none;
+    font-size: 30px;
+    color: cyan;
+    text-shadow: 1px 1px 2px gray;
+    height: 100%;
+    margin: 0 10px;
+    text-align: right;
+}

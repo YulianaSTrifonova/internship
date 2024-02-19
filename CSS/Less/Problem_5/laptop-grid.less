@@ -1,0 +1,36 @@
+@import "variables.less";
+
+.laptop-grid {
+    display: grid;
+    grid-template-columns: 250px 250px;
+    grid-auto-rows: minmax(100px, auto);
+    border: 1px solid black;
+    padding: 15px;
+
+    .left {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    
+    .right {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+    
+    img {
+        .size(120px, auto);
+    }
+
+    .flex {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    fieldset {
+        max-width: 200px;
+    }
+
+    .float-right {
+        .float-direction(right);
+    }
+}
