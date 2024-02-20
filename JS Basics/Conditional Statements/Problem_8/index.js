@@ -1,11 +1,15 @@
 let inputNum = parseFloat(prompt("Enter a number between 0 and 999: "));
 let answer = "";
 
-const ones = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
-const teens = ["Eleven", "Twelve", "Thirteen", "Fourteen", "Sixteen", "Seventeen", "Nineteen"];
-const tens = ["Ten", "Twenty", "Thirty", "Fourty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
+let isValidNum = inputNum >= 0 && inputNum <= 999 && parseFloat(inputNum) === parseInt(inputNum);
 
-if(inputNum >= 0 && inputNum <= 999) {
+if(isValidNum) {
+    inputNum = parseInt(inputNum);
+
+    const ones = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
+    const teens = ["Eleven", "Twelve", "Thirteen", "Fourteen", "Sixteen", "Seventeen", "Nineteen"];
+    const tens = ["Ten", "Twenty", "Thirty", "Fourty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
+
     const hundred = Math.floor(inputNum / 100);
     if(hundred > 0) {
         answer += ones[hundred - 1] + " Hundred ";
