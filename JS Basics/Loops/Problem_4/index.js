@@ -1,5 +1,5 @@
 let allProps = [];
-let smallest = allProps[0], largest = allProps[0];
+let smallest, largest;
 
 
 for(var key in document) {

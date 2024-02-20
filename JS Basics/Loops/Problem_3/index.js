@@ -1,3 +1,5 @@
+let result;
+
 function matrixOfNumbers(n) {
     if(n > 1 && n < 20) {
         let matrix = [];
@@ -6,11 +8,13 @@ function matrixOfNumbers(n) {
             for(let j = 0; j < n; j++) {
                 matrix[i][j] = 0;
             }
+            result = matrix.map((row) => row.join(" ")).join("\n");
         }
-        return matrix;
+        
     } else {
-        return("Invalid input");
+        result = "Invalid input";
     }
+    return result;
 }
 
 matrixOfNumbers(5);
