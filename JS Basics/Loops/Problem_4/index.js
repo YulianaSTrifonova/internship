@@ -22,7 +22,6 @@ for(let i = 0; i < allProps.length; i++) {
     if(allProps[i] > largest) {
         largest = allProps[i];
     }
-    return smallest, largest;
 }
 
 console.log("largrest: " + largest + ", smallest: " + smallest);
