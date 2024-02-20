@@ -19,5 +19,6 @@ console.log(typeof(objectLiteral));
 let regExpLiteral = /exp/;
 console.log(typeof(regExpLiteral));
 
-let templateLiteral = `exp1 ${exp2}`;
+let exp1 = "text";
+let templateLiteral = `exp2 ${exp1}`;
 console.log(typeof(templateLiteral));
