@@ -1,6 +1,5 @@
-let result;
-
 function mmsa(arr) {
+    let result;
     const arrayMap = arr.map((x) => parseFloat(x));
     if(arrayMap.every(num => num >= -10000 && num <= 10000)) {
         let arraySum = 0;

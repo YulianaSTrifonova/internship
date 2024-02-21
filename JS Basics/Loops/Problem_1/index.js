@@ -1,7 +1,6 @@
-let numbers = "";
-let result = "";
-
 function Numbers(inputArray) {
+    let numbers = "";
+    let result = "";
     let n = parseInt(inputArray[0]);
     if (n <= 0) {
         result = "Invalid input";
