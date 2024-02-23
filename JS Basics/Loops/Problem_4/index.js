@@ -14,12 +14,13 @@ for(var key in navigator) {
     allProps.push(key)
 }
 
+smallest = largest = allProps[0];
 
 for(let i = 0; i < allProps.length; i++) {
-    if(smallest > allProps[i]) {
+    if(smallest.length > allProps[i].length) {
         smallest = allProps[i];
     }
-    if(allProps[i] > largest) {
+    if(allProps[i].length > largest.length) {
         largest = allProps[i];
     }
 }
