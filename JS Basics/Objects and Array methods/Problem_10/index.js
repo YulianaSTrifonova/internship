@@ -1,16 +1,10 @@
 function youngestMale(arr) {
     let youngestMale = arr.find((person) => person.gender === "male")
-    
-    if(!youngestMale) {
-        console.log("No males found")
-    }
-
     arr.forEach((person) => {
         if(person.gender === "male" && person.age < youngestMale.age) {
             youngestMale = person;
         }
-    })
-
+    });
     return youngestMale.firstname + " " + youngestMale.lastname;
 }
 
