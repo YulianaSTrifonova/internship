@@ -1,7 +1,7 @@
 function stringFormat(str, ...args) {
     const regex = /{([0-9]+)}/g;
     str = str.replace(regex, function(match, index) {
-        return typeof args[index] == 'undefined' ? match : args[index];
+        return args[index];
     });
     return str;
 }

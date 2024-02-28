@@ -1,11 +1,8 @@
-function reverseString(str) {
-    const strSplit = str.split("");
-    const strReverse = strSplit.reverse();
-    const strJoin = strReverse.join("");
-
-    return strJoin;
+function reverseStr(str) {
+    const reversedStr = str.split("").reverse().join("");
+    return reversedStr;
 }
 
-const arr = ['qwertytrewq'];
+const arr = ['sample'];
 const test = arr[0];
-reverseString(test);
+reverseStr(test);
