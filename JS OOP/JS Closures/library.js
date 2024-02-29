@@ -4,7 +4,7 @@ function solve() {
 
         var books = [];
 		var categories = [];
-
+		
 		function listBooks(criteria) {
 			let sortedBooks = [...books].sort((a, b) => a.ID - b.ID);
 
@@ -59,7 +59,7 @@ function solve() {
 		*/
 
 		function findCategoryByName(name) {
-            const findCategory = categories.find((category) => category.name === name);
+			const findCategory = categories.find((category) => category.name === name);
 			const isFound = findCategory ? true : false;
 
 			return isFound;
@@ -86,7 +86,7 @@ function solve() {
 		}
 
 		function addCategory(categoryName) {
-            validateInput(categoryName, 2, 100);
+			validateInput(categoryName, 2, 100);
 
             category = {
                 ID: generateId(categories),
@@ -97,7 +97,7 @@ function solve() {
 			console.log("New category has been added!");
             return(category);
         }
-
+		
 		function addBook(book) {
 			validateInput(book.title, 2, 100);
 			validateInput(book.author, 1, Infinity);
@@ -136,8 +136,8 @@ function solve() {
 		addBook({title: "Book2", author: "Author2", isbn: 1577473063, category: "Category2"});
 		addBook({title: "Book3", author: "Author3", isbn: 2395179840636, category: "Category1"});
 		*/
-
-        return {
+		
+		return {
 			books: {
 				list: listBooks,
 				add: addBook
