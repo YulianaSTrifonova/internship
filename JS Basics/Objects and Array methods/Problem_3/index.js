@@ -1,7 +1,15 @@
 function deepCopy(obj) {
-    let clone = structuredClone(obj);
-    return clone;
-}
+    if(obj === null || typeof obj != "object") {
+        return obj;
+    }
+
+    const init = Array.isArray(obj) ? [] : {};
+
+    return Object.keys(obj).reduce((clone, key) => {
+        clone[key] = deepCopy(obj[key]);
+        return clone;
+    }, init)
+};
 
 const person1 = {
     firstName: "John",

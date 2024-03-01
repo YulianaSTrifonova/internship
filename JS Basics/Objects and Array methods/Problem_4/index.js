@@ -1,15 +1,17 @@
-function hasProperty(obj, propertyName) {
-    return obj.hasOwnProperty(propertyName);
+function hasProperty(obj, prop) {
+    for (const key in obj) {
+        if (key === prop) {
+            return true;
+        }
+    }
+    return false;
 }
 
 const person = {
     firstName: "John",
     lastName: "Doe",
     age: 50,
-    eyeColor: "blue",
-    spouse: {
-        name: "A"
-    }
+    eyeColor: "blue"
 };
 
 let hasProp = hasProperty(person, "age");
