@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <table>
+      <tr class="main-container">
+        <td colspan="7">🖩 Calculator</td>
+        <td><button class="btn-m">🗕</button></td>
+        <td><button class="btn-r">☐</button></td>
+        <td><button class="btn-c">✕</button></td>
+      </tr>
+      <tr class="menu">
+        <td colspan="10">
+          <span class="menu-item">View</span>
+          <span class="menu-item">Edit</span>
+          <span class="menu-item">Help</span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="10">
+          <div class="output">
+            <div data-previous-operand class="previous-operand"></div>
+            <div data-current-operand class="current-operand"></div>
+          </div>
+        </td>
+      </tr>
+      <tr class="b-num-row">
+        <td colspan="10">
+          <span>0000</span>
+          <span>0000</span>
+          <span>0000</span>
+          <span>0000</span>
+          <span>0000</span>
+          <span>0000</span>
+          <span>0000</span>
+          <span>0000</span>
+        </td>
+      </tr>
+      <tr class="d-num-row">
+        <td colspan="3" class="first">63</td>
+        <td colspan="5" class="second">47</td>
+        <td colspan="3" class="third">32</td>
+      </tr>
+      <tr class="b-num-row">
+        <td colspan="10">
+          <span>0000</span>
+          <span>0000</span>
+          <span>1000</span>
+          <span>0111</span>
+          <span>0001</span>
+          <span>1011</span>
+          <span>1011</span>
+          <span>0111</span>
+        </td>
+      </tr>
+      <tr class="d-num-row">
+        <td colspan="3" class="first">31</td>
+        <td colspan="5" class="second">15</td>
+        <td colspan="3" class="third">0</td>
+      </tr>
+      <tr>
+        <td rowspan="3" colspan="2" class="radio-opt">
+          <input type="radio" id="hex" name="radio-gp-1" />
+          <label for="hex">Hex</label>
+          <br />
+          <input type="radio" id="dec" checked name="radio-gp-1" />
+          <label for="dec">Dec</label>
+          <br />
+          <input type="radio" id="oct" name="radio-gp-1" />
+          <label for="oct">Oct</label>
+          <br />
+          <input type="radio" id="bin" name="radio-gp-1" />
+          <label for="bin">Bin</label>
+        </td>
+        <td>
+          <button class="btn disabled"></button>
+        </td>
+        <td>
+          <button class="btn">Mod</button>
+        </td>
+        <td>
+          <button class="btn disabled">A</button>
+        </td>
+        <td>
+          <button class="btn">MC</button>
+        </td>
+        <td>
+          <button class="btn">MR</button>
+        </td>
+        <td>
+          <button class="btn">MS</button>
+        </td>
+        <td>
+          <button class="btn">M+</button>
+        </td>
+        <td>
+          <button class="btn">M-</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button class="btn">(</button>
+        </td>
+        <td>
+          <button class="btn">)</button>
+        </td>
+        <td>
+          <button class="btn disabled">B</button>
+        </td>
+        <td>
+          <button class="btn" data-delete>←</button>
+        </td>
+        <td>
+          <button class="btn" data-clear-last>CE</button>
+        </td>
+        <td>
+          <button class="btn" data-clear>C</button>
+        </td>
+        <td>
+          <button class="btn" data-plus-minus>±</button>
+        </td>
+        <td>
+          <button class="btn disabled">√</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button class="btn">RoL</button>
+        </td>
+        <td>
+          <button class="btn">RoR</button>
+        </td>
+        <td>
+          <button class="btn disabled">C</button>
+        </td>
+        <td>
+          <button class="btn" data-number>7</button>
+        </td>
+        <td>
+          <button class="btn" data-number>8</button>
+        </td>
+        <td>
+          <button class="btn" data-number>9</button>
+        </td>
+        <td>
+          <button class="btn" data-operation>/</button>
+        </td>
+        <td>
+          <input type="button" value="%" class="btn disabled" />
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="3" colspan="2" class="radio-opt">
+          <input type="radio" id="qword" checked name="radio-gp-2" />
+          <label for="qword">Qword</label>
+          <br />
+          <input type="radio" id="dword" name="radio-gp-2" />
+          <label for="dword">Dword</label>
+          <br />
+          <input type="radio" id="word" name="radio-gp-2" />
+          <label for="word">Word</label>
+          <br />
+          <input type="radio" id="byte" name="radio-gp-2" />
+          <label for="byte">Byte</label>
+        </td>
+        <td>
+          <input type="button" value="Or" class="btn" />
+        </td>
+        <td>
+          <input type="button" value="Xor" class="btn" />
+        </td>
+        <td>
+          <input type="button" value="D" class="btn disabled" />
+        </td>
+        <td>
+          <button class="btn" data-number>4</button>
+        </td>
+        <td>
+          <button class="btn" data-number>5</button>
+        </td>
+        <td>
+          <button class="btn" data-number>6</button>
+        </td>
+        <td>
+          <button class="btn" data-operation>*</button>
+        </td>
+        <td>
+          <input type="button" value="1/x" class="btn disabled" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="Lsh" class="btn" />
+        </td>
+        <td>
+          <input type="button" value="Rsh" class="btn" />
+        </td>
+        <td>
+          <input type="button" value="E" class="btn disabled" />
+        </td>
+        <td>
+          <button class="btn" data-number>1</button>
+        </td>
+        <td>
+          <button class="btn" data-number>2</button>
+        </td>
+        <td>
+          <button class="btn" data-number>3</button>
+        </td>
+        <td>
+          <button class="btn" data-operation>-</button>
+        </td>
+        <td rowspan="2">
+          <button class="btn tall" data-equals>=</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="Not" class="btn" />
+        </td>
+        <td>
+          <input type="button" value="And" class="btn" />
+        </td>
+        <td>
+          <input type="button" value="F" class="btn disabled" />
+        </td>
+        <td colspan="2">
+          <button class="btn long" data-number>0</button>
+        </td>
+        <td>
+          <button class="btn disabled">.</button>
+        </td>
+        <td>
+          <button class="btn" data-operation>+</button>
+        </td>
+      </tr>
+    </table>
+    <script src="index.js"></script>
+  </body>
+</html>
