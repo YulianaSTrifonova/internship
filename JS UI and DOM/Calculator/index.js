@@ -20,10 +20,9 @@ class Calculator {
   }
 
   appendNumber(number) {
-    /*if (number === "." && this.currentOperand.includes(".")) {
+    if (number === "." && this.currentOperand.includes(".")) {
       return;
     }
-    */
     this.currentOperand = this.currentOperand.toString() + number.toString();
   }
 
@@ -59,6 +58,9 @@ class Calculator {
       case "/":
         computation = prev / current;
         break;
+      case "√":
+        computation = Math.sqrt(prev);
+        break;
       default:
         return;
     }
@@ -77,10 +79,14 @@ class Calculator {
 
   updateDisplay() {
     this.currentOperandTextElement.innerText = this.currentOperand;
-    if(this.operation != null) {
+    if (this.operation != null) {
+      if (this.operation === "√") {
+        this.previousOperandTextElement.innerText = `${this.operation} ${this.previousOperand}`;
+      } else {
         this.previousOperandTextElement.innerText = `${this.previousOperand} ${this.operation}`;
+      }
     } else {
-        this.previousOperandTextElement.innerText = '';
+      this.previousOperandTextElement.innerText = "";
     }
   }
 }
