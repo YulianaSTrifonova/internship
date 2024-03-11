@@ -61,6 +61,30 @@ class Calculator {
       case "√":
         computation = Math.sqrt(prev);
         break;
+      case "%":
+        computation =  prev % current;
+        break;
+      case "1/x":
+        computation = 1 / prev;
+        break;
+      case "And":
+        computation = prev & current;
+        break;
+      case "Not":
+        computation = ~prev;
+        break;
+      case "Or":
+        computation = prev | current;
+        break;
+      case "Xor":
+        computation = prev ^ current;
+        break;
+      case "RoL":
+        computation = prev << 1;
+        break;
+      case "RoR":
+        computation = prev >> 1;
+        break;
       default:
         return;
     }
@@ -80,7 +104,7 @@ class Calculator {
   updateDisplay() {
     this.currentOperandTextElement.innerText = this.currentOperand;
     if (this.operation != null) {
-      if (this.operation === "√") {
+      if (this.operation === "√" || this.operation === "Not") {
         this.previousOperandTextElement.innerText = `${this.operation} ${this.previousOperand}`;
       } else {
         this.previousOperandTextElement.innerText = `${this.previousOperand} ${this.operation}`;
