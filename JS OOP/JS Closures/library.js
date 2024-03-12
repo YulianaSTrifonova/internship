@@ -88,7 +88,7 @@ function solve() {
 		function addCategory(categoryName) {
 			validateInput(categoryName, 2, 100);
 
-            category = {
+            let category = {
                 ID: generateId(categories),
                 name: categoryName
             }
@@ -149,5 +149,6 @@ function solve() {
 	} ());
 
 	return library;
-}
-module.exports = solve;
+};
+
+export { solve };
