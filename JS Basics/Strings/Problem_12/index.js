@@ -1,18 +1,16 @@
-function generateList(arr, template) {
+function generateListHTML(arr, template) {
   const regEx = /-{(.*?)}-/g;
-  let list = document.getElementById("list-item");
   let listedItems = arr.map((item) => {
     return template.replace(regEx, (match, property) => {
       return item[property] || match;
     });
   });
 
-  console.log(template)
   const ul = `<ul style="list-style-type: none">\n${listedItems
     .map((li) => `<li>${li}</li>`)
     .join("\n")}\n</ul>`;
 
-  return list.innerHTML = ul;
+  return ul;
 }
 
 let people = [
@@ -34,6 +32,8 @@ let people = [
   },
 ];
 
-let tmpl = document.getElementById("list-item").innerHTML;
-let peopleList = generateList(people, tmpl);
-console.log(peopleList);
+let listElement = document.getElementById("list-item");
+let tmpl = listElement.innerHTML;
+let peopleListHTML = generateListHTML(people, tmpl);
+
+listElement.innerHTML = peopleListHTML;
