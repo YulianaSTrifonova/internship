@@ -1,3 +1,31 @@
+const ERROR = {
+	TITLE: "Such title already exists.",
+	BOOK: "This book has already been added.",
+	ISBN: "Such ISBN already exists.",
+	VALIDATE_ISBN: "The ISBN does not match the requirements.",
+	VALIDATE_INPUT: "The input does not match the required length.",
+}
+
+const MESSAGE = {
+	CATEGORY: "New category has been added!"
+}
+
+const CRITERIA = {
+	TITLE: "title",
+	AUTHOR: "author",
+	CATEGORY: "category",
+	ISBN: "isbn"
+}
+
+const ID = {
+	BOOK: "b_",
+	CATEGORY: "c_"
+}
+
+const STRING = {
+	IS_STRING: "string"
+}
+
 function solve() {
 
 	var library = (function () {
@@ -9,16 +37,16 @@ function solve() {
 			let sortedBooks = [...books].sort((a, b) => a.ID - b.ID);
 
 			switch(criteria) {
-				case "title":
+				case CRITERIA.TITLE:
 					return sortedBooks.sort((a, b) => a.title.localeCompare(b.title));
 
-				case "author": 
+				case CRITERIA.AUTHOR: 
 					return sortedBooks.sort((a, b) => a.author.localeCompare(b.author));
 
-				case "category":
+				case CRITERIA.CATEGORY:
 					return sortedBooks.sort((a, b) => a.category.ID - b.category.ID);
 
-				case "isbn":
+				case CRITERIA.ISBN:
 					return sortedBooks.sort((a, b) => a.isbn - b.isbn);
 			}
 
@@ -30,9 +58,9 @@ function solve() {
 			let length = arr.length + 1
 
 			if(arr === books) {
-				result = "b_" + length;
+				result = ID.BOOK + length;
 			} else {
-				result = "c_" + length;
+				result = ID.CATEGORY + length;
 			}
 
 			return result;
@@ -43,7 +71,7 @@ function solve() {
 			const isFound = findBook ? true : false;
 
 			if(isFound) {
-				throw new Error ("Such title already exists.");
+				throw new Error (ERROR.TITLE);
 			}
 
 			return isFound;
@@ -66,8 +94,8 @@ function solve() {
         } 
 
 		function validateInput(input, minLength, maxLength) {
-			if(typeof input != "string" || input.length < minLength || input.length > maxLength) {
-				throw new Error (`The input does not match the required length (between ${minLength} and ${maxLength} characters)`)
+			if(typeof input != STRING.IS_STRING || input.length < minLength || input.length > maxLength) {
+				throw new Error (ERROR.VALIDATE_INPUT)
 			}
 		}
 
@@ -78,10 +106,10 @@ function solve() {
                 const findIsbn = books.find((book) => book.isbn === input)
                 const isExisting = findIsbn ? true : false;
                 if(isExisting) {
-                    throw new Error ("Such ISBN already exists.")
+                    throw new Error (ERROR.ISBN)
                 }
         	} else {
-                   throw new Error ("The ISBN does not match the requirements.")
+                   throw new Error (ERROR.VALIDATE_ISBN)
             }	
 		}
 
@@ -94,7 +122,7 @@ function solve() {
             }
             
             categories.push(category);
-			console.log("New category has been added!");
+			console.log(MESSAGE.CATEGORY);
             return(category);
         }
 		
@@ -105,7 +133,7 @@ function solve() {
 
 			const bookExists = findBookByTitle(book.title);
 			if(bookExists) {
-				throw new Error ("This book has already been added.");
+				throw new Error (ERROR.BOOK);
 			} 
 
 			/*
