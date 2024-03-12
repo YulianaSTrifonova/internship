@@ -14,9 +14,13 @@ const OPERATIONS = {
   AND: "And",
 };
 
+const DECIMAL = {
+  POINT: "."
+}
+
 const REVERSE_POSITION_OPERATIONS = [OPERATIONS.SQRT, OPERATIONS.NOT];
 
-class Calculator {
+class CalculatorController {
   constructor(previousOperandTextElement, currentOperandTextElement) {
     this.previousOperandTextElement = previousOperandTextElement;
     this.currentOperandTextElement = currentOperandTextElement;
@@ -38,7 +42,7 @@ class Calculator {
   }
 
   appendNumber(number) {
-    if (number === "." && this.currentOperand.includes(".")) {
+    if (number === DECIMAL.POINT && this.currentOperand.includes(DECIMAL.POINT)) {
       return;
     }
     this.currentOperand = this.currentOperand.toString() + number.toString();
@@ -122,6 +126,7 @@ class Calculator {
 
   updateDisplay() {
     this.currentOperandTextElement.innerText = this.currentOperand;
+
     if (this.operation != null) {
       if (REVERSE_POSITION_OPERATIONS.indexOf(this.operation) > -1) {
         this.previousOperandTextElement.innerText = `${this.operation} ${this.previousOperand}`;
@@ -132,6 +137,24 @@ class Calculator {
       this.previousOperandTextElement.innerText = "";
     }
   }
+  /*
+  getDisplayText() {
+    let currentOperandText = this.currentOperand;
+    let previousOperandText = "";
+    
+    if (this.operation != null) {
+      if (REVERSE_POSITION_OPERATIONS.indexOf(this.operation) > -1) {
+        previousOperandText = `${this.operation} ${this.previousOperand}`;
+      } else {
+        previousOperandText = `${this.previousOperand} ${this.operation}`;
+      }
+    } else {
+      previousOperandText = "";
+    }
+
+    return [previousOperandText, currentOperandText];
+  }
+  */
 }
 
 const numberButtons = document.querySelectorAll("[data-number]");
@@ -148,7 +171,7 @@ const currentOperandTextElement = document.querySelector(
   "[data-current-operand]"
 );
 
-const calculator = new Calculator(
+const calculator = new CalculatorController(
   previousOperandTextElement,
   currentOperandTextElement
 );
