@@ -1,28 +1,31 @@
 const BRACKETS = {
-    OPEN: "(",
-    CLOSE: ")"
-}
+  OPEN: "(",
+  CLOSE: ")",
+};
 
 const RESULT = {
-    CORRECT: "Correct",
-    INCORRECT: "Incorrect"
-}
+  CORRECT: "Correct",
+  INCORRECT: "Incorrect",
+};
 
 function correctBrackets(arr) {
+  arr.forEach((element) => {
+    const str = element.toString();
     let bracketsArr = [];
-    const str = arr.toString();
-
-    for(let i = 0; i < str.length; i++) {
-        if(str[i] === BRACKETS.OPEN) {
-            bracketsArr.push(str[i]);
-        } else if(str[i] === BRACKETS.CLOSE) {
-            if(bracketsArr.length === 0) {
-                return RESULT.INCORRECT;
-            }
-            bracketsArr.pop();
+    for (let i = 0; i < str.length; i++) {
+      if (str[i] === BRACKETS.OPEN) {
+        bracketsArr.push(str[i]);
+      } else if (str[i] === BRACKETS.CLOSE) {
+        if (bracketsArr.length === 0) {
+          console.log(RESULT.INCORRECT);
+          return;
         }
+        bracketsArr.pop();
+      }
     }
-    return bracketsArr.length === 0 ? RESULT.CORRECT : RESULT.INCORRECT;
+
+    console.log(bracketsArr.length === 0 ? RESULT.CORRECT : RESULT.INCORRECT);
+  });
 }
 
-correctBrackets([')(a+b))']);
+correctBrackets([")(a+b))"]);
