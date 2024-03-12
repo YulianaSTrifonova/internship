@@ -1,7 +1,7 @@
 function htmlText(arr) {
-    let str = arr.join('')
+    let str = arr.join('');
     const regex = /<[^>]*>/g;
-    str = str.replace(regex,'');
+    str = str.replace(regex,'').trim().split(" ").filter(Boolean).join(" ");
     return console.log(str.trim());
 }
 

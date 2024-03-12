@@ -1,15 +1,13 @@
 function parseTags(str){
     const regex = /<upcase>(.*?)<\/upcase>|<lowcase>(.*?)<\/lowcase>|<orgcase>(.*?)<\/orgcase>/g;
-    str = str.replace(regex, (match, upcase, lowcase, orgcase) => {
-        if(upcase) {
-            upcase = upcase.toUpperCase();
-            return upcase;
+    str = str.replace(regex, (match, upCase, lowCase, orgCase) => {
+        if(upCase) {
+            return upCase.toUpperCase();
         }
-        if(lowcase) {
-            lowcase = lowcase.toLowerCase();
-            return lowcase;
+        if(lowCase) {
+            return lowCase.toLowerCase();
         }
-        return orgcase;
+        return orgCase;
     });
     return str;
 }
