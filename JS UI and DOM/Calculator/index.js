@@ -1,3 +1,21 @@
+const OPERATIONS = {
+  ADDITION: "+",
+  SUBSTRACTION: "-",
+  MULTIPLICATION: "*",
+  DIVISION: "/",
+  SQRT: "√",
+  MODULO: "%",
+  INVERSE: "1/x",
+  ROL: "RoL",
+  ROR: "RoR",
+  OR: "Or",
+  XOR: "Xor",
+  NOT: "Not",
+  AND: "And",
+};
+
+const REVERSE_POSITION_OPERATIONS = [OPERATIONS.SQRT, OPERATIONS.NOT];
+
 class Calculator {
   constructor(previousOperandTextElement, currentOperandTextElement) {
     this.previousOperandTextElement = previousOperandTextElement;
@@ -40,67 +58,50 @@ class Calculator {
     this.currentOperand = "";
   }
 
-  /*
-  handleBrackets(bracket) {
-    if( bracket === ")" && computation.includes("(")) {
-      computation += bracket;
-    } else if(bracket === "(" || !computation.includes("(")) {
-      computation += bracket;
-    }
-  }
-  */
-
   compute() {
     let computation;
     const prev = parseFloat(this.previousOperand);
     const current = parseFloat(this.currentOperand);
 
     switch (this.operation) {
-      case "+":
+      case OPERATIONS.ADDITION:
         computation = prev + current;
         break;
-      case "-":
+      case OPERATIONS.SUBSTRACTION:
         computation = prev - current;
         break;
-      case "*":
+      case OPERATIONS.MULTIPLICATION:
         computation = prev * current;
         break;
-      case "/":
+      case OPERATIONS.DIVISION:
         computation = prev / current;
         break;
-      case "√":
+      case OPERATIONS.SQRT:
         computation = Math.sqrt(prev);
         break;
-      case "%":
+      case OPERATIONS.MODULO:
         computation = prev % current;
         break;
-      case "1/x":
+      case OPERATIONS.INVERSE:
         computation = 1 / prev;
         break;
 
-      case "(":
-      //handleBrackets("(");
-      // break;
-      case ")":
-      //handleBrackets(")");
-      // break;
-
-      case "And":
+      case OPERATIONS.AND:
         computation = prev & current;
         break;
-      case "Not":
+      case OPERATIONS.NOT:
         computation = ~prev;
         break;
-      case "Or":
+      case OPERATIONS.OR:
         computation = prev | current;
         break;
-      case "Xor":
+      case OPERATIONS.XOR:
         computation = prev ^ current;
         break;
-      case "RoL":
+      case OPERATIONS.ROL:
         computation = prev << 1;
         break;
-      case "RoR":
+      case OPERATIONS.ROR:
         computation = prev >> 1;
         break;
       default:
@@ -110,13 +111,6 @@ class Calculator {
     this.previousOperand = "";
     this.currentOperand = computation;
     this.operation = undefined;
-    /*
-    if(this.operation === "(") {
-      `( ${ this.previousOperand}`;
-    } else if(this.operation === ")") {
-      `${this.currentOperand} )`;
-    }
-    */
   }
 
   reverse() {
@@ -129,7 +123,7 @@ class Calculator {
   updateDisplay() {
     this.currentOperandTextElement.innerText = this.currentOperand;
     if (this.operation != null) {
-      if (this.operation === "√" || this.operation === "Not") {
+      if (REVERSE_POSITION_OPERATIONS.indexOf(this.operation) > -1) {
         this.previousOperandTextElement.innerText = `${this.operation} ${this.previousOperand}`;
       } else {
         this.previousOperandTextElement.innerText = `${this.previousOperand} ${this.operation}`;
@@ -142,7 +136,6 @@ class Calculator {
 
 const numberButtons = document.querySelectorAll("[data-number]");
 const operationButtons = document.querySelectorAll("[data-operation]");
-//const bracketButtons = document.querySelectorAll("[data-bracket]");
 const equalsButton = document.querySelector("[data-equals]");
 const clearButton = document.querySelector("[data-clear]");
 const clearLastInputButton = document.querySelector("[data-clear-last]");
@@ -198,12 +191,3 @@ plusMinusButton.addEventListener("click", () => {
   calculator.reverse();
   calculator.updateDisplay();
 });
-
-/*
-bracketButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    calculator.handleBrackets(button.innerText);
-    calculator.updateDisplay();
-  });
-});
-*/
