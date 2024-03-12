@@ -3,7 +3,7 @@ function createPerson(firstname, lastname, age, gender) {
     firstname: firstname,
     lastname: lastname,
     age: age,
-    gender: gender ? "female" : "male",
+    gender: gender,
   };
 }
 
@@ -45,17 +45,25 @@ function generatePersons() {
     "Barnett",
     "Barrow",
   ];
+  const age = [19, 21, 23, 25, 26, 27, 29, 33, 37, 45];
+  const gender = ["female", "male"];
 
-  lastname.forEach((lastname) => {
-    let age = parseInt(Math.floor(Math.random() * 20) + Math.random() * 20);
-    let gender = Math.random() < 0.5;
-    if (gender > 0.5) {
-      firstname = firstnameFemale[parseInt(Math.random() * 10)];
+  lastname.forEach((personLastname) => {
+    //let age = parseInt(Math.floor(Math.random() * 20) + Math.random() * 20);
+    let personAge = age[parseInt(Math.random() * 10)];
+    let personGender = gender[Math.random() < 0.5 ? 0 : 1];
+    if (personGender === "female") {
+      personFirstname = firstnameFemale[parseInt(Math.random() * 10)];
     } else {
-      firstname = firstnameMale[parseInt(Math.random() * 10)];
+      personFirstname = firstnameMale[parseInt(Math.random() * 10)];
     }
 
-    const person = createPerson(firstname, lastname, age, gender);
+    const person = createPerson(
+      personFirstname,
+      personLastname,
+      personAge,
+      personGender
+    );
     people.push(person);
   });
 
