@@ -1,13 +1,14 @@
 function queryParameter(arr) {
-  const url = arr.toString();
-  const regex = /^(?<protocol>.*):\/\/(?<server>.*?)\/(?<resource>.*)?(?<query>\?*.?)$/;
+  const url = arr[0].toString();
+  const regex = /(?<protocol>.*):\/\/(?<server>.*?)(?<resource>\/.*)?(?<query>\?.*)$/;
   urlMatch = url.match(regex);
 
   const { protocol, server, resource, query } = urlMatch.groups;
 
-  let queryParams;
+  let queryParams = {};
   if (query) {
-    const pairs = queryParams.split("&");
+    const queryParamsStr = query.substring(1);
+    const pairs = queryParamsStr.split("&");
     pairs.forEach((pair) => {
       const [key, value] = pair.split("=");
       queryParams[key] = value;
@@ -18,10 +19,11 @@ function queryParameter(arr) {
     protocol: protocol,
     server: server,
     resource: resource,
+    query: queryParams,
   };
 }
 
-const urlArr = ["http://telerikacademy.com/Courses/Courses/Details/239"];
+const urlArr = ["http://telerikacademy.com/Courses/Courses/Details/239?asd=1&dsd=2"];
 console.log(queryParameter(urlArr));
 
 /*
