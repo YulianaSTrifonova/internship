@@ -30,7 +30,6 @@ function solve() {
     }
 
     const selectElement =
-    // ???
       typeof element === DATATYPE.STRING
         ? document.getElementById(element as string)
         : element as Element
