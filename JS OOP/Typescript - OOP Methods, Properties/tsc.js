@@ -37,6 +37,11 @@ var __values = (this && this.__values) || function(o) {
     throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 };
 var e_1, _a;
+var MESSAGES;
+(function (MESSAGES) {
+    MESSAGES["INVALID_INDEX"] = "Invalid index";
+    MESSAGES["EMPTY_LIST"] = "The list is empty";
+})(MESSAGES || (MESSAGES = {}));
 var listNode = /** @class */ (function () {
     function listNode(el) {
         this.el = el;
@@ -92,7 +97,7 @@ var LinkedList = /** @class */ (function () {
             }
             el.reverse().forEach(function (el) {
                 if (index < 0 || index > _this.length) {
-                    console.log("Invalid index");
+                    console.log(MESSAGES.INVALID_INDEX);
                     return;
                 }
                 else if (index === 0) {
@@ -133,7 +138,7 @@ var LinkedList = /** @class */ (function () {
     LinkedList.prototype.removeAt = function (index) {
         var removedNode;
         if (index < 0 || index > this.length) {
-            console.log("Invalid index");
+            console.log(MESSAGES.INVALID_INDEX);
         }
         else if (index === 0) {
             removedNode = this.head;
@@ -149,16 +154,19 @@ var LinkedList = /** @class */ (function () {
             previous.next = removedNode.next;
             this.length--;
         }
-        return "The element at index ".concat(index, " -> (").concat(removedNode.el, ") has been successfully removed");
+        return removedNode.el;
     };
     ;
     LinkedList.prototype.at = function (index, el) {
         if (index < 0 || index > this.length) {
-            throw new Error("Invalid index");
+            console.log(MESSAGES.INVALID_INDEX);
+            return;
         }
         else {
             var current = this.head;
-            for (var i = 0; i < index; i++) {
+            var count = 0;
+            while (index > count) {
+                count++;
                 current = current.next;
             }
             if (el != undefined) {
@@ -166,7 +174,7 @@ var LinkedList = /** @class */ (function () {
                 return el;
             }
             else {
-                return "The element at index ".concat(index, " is ").concat(current.el);
+                return current.el;
             }
         }
     };
@@ -211,7 +219,7 @@ var LinkedList = /** @class */ (function () {
     };
     LinkedList.prototype.print = function () {
         if (this.head === null) {
-            console.log("The list is empty");
+            console.log(MESSAGES.EMPTY_LIST);
         }
         else {
             var current = this.head;

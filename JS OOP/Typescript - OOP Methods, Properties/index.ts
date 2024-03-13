@@ -1,3 +1,8 @@
+enum MESSAGES {
+  INVALID_INDEX = "Invalid index",
+  EMPTY_LIST = "The list is empty"
+}
+
 class listNode {
   public next: listNode | null;
   constructor(public el: number | string) {}
@@ -69,7 +74,7 @@ class LinkedList {
   insert = (index: number, ...el: (number | string)[]): LinkedList => {
     el.reverse().forEach((el) => {
       if (index < 0 || index > this.length) {
-        console.log("Invalid index");
+        console.log(MESSAGES.INVALID_INDEX);
         return;
       } else if (index === 0) {
         this.prepend(el);
@@ -91,7 +96,7 @@ class LinkedList {
   removeAt(index: number): string | undefined {
     let removedNode;
     if (index < 0 || index > this.length) {
-      console.log("Invalid index");
+      console.log(MESSAGES.INVALID_INDEX);
     } else if (index === 0) {
       removedNode = this.head;
       this.head = this.head!.next;
@@ -106,22 +111,25 @@ class LinkedList {
       this.length--;
     }
 
-    return `The element at index ${index} -> (${removedNode!.el}) has been successfully removed`;
+    return removedNode!.el;
   };
 
   at(index: number, el?: number | string): string | number {
     if (index < 0 || index > this.length) {
-      throw new Error("Invalid index");
+      console.log(MESSAGES.INVALID_INDEX);
+      return;
     } else {
       let current = this.head;
-      for (let i = 0; i < index; i++) {
-        current = current!.next;
+      let count = 0;
+      while (index > count) {
+        count++;
+        current = current.next;
       }
       if (el != undefined) {
-        current!.el = el;
+        current.el = el;
         return el;
       } else {
-        return `The element at index ${index} is ${current!.el}`;
+        return current.el;
       }
     }
   };
@@ -157,7 +165,7 @@ class LinkedList {
 
   print(): void {
     if (this.head === null) {
-      console.log("The list is empty");
+      console.log(MESSAGES.EMPTY_LIST);
     } else {
       let current = this.head;
       let listValues = "";
