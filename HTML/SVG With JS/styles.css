@@ -1,0 +1,158 @@
+body {
+  text-align: center;
+}
+
+path {
+  stroke: black;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+#sun-glow {
+  filter: url(#glow);
+  fill: yellow;
+  visibility: hidden;
+}
+
+#moon {
+  filter: url(#glow);
+  fill: whitesmoke;
+  visibility: hidden;
+  stroke: none;
+}
+
+#tile-pattern-side {
+  transform: rotate(-20deg);
+}
+
+#stone-pattern {
+  transform: rotate(30deg);
+}
+
+#brick-pattern-side {
+  transform: rotate(-15deg);
+}
+
+.window {
+  fill: rgb(248, 248, 135);
+}
+
+.tree {
+  stroke: black;
+  stroke-width: 2;
+}
+
+#cat {
+  transform: scale(0.7);
+  visibility: hidden;
+}
+
+.cls-3,
+.cls-4,
+.cls-5,
+.cls-6,
+.cls-7,
+.cls-8,
+.cls-9,
+.cls-10,
+.cls-10,
+.cls-11,
+.cls-12,
+.cls-13 {
+  stroke-width: 0;
+}
+
+.cls-1 {
+  isolation: isolate;
+}
+.cls-2 {
+  fill: none;
+  stroke: #000;
+  stroke-miterlimit: 10;
+  stroke-width: 5px;
+}
+.cls-3 {
+  fill: #151516;
+}
+.cls-4 {
+  fill: #262528;
+}
+.cls-5,
+.cls-7,
+.cls-9 {
+  fill: #220c23;
+}
+.cls-5,
+.cls-9 {
+  mix-blend-mode: soft-light;
+}
+.cls-5 {
+  opacity: 0.44;
+}
+.cls-6 {
+  fill: url(#linear-gradient);
+}
+.cls-8 {
+  fill: #fcefdf;
+}
+.cls-10 {
+  fill: url(#linear-gradient-2);
+}
+.cls-11 {
+  fill: #ed7494;
+}
+.cls-12 {
+  fill: url(#linear-gradient-3);
+}
+.cls-13 {
+  fill: url(#linear-gradient-4);
+}
+
+#ground,
+#sky,
+#star-sky {
+  stroke: black;
+  stroke-width: 2;
+}
+
+#wall,
+#roof-side,
+#chimney,
+.tree,
+#ground {
+  filter: brightness(40%);
+}
+
+.front {
+  filter: brightness(80%);
+}
+
+.chimney-smoke {
+  opacity: 0;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -150px;
+}
+
+.buttons button {
+  padding: 15px 20px;
+  border: 2px solid whitesmoke;
+  background-color: darkred;
+  color: whitesmoke;
+  font-size: 12px;
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 10px;
+}
+
+.buttons button:hover {
+  border: 2px solid darkred;
+  background-color: whitesmoke;
+  color: darkred;
+  cursor: pointer;
+  box-shadow: 2px 2px 4px gray;
+}
