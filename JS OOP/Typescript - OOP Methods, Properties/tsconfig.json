@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "module": "System",
+      "target": "es5",
+      "downlevelIteration": true,
+      "outFile": "./tsc.js",
+      "lib": [
+        "esnext",
+        "dom"
+      ]
+    },
+    "include": ["index.ts"],
+}
+  
