@@ -18,29 +18,29 @@ function solve() {
     const buttonOrContentElement =
       targetElement.querySelectorAll(".button, .content");
 
-    buttonOrContentElement.forEach((element) => {
+    buttonOrContentElement.forEach((element: Element) => {
       if (element.classList.contains("button")) {
-        element.innerText = "hide";
+        element.textContent = "hide";
         element.addEventListener("click", handleButtonClick);
       }
     });
 
-    function handleButtonClick(event) {
-      const clickedButton = event.target;
+    function handleButtonClick(event: Event) {
+      const clickedButton = event.target as Element;
       const contentElement = findContentElement(clickedButton);
 
       if (contentElement) {
-        if (contentElement.style.display === "") {
-          contentElement.style.display = "none";
-          clickedButton.innerText = "show";
+        if (contentElement["style"].display === "") {
+          contentElement["style"].display = "none";
+          clickedButton.textContent = "show";
         } else {
-          contentElement.style.display = "";
-          clickedButton.innerText = "hide";
+          contentElement["style"].display = "";
+          clickedButton.textContent = "hide";
         }
       }
     }
 
-    function findContentElement(button) {
+    function findContentElement(button: Element) {
       let currentElement = button.previousElementSibling;
 
       while (currentElement && !currentElement.classList.contains("content")) {

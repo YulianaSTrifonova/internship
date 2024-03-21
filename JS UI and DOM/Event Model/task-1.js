@@ -16,7 +16,7 @@ function solve() {
         var buttonOrContentElement = targetElement.querySelectorAll(".button, .content");
         buttonOrContentElement.forEach(function (element) {
             if (element.classList.contains("button")) {
-                element.innerText = "hide";
+                element.textContent = "hide";
                 element.addEventListener("click", handleButtonClick);
             }
         });
@@ -24,13 +24,13 @@ function solve() {
             var clickedButton = event.target;
             var contentElement = findContentElement(clickedButton);
             if (contentElement) {
-                if (contentElement.style.display === "") {
-                    contentElement.style.display = "none";
-                    clickedButton.innerText = "show";
+                if (contentElement["style"].display === "") {
+                    contentElement["style"].display = "none";
+                    clickedButton.textContent = "show";
                 }
                 else {
-                    contentElement.style.display = "";
-                    clickedButton.innerText = "hide";
+                    contentElement["style"].display = "";
+                    clickedButton.textContent = "hide";
                 }
             }
         }
