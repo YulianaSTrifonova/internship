@@ -278,33 +278,47 @@ function checkForCollision() {
     headSnakeLetters.y > 20;
 
   if (isSnakeArrowsOutOfBoard) {
-    resetGame();
     winner = 0;
-  } else if (isSnakeLettersOutOfBoard) {
     resetGame();
+  } else if (isSnakeLettersOutOfBoard) {
     winner = 1;
+    resetGame();
   }
 
   checkSelfCollision(snakeArrows);
   checkSelfCollision(snakeLetters);
 
-  for (let i = 0; i < snakeArrows.length; i++) {
-    if (
-      headSnakeLetters.x === snakeArrows[i].x &&
-      headSnakeLetters.y === snakeArrows[i].y
-    ) {
+  if (
+    headSnakeArrows.x === headSnakeLetters.x &&
+    headSnakeArrows.y === headSnakeLetters.y
+  ) {
+    if (scoreBlue > scoreGreen) {
       winner = 1;
-      resetGame();
-    }
-  }
-
-  for (let j = 0; j < snakeLetters.length; j++) {
-    if (
-      headSnakeArrows.x === snakeLetters[j].x &&
-      headSnakeArrows.y === snakeLetters[j].y
-    ) {
+    } else if (scoreGreen > scoreBlue) {
       winner = 0;
-      resetGame();
+    } else {
+      winner = -1;
+    }
+    resetGame();
+  } else {
+    for (let i = 1; i < snakeArrows.length; i++) {
+      if (
+        headSnakeLetters.x === snakeArrows[i].x &&
+        headSnakeLetters.y === snakeArrows[i].y
+      ) {
+        winner = 1;
+        resetGame();
+      }
+    }
+
+    for (let j = 1; j < snakeLetters.length; j++) {
+      if (
+        headSnakeArrows.x === snakeLetters[j].x &&
+        headSnakeArrows.y === snakeLetters[j].y
+      ) {
+        winner = 0;
+        resetGame();
+      }
     }
   }
 }
@@ -348,6 +362,8 @@ function updateScore() {
     finalScore.textContent = WINNER.GREEN;
   } else if (winner === 1) {
     finalScore.textContent = WINNER.BLUE;
+  } else {
+    finalScore.textContent = "Both snakes have the same score";
   }
 
   finalResultPlayer1.textContent = scoreGreen.toString().padStart(3, "0");
