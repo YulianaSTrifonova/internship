@@ -33,8 +33,8 @@ const DISPLAY = {
 
 const WINNER = {
   BLUE: "The blue snake wins",
-  GREEN: "The green snake wins"
-}
+  GREEN: "The green snake wins",
+};
 
 const gameBoard = document.getElementById("game-board");
 const initialInstructionText = document.getElementById("init-instruction-text");
@@ -139,12 +139,12 @@ function moveSnake(snake, direction) {
   snake.unshift(head);
 
   if (head.x === food.x && head.y === food.y) {
-    if(snake === snakeArrows) {
+    if (snake === snakeArrows) {
       scorePointSoundBlue.play();
-    } else if(snake === snakeLetters) {
+    } else if (snake === snakeLetters) {
       scorePointSoundGreen.play();
     }
-    
+
     food = generateFood();
     increaseSpeed();
     track();
@@ -280,7 +280,7 @@ function checkForCollision() {
   if (isSnakeArrowsOutOfBoard) {
     resetGame();
     winner = 0;
-  } else if(isSnakeLettersOutOfBoard) {
+  } else if (isSnakeLettersOutOfBoard) {
     resetGame();
     winner = 1;
   }
@@ -293,8 +293,8 @@ function checkForCollision() {
       headSnakeLetters.x === snakeArrows[i].x &&
       headSnakeLetters.y === snakeArrows[i].y
     ) {
-      resetGame();
       winner = 1;
+      resetGame();
     }
   }
 
@@ -303,8 +303,8 @@ function checkForCollision() {
       headSnakeArrows.x === snakeLetters[j].x &&
       headSnakeArrows.y === snakeLetters[j].y
     ) {
-      resetGame();
       winner = 0;
+      resetGame();
     }
   }
 }
@@ -334,25 +334,24 @@ function updateScore() {
   let currentScorePlayer1 = snakeLetters.length - 1;
   let currentScorePlayer2 = snakeArrows.length - 1;
 
-  if(currentScorePlayer1 > scoreGreen) {
+  if (currentScorePlayer1 > scoreGreen) {
     scoreGreen = currentScorePlayer1;
   }
 
-  if(currentScorePlayer2 > scoreBlue) {
+  if (currentScorePlayer2 > scoreBlue) {
     scoreBlue = currentScorePlayer2;
   }
   scorePlayer1.textContent = currentScorePlayer1.toString().padStart(3, "0");
   scorePlayer2.textContent = currentScorePlayer2.toString().padStart(3, "0");
 
-  if(winner === 0) {
+  if (winner === 0) {
     finalScore.textContent = WINNER.GREEN;
-  } else if (winner === 1){
+  } else if (winner === 1) {
     finalScore.textContent = WINNER.BLUE;
-  } 
+  }
 
   finalResultPlayer1.textContent = scoreGreen.toString().padStart(3, "0");
   finalResultPlayer2.textContent = scoreBlue.toString().padStart(3, "0");
-
 }
 
 function stopGame() {
