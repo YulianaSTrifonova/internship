@@ -285,8 +285,8 @@ function checkForCollision() {
     winner = 1;
   }
 
-  checkSnakeCollision(snakeArrows);
-  checkSnakeCollision(snakeLetters);
+  checkSelfCollision(snakeArrows);
+  checkSelfCollision(snakeLetters);
 
   for (let i = 0; i < snakeArrows.length; i++) {
     if (
@@ -309,7 +309,7 @@ function checkForCollision() {
   }
 }
 
-function checkSnakeCollision(snake) {
+function checkSelfCollision(snake) {
   const head = snake[0];
   for (let i = 1; i < snake.length; i++) {
     if (head.x === snake[i].x && head.y === snake[i].y) {
