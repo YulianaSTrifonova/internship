@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <table>
+      <tr class="main-container">
+        <td colspan="4">🖩 Calculator</td>
+        <td><button class="btn-m">🗕</button></td>
+        <td><button class="btn-r">☐</button></td>
+        <td><button class="btn-c">✕</button></td>
+      </tr>
+      <tr class="menu">
+        <td colspan="7">
+          <span class="menu-item">View</span>
+          <span class="menu-item">Edit</span>
+          <span class="menu-item">Help</span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="7">
+          <div class="output">
+            <div data-previous-operand class="previous-operand"></div>
+            <div data-current-operand class="current-operand"></div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <button class="btn" data-clear>C</button>
+        </td>
+        <td>
+          <button class="btn" data-clear-last>CE</button>
+        </td>
+        <td>
+          <button class="btn" data-delete>←</button>
+        </td>
+        <td>
+          <button class="btn disabled">(</button>
+        </td>
+        <td>
+          <button class="btn disabled">)</button>
+        </td>
+        <td>
+          <button class="btn" data-plus-minus >±</button>
+        </td>
+        <td>
+          <button class="btn" data-operation>√</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <button class="btn disabled"></button>
+        </td>
+        <td>
+          <button class="btn disabled"></button>
+        </td>
+        <td>
+          <button class="btn" data-number>7</button>
+        </td>
+        <td>
+          <button class="btn" data-number>8</button>
+        </td>
+        <td>
+          <button class="btn" data-number>9</button>
+        </td>
+        <td>
+          <button class="btn" data-operation>/</button>
+        </td>
+        <td>
+          <button class="btn" data-operation>%</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <button class="btn" data-operation>RoL</button>
+        </td>
+        <td>
+          <button class="btn" data-operation>RoR</button>
+        </td>
+
+        <td>
+          <button class="btn" data-number>4</button>
+        </td>
+        <td>
+          <button class="btn" data-number>5</button>
+        </td>
+        <td>
+          <button class="btn" data-number>6</button>
+        </td>
+        <td>
+          <button class="btn" data-operation>*</button>
+        </td>
+        <td>
+          <button class="btn" data-operation>1/x</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <button class="btn" data-operation>Or</button>
+        </td>
+        <td>
+          <button class="btn" data-operation>Xor</button>
+        </td>
+        <td>
+          <button class="btn" data-number>1</button>
+        </td>
+        <td>
+          <button class="btn" data-number>2</button>
+        </td>
+        <td>
+          <button class="btn" data-number>3</button>
+        </td>
+        <td>
+          <button class="btn" data-operation>-</button>
+        </td>
+        <td rowspan="2">
+          <button class="btn tall" data-equals>=</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <button class="btn" data-operation>Not</button>
+        </td>
+        <td>
+          <button class="btn" data-operation>And</button>
+        </td>
+        <td colspan="2">
+          <button class="btn long" data-number>0</button>
+        </td>
+        <td>
+          <button class="btn" data-number>.</button>
+        </td>
+        <td>
+          <button class="btn" data-operation>+</button>
+        </td>
+      </tr>
+    </table>
+    <script src="index.js"></script>
+  </body>
+</html>
