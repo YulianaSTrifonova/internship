@@ -1,0 +1,14 @@
+// {
+//     "compilerOptions": {
+//       "target": "es5",
+//       "downlevelIteration": true,
+//       "rootDir": "./",
+//       "outFile": "./tsc.js",
+//       "lib": [
+//         "esnext",
+//         // "es6",
+//         "es2015",
+//         "dom"
+//       ]
+//     }
+// }
