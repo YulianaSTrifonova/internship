@@ -1,17 +1,23 @@
 import { describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
-import App from "./App";
+import Calculator from "./components/Calculator";
 
 describe("Renders calculator with keys", () => {
-  it("Renders properly", () => {
-    render(<App />);
+    it("Renders ± button properly", () => {
+        render(<Calculator />);
+        const keysPlusMinusElement = screen.getByText("±");
+        expect(keysPlusMinusElement).toBeInTheDocument();
+    });
 
-    const keysPlusMinusElement = screen.getByText("±");
-    const keysAdditionElement = screen.getByText("*");
-    const keysSqrtElement = screen.getByText("√");
+    it("Renders number 7 button properly", () => {
+        render(<Calculator />);
+        const numSevenElement = screen.getByText("7");
+        expect(numSevenElement).toBeInTheDocument();
+    });
 
-    expect(keysPlusMinusElement).toBeInTheDocument();
-    expect(keysAdditionElement).toBeInTheDocument();
-    expect(keysSqrtElement).toBeInTheDocument();
-  });
+    it("Renders √ button properly", () => {
+        render(<Calculator />);
+        const keysSqrtElement = screen.getByText("√");
+        expect(keysSqrtElement).toBeInTheDocument();
+    });
 });
