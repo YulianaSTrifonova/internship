@@ -1,4 +1,4 @@
-import { calculatorKeys } from "../calculatorKeys";
+import { calculatorKeys } from "../constants/calculatorKeys";
 import Key from "./Key";
 
 export default function Keys({

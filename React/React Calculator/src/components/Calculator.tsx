@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Keys from "./Keys";
 import Display from "./Display";
-import { Decimal, Numbers, Operations } from "../enums";
+import { Decimal, Numbers, Operations } from "../constants/enums";
 
 export default function Calculator() {
     const [previousOperand, setPreviousOperand] = useState("");
@@ -114,57 +114,29 @@ export default function Calculator() {
         setOperation("");
     };
 
-    const handleKeyClick = (pressedKey: string) => {
-        switch (pressedKey) {
-            case Operations.CLEARALL:
+    const handleKeyClick = (pressedKey: any) => {
+        if (Object.values(Operations).includes(pressedKey)) {
+            if (pressedKey === Operations.CLEARALL) {
                 handleClearAllClick();
-                break;
-
-            case Operations.CLEARLAST:
+                return;
+            } else if (pressedKey === Operations.CLEARLAST) {
                 handleClearLastClick();
-                break;
-
-            case Operations.DELETE:
-                handleDeleteClick();
-                break;
-
-            case Operations.PLUSMINUS:
+                return;
+            } else if (pressedKey === Operations.PLUSMINUS) {
                 handlePlusMinusClick();
-                break;
-
-            case Operations.ADDITION:
-            case Operations.DIVISION:
-            case Operations.SUBSTRACTION:
-            case Operations.MULTIPLICATION:
-            case Operations.MODULO:
-            case Operations.SQRT:
-            case Operations.INVERSE:
-            case Operations.ROL:
-            case Operations.ROR:
-            case Operations.NOT:
-            case Operations.OR:
-            case Operations.XOR:
-            case Operations.AND:
-                handleOperationClick(pressedKey);
-                break;
-
-            case Operations.EQUALS:
+                return;
+            } else if (pressedKey === Operations.DELETE) {
+                handleDeleteClick();
+                return;
+            } else if (pressedKey === Operations.EQUALS) {
                 handleEqualsClick();
-                break;
-
-            case Numbers.ZERO:
-            case Numbers.ONE:
-            case Numbers.TWO:
-            case Numbers.THREE:
-            case Numbers.FOUR:
-            case Numbers.FIVE:
-            case Numbers.SIX:
-            case Numbers.SEVEN:
-            case Numbers.EIGHT:
-            case Numbers.NINE:
-            case Decimal.POINT:
-                handleNumberClick(pressedKey);
-                break;
+                return;
+            }
+            handleOperationClick(pressedKey);
+            return;
+        } else if (Object.values(Numbers).includes(pressedKey)) {
+            handleNumberClick(pressedKey);
+            return;
         }
     };
 

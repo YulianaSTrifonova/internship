@@ -1,4 +1,4 @@
-import { Reverse_Position_Operations } from "../enums";
+import { Reverse_Position_Operations } from "../constants/enums";
 
 export default function Display({
     previousOperand,
