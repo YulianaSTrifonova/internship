@@ -41,9 +41,7 @@ function setCurrentShape() {
         randomColor
       ),
 
-      hasBeenRotatedOnce: false,
-      hasBeenRotatedTwice: false,
-      hasBeenRotatedThrice: false,
+      numberOfRotations: 0 | 1 | 2 | 3,
     };
   });
 
@@ -237,7 +235,7 @@ function getShapeRotation() {
 }
 
 function rotateIShape() {
-  if (currentShape.hasBeenRotatedOnce) {
+  if (currentShape.numberOfRotations == 1) {
     currentShape.points[0].coordinates.x += 1;
     currentShape.points[0].coordinates.y -= 1;
 
@@ -247,7 +245,7 @@ function rotateIShape() {
     currentShape.points[3].coordinates.x -= 2;
     currentShape.points[3].coordinates.y += 2;
 
-    currentShape.hasBeenRotatedOnce = false;
+    currentShape.numberOfRotations = 0;
   } else {
     currentShape.points[0].coordinates.x -= 1;
     currentShape.points[0].coordinates.y += 1;
@@ -258,13 +256,13 @@ function rotateIShape() {
     currentShape.points[3].coordinates.x += 2;
     currentShape.points[3].coordinates.y -= 2;
 
-    currentShape.hasBeenRotatedOnce = true;
+    currentShape.numberOfRotations = 1;
     return;
   }
 }
 
 function rotateJShape() {
-  if (currentShape.hasBeenRotatedOnce) {
+  if (currentShape.numberOfRotations == 1) {
     currentShape.points[0].coordinates.x -= 1;
     currentShape.points[0].coordinates.y += 1;
 
@@ -273,10 +271,8 @@ function rotateJShape() {
 
     currentShape.points[3].coordinates.x -= 2;
 
-    currentShape.hasBeenRotatedOnce = false;
-    currentShape.hasBeenRotatedTwice = true;
-    currentShape.hasBeenRotatedThrice = false;
-  } else if (currentShape.hasBeenRotatedTwice) {
+    currentShape.numberOfRotations = 2;
+  } else if (currentShape.numberOfRotations == 2) {
     currentShape.points[0].coordinates.x -= 1;
     currentShape.points[0].coordinates.y -= 1;
 
@@ -285,10 +281,8 @@ function rotateJShape() {
 
     currentShape.points[3].coordinates.y -= 2;
 
-    currentShape.hasBeenRotatedOnce = false;
-    currentShape.hasBeenRotatedTwice = false;
-    currentShape.hasBeenRotatedThrice = true;
-  } else if (currentShape.hasBeenRotatedThrice) {
+    currentShape.numberOfRotations = 3;
+  } else if (currentShape.numberOfRotations == 3) {
     currentShape.points[0].coordinates.x += 1;
     currentShape.points[0].coordinates.y -= 1;
 
@@ -297,9 +291,7 @@ function rotateJShape() {
 
     currentShape.points[3].coordinates.x += 2;
 
-    currentShape.hasBeenRotatedOnce = false;
-    currentShape.hasBeenRotatedTwice = false;
-    currentShape.hasBeenRotatedThrice = false;
+    currentShape.numberOfRotations = 0;
   } else {
     currentShape.points[0].coordinates.x += 1;
     currentShape.points[0].coordinates.y += 1;
@@ -309,14 +301,12 @@ function rotateJShape() {
 
     currentShape.points[3].coordinates.y += 2;
 
-    currentShape.hasBeenRotatedOnce = true;
-    currentShape.hasBeenRotatedTwice = false;
-    currentShape.hasBeenRotatedThrice = false;
+    currentShape.numberOfRotations = 1;
   }
 }
 
 function rotateLShape() {
-  if (currentShape.hasBeenRotatedOnce) {
+  if (currentShape.numberOfRotations == 1) {
     currentShape.points[0].coordinates.x -= 1;
     currentShape.points[0].coordinates.y += 1;
 
@@ -325,10 +315,8 @@ function rotateLShape() {
 
     currentShape.points[3].coordinates.y -= 2;
 
-    currentShape.hasBeenRotatedOnce = false;
-    currentShape.hasBeenRotatedTwice = true;
-    currentShape.hasBeenRotatedThrice = false;
-  } else if (currentShape.hasBeenRotatedTwice) {
+    currentShape.numberOfRotations = 2;
+  } else if (currentShape.numberOfRotations == 2) {
     currentShape.points[0].coordinates.x -= 1;
     currentShape.points[0].coordinates.y -= 1;
 
@@ -337,10 +325,8 @@ function rotateLShape() {
 
     currentShape.points[3].coordinates.x += 2;
 
-    currentShape.hasBeenRotatedOnce = false;
-    currentShape.hasBeenRotatedTwice = false;
-    currentShape.hasBeenRotatedThrice = true;
-  } else if (currentShape.hasBeenRotatedThrice) {
+    currentShape.numberOfRotations = 3;
+  } else if (currentShape.numberOfRotations == 3) {
     currentShape.points[0].coordinates.x += 1;
     currentShape.points[0].coordinates.y -= 1;
 
@@ -349,9 +335,7 @@ function rotateLShape() {
 
     currentShape.points[3].coordinates.y += 2;
 
-    currentShape.hasBeenRotatedOnce = false;
-    currentShape.hasBeenRotatedTwice = false;
-    currentShape.hasBeenRotatedThrice = false;
+    currentShape.numberOfRotations = 0;
   } else {
     currentShape.points[0].coordinates.x += 1;
     currentShape.points[0].coordinates.y += 1;
@@ -361,14 +345,12 @@ function rotateLShape() {
 
     currentShape.points[3].coordinates.x -= 2;
 
-    currentShape.hasBeenRotatedOnce = true;
-    currentShape.hasBeenRotatedTwice = false;
-    currentShape.hasBeenRotatedThrice = false;
+    currentShape.numberOfRotations = 1;
   }
 }
 
 function rotateSShape() {
-  if (currentShape.hasBeenRotatedOnce) {
+  if (currentShape.numberOfRotations == 1) {
     currentShape.points[0].coordinates.x -= 1;
     currentShape.points[0].coordinates.y += 1;
 
@@ -377,7 +359,7 @@ function rotateSShape() {
 
     currentShape.points[3].coordinates.y -= 2;
 
-    currentShape.hasBeenRotatedOnce = false;
+    currentShape.numberOfRotations = 0;
   } else {
     currentShape.points[0].coordinates.x += 1;
     currentShape.points[0].coordinates.y -= 1;
@@ -387,12 +369,12 @@ function rotateSShape() {
 
     currentShape.points[3].coordinates.y += 2;
 
-    currentShape.hasBeenRotatedOnce = true;
+    currentShape.numberOfRotations = 1;
   }
 }
 
 function rotateTShape() {
-  if (currentShape.hasBeenRotatedOnce) {
+  if (currentShape.numberOfRotations == 1) {
     currentShape.points[0].coordinates.x -= 1;
     currentShape.points[0].coordinates.y += 1;
 
@@ -402,10 +384,8 @@ function rotateTShape() {
     currentShape.points[3].coordinates.x -= 1;
     currentShape.points[3].coordinates.y -= 1;
 
-    currentShape.hasBeenRotatedOnce = false;
-    currentShape.hasBeenRotatedTwice = true;
-    currentShape.hasBeenRotatedThrice = false;
-  } else if (currentShape.hasBeenRotatedTwice) {
+    currentShape.numberOfRotations = 2;
+  } else if (currentShape.numberOfRotations == 2) {
     currentShape.points[0].coordinates.x -= 1;
     currentShape.points[0].coordinates.y -= 1;
 
@@ -415,10 +395,8 @@ function rotateTShape() {
     currentShape.points[3].coordinates.x += 1;
     currentShape.points[3].coordinates.y -= 1;
 
-    currentShape.hasBeenRotatedOnce = false;
-    currentShape.hasBeenRotatedTwice = false;
-    currentShape.hasBeenRotatedThrice = true;
-  } else if (currentShape.hasBeenRotatedThrice) {
+    currentShape.numberOfRotations = 3;
+  } else if (currentShape.numberOfRotations == 3) {
     currentShape.points[0].coordinates.x += 1;
     currentShape.points[0].coordinates.y -= 1;
 
@@ -428,9 +406,7 @@ function rotateTShape() {
     currentShape.points[3].coordinates.x += 1;
     currentShape.points[3].coordinates.y += 1;
 
-    currentShape.hasBeenRotatedOnce = false;
-    currentShape.hasBeenRotatedTwice = false;
-    currentShape.hasBeenRotatedThrice = false;
+    currentShape.numberOfRotations = 0;
   } else {
     currentShape.points[0].coordinates.x += 1;
     currentShape.points[0].coordinates.y += 1;
@@ -441,14 +417,12 @@ function rotateTShape() {
     currentShape.points[3].coordinates.x -= 1;
     currentShape.points[3].coordinates.y += 1;
 
-    currentShape.hasBeenRotatedOnce = true;
-    currentShape.hasBeenRotatedTwice = false;
-    currentShape.hasBeenRotatedThrice = false;
+    currentShape.numberOfRotations = 1;
   }
 }
 
 function rotateZShape() {
-  if (currentShape.hasBeenRotatedOnce) {
+  if (currentShape.numberOfRotations == 1) {
     currentShape.points[0].coordinates.x -= 2;
 
     currentShape.points[1].coordinates.x -= 1;
@@ -457,7 +431,7 @@ function rotateZShape() {
     currentShape.points[3].coordinates.x += 1;
     currentShape.points[3].coordinates.y -= 1;
 
-    currentShape.hasBeenRotatedOnce = false;
+    currentShape.numberOfRotations = 0;
   } else {
     currentShape.points[0].coordinates.x += 2;
 
@@ -467,7 +441,7 @@ function rotateZShape() {
     currentShape.points[3].coordinates.x -= 1;
     currentShape.points[3].coordinates.y += 1;
 
-    currentShape.hasBeenRotatedOnce = true;
+    currentShape.numberOfRotations = 1;
   }
 }
 
@@ -506,7 +480,7 @@ function deleteRow() {
           `div[data-y='${rowAbove}']`
         );
         elementsToMoveDown.forEach((element) => {
-          const newY = parseInt(element.getAttribute(ATTRIBUTES.DATA_X)) + 1;
+          const newY = parseInt(element.getAttribute(ATTRIBUTES.DATA_Y)) + 1;
           element.setAttribute(ATTRIBUTES.DATA_Y, newY);
           element.style.gridRow = newY;
         });
