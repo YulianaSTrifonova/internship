@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: "Pixelify Sans", sans-serif;
+    background-color: #8fbc9b;
+    color: #171a24;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+}
