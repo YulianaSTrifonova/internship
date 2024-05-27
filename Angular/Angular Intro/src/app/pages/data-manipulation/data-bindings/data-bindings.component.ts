@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { MathUtilService } from '@intro/app/services/math-util.service';
 import { Operators } from './enums';
 
 @Component({
@@ -6,6 +7,8 @@ import { Operators } from './enums';
     templateUrl: './data-bindings.component.html',
 })
 export class DataBindingComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
+    constructor(private mathUtilService: MathUtilService) {}
+
     @Input() public firstNumber: number;
     @Input() public secondNumber: number;
     @Input() public operator: Operators;
@@ -49,19 +52,19 @@ export class DataBindingComponent implements OnInit, AfterViewInit, OnChanges, O
         let result = 0;
         switch (this.operator) {
             case Operators.ADDITION:
-                result = this.firstNumber + this.secondNumber;
+                result = this.mathUtilService.sumOfTwo(this.firstNumber, this.secondNumber);
                 break;
 
             case Operators.SUBTRACTION:
-                result = this.firstNumber - this.secondNumber;
+                result = this.mathUtilService.subOfTwo(this.firstNumber, this.secondNumber);
                 break;
 
             case Operators.MULTIPLICATION:
-                result = this.firstNumber * this.secondNumber;
+                result = this.mathUtilService.multOfTwo(this.firstNumber, this.secondNumber);
                 break;
 
             case Operators.DIVISION:
-                result = this.firstNumber / this.secondNumber;
+                result = this.mathUtilService.divOfTwo(this.firstNumber, this.secondNumber);
                 break;
 
             default:

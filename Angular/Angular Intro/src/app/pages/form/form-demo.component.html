@@ -1,97 +1,87 @@
 <div class="form-container">
     <h3>Template-Driven Form</h3>
     <form #form="ngForm" (ngSubmit)="onSubmit()">
-        <div class="form-group" [ngClass]="{ 'input-with-error': field1.invalid && (field1.dirty || field1.touched) }">
-            <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Field 1</mat-label>
-                <input
-                    matInput
-                    type="text"
-                    name="field1"
-                    [(ngModel)]="templateFormModel.field1"
-                    required
-                    minlength="3"
-                    #field1="ngModel"
-                />
-                <mat-error *ngIf="field1.invalid && (field1.dirty || field1.touched)">
-                    <div *ngIf="field1.errors?.['required']">Field 1 is required.</div>
-                    <div *ngIf="field1.errors?.['minlength']">Field 1 must be at least 3 characters long.</div>
-                </mat-error>
-            </mat-form-field>
-        </div>
+        <ng-template #inputField let-field="field" let-fieldName="fieldName" let-index="index">
+            <div
+                class="form-group"
+                [ngClass]="{ 'input-with-error': field?.invalid && (field?.dirty || field?.touched) }"
+            >
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Field {{ index + 1 }}</mat-label>
+                    <input
+                        matInput
+                        type="text"
+                        [name]="fieldName"
+                        [(ngModel)]="templateForm[fieldName]"
+                        required
+                        minlength="3"
+                        #field="ngModel"
+                    />
+                    <mat-error *ngIf="field?.invalid && (field?.dirty || field?.touched)">
+                        <div *ngIf="field?.errors?.['required']">Field {{ index + 1 }} is required.</div>
+                        <div *ngIf="field?.errors?.['minlength']">
+                            Field {{ index + 1 }} must be at least 3 characters long.
+                        </div>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </ng-template>
 
-        <div class="form-group" [ngClass]="{ 'input-with-error': field2.invalid && (field2.dirty || field2.touched) }">
-            <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Field 2</mat-label>
-                <input
-                    matInput
-                    type="text"
-                    name="field2"
-                    [(ngModel)]="templateFormModel.field2"
-                    required
-                    minlength="3"
-                    #field2="ngModel"
-                />
-                <mat-error *ngIf="field2.invalid && (field2.dirty || field2.touched)">
-                    <div *ngIf="field2.errors?.['required']">Field 2 is required.</div>
-                    <div *ngIf="field2.errors?.['minlength']">Field 2 must be at least 3 characters long.</div>
-                </mat-error>
-            </mat-form-field>
-        </div>
+        <ng-container *ngFor="let fieldName of ['field1', 'field2', 'field3', 'field4']; let i = index">
+            <ng-container
+                *ngTemplateOutlet="
+                    inputField;
+                    context: { field: form.controls[fieldName], fieldName: fieldName, index: i }
+                "
+            ></ng-container>
+        </ng-container>
 
-        <div class="form-group" [ngClass]="{ 'input-with-error': field3.invalid && (field3.dirty || field3.touched) }">
-            <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Field 3</mat-label>
-                <input
-                    matInput
-                    type="text"
-                    name="field3"
-                    [(ngModel)]="templateFormModel.field3"
-                    required
-                    minlength="3"
-                    #field3="ngModel"
-                />
-                <mat-error *ngIf="field3.invalid && (field3.dirty || field3.touched)">
-                    <div *ngIf="field3.errors?.['required']">Field 3 is required.</div>
-                    <div *ngIf="field3.errors?.['minlength']">Field 3 must be at least 3 characters long.</div>
-                </mat-error>
-            </mat-form-field>
-        </div>
-
-        <div class="form-group" [ngClass]="{ 'input-with-error': field4.invalid && (field4.dirty || field4.touched) }">
-            <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Field 4</mat-label>
-                <input
-                    matInput
-                    type="text"
-                    name="field4"
-                    [(ngModel)]="templateFormModel.field4"
-                    required
-                    minlength="3"
-                    #field4="ngModel"
-                />
-                <mat-error *ngIf="field4.invalid && (field4.dirty || field4.touched)">
-                    <div *ngIf="field4.errors?.['required']">Field 4 is required.</div>
-                    <div *ngIf="field4.errors?.['minlength']">Field 4 must be at least 3 characters long.</div>
-                </mat-error>
-            </mat-form-field>
-        </div>
         <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Submit</button>
     </form>
 </div>
 
 <div class="form-container">
     <h3>Reactive Form</h3>
-    <form>
-        <div class="form-group" *ngFor="let field of ['field1', 'field2', 'field3', 'field4']; let i = index">
-            <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Field {{ i + 1 }}</mat-label>
-                <input matInput type="text" />
+    <form [formGroup]="reactiveForm" (ngSubmit)="submitForm()">
+        <ng-template #reactiveInputField let-fieldName="fieldName" let-index="index">
+            <mat-form-field
+                class="form-group"
+                appearance="outline"
+                [ngClass]="{
+                    'input-with-error':
+                        reactiveForm.get(fieldName)?.invalid &&
+                        (reactiveForm.get(fieldName)?.dirty || reactiveForm.get(fieldName)?.touched)
+                }"
+            >
+                <mat-label>Field {{ index + 1 }}</mat-label>
+                <input matInput type="text" [formControlName]="fieldName" />
+                <mat-error
+                    *ngIf="
+                        reactiveForm.get(fieldName)?.invalid &&
+                        (reactiveForm.get(fieldName)?.dirty || reactiveForm.get(fieldName)?.touched)
+                    "
+                >
+                    <div *ngIf="reactiveForm.get(fieldName)?.errors?.['required']">
+                        Field {{ index + 1 }} is required.
+                    </div>
+                    <div *ngIf="reactiveForm.get(fieldName)?.errors?.['pattern']">
+                        Field {{ index + 1 }} must be a number.
+                    </div>
+                </mat-error>
             </mat-form-field>
+        </ng-template>
+
+        <ng-container
+            *ngFor="let field of ['field1Control', 'field2Control', 'field3Control', 'field4Control']; let i = index"
+        >
+            <ng-container
+                *ngTemplateOutlet="reactiveInputField; context: { fieldName: field, index: i }"
+            ></ng-container>
+        </ng-container>
+
+        <div *ngIf="reactiveForm.errors?.['sumNot100']" class="error-message">
+            The sum of all fields must equal 100.
         </div>
-        <div class="error-message">The sum of all fields must equal 100.</div>
-        <div class="button-group">
-            <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Submit</button>
-        </div>
+        <button mat-raised-button color="primary" type="submit" [disabled]="reactiveForm.invalid">Submit</button>
     </form>
 </div>

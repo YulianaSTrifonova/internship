@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -9,6 +9,14 @@ import { FormDemoComponent } from './form-demo.component';
 
 @NgModule({
     declarations: [FormDemoComponent],
-    imports: [CommonModule, FormsModule, MatInputModule, MatButtonModule, MatFormFieldModule, FormDemoRoutingModule],
+    imports: [
+        CommonModule,
+        FormsModule,
+        MatInputModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        FormDemoRoutingModule,
+        ReactiveFormsModule,
+    ],
 })
 export class FormDemoModule {}

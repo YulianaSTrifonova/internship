@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { getLocale } from '@intro/i18n/i18n';
 
+import { HttpClientModule } from '@angular/common/http';
 import { IntroAppRoutingModule as AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
@@ -21,6 +22,7 @@ import { PagesModule } from './pages/pages.module';
         MatButtonModule,
         BrowserAnimationsModule,
         MatIconModule,
+        HttpClientModule,
     ],
     providers: [
         {
