@@ -1,0 +1,26 @@
+<nav style="display: flex; justify-content: space-around; padding: 2rem">
+    <a mat-stroked-button color="primary" [routerLink]="routerLinks.home" i18n="@@home">Home</a>
+
+    <button mat-stroked-button [matMenuTriggerFor]="language"><mat-icon>language</mat-icon>Language</button>
+    <mat-menu #language="matMenu">
+        <button
+            mat-flat-button
+            *ngFor="let language of languageOptions"
+            style="width: 100%"
+            (onClick)="changeLanguage(language.locale)"
+        >
+            {{ language.label }}
+        </button>
+    </mat-menu>
+
+    <button mat-stroked-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon>Playground</button>
+    <mat-menu #menu="matMenu">
+        <a mat-flat-button [routerLink]="routerLinks.animals" style="width: 100%">Animals</a>
+        <a mat-flat-button [routerLink]="routerLinks.dataManipulation" style="width: 100%">Data Manipulation</a>
+        <a mat-flat-button [routerLink]="routerLinks.directives" style="width: 100%">Directives</a>
+        <a mat-flat-button [routerLink]="routerLinks.pipes" style="width: 100%">Pipes</a>
+        <a mat-flat-button [routerLink]="routerLinks.form" style="width: 100%">Form</a>
+        <a mat-flat-button [routerLink]="routerLinks.weather" style="width: 100%">Weather</a>
+    </mat-menu>
+</nav>
+<router-outlet></router-outlet>

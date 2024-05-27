@@ -1,0 +1,11 @@
+<div style="padding: 5px">
+    <h3>This is where your weather info should go.</h3>
+    <div *ngIf="cityWeather">
+        <div>name: {{ cityWeather.cityName }}</div>
+        <div>temperature: {{ cityWeather.temperature }}</div>
+        <div>humidity: {{ cityWeather.humidity }}</div>
+        <div>weather description: {{ cityWeather.weatherDescription }}</div>
+        <div>sunrise: {{ cityWeather.sunrise }}</div>
+        <div>sunset: {{ cityWeather.sunset }}</div>
+    </div>
+</div>

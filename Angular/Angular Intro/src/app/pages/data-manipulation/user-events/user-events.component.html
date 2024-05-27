@@ -1,0 +1,17 @@
+<div>
+    <h1 style="text-align: center">User Events</h1>
+    <div>
+        <button mat-raised-button (click)="handleClick()">ALERT!</button>
+        <p (keydown)="handleKeydown($event)">{{ lastPressedKey }}</p>
+        <div appColorChange [hoverClass]="'green'" [defaultClass]="'red'" [eventType]="'hover'" class="square"></div>
+    </div>
+</div>
+
+<!--
+    <div
+            class="square"
+            [class]="isRedSquareHovered ? 'green' : 'red'"
+            (mouseover)="handleHover()"
+            (mouseout)="handleHover()"
+        ></div>
+-->

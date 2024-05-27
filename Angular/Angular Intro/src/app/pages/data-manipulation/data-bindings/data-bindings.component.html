@@ -1,0 +1,29 @@
+<div>
+    <h1 style="text-align: center">Data Bindings</h1>
+    <div style="display: flex; align-items: center; gap: 5px">
+        <div>
+            <intro-custom-input
+                [inputValue]="$any(firstNumber)"
+                (valueChange)="firstNumber = $event"
+            ></intro-custom-input>
+        </div>
+
+        <mat-form-field>
+            <mat-label>Select an operator:</mat-label>
+            <mat-select [(value)]="operator">
+                <mat-option value="addition">+</mat-option>
+                <mat-option value="subtraction">-</mat-option>
+                <mat-option value="multiplication">*</mat-option>
+                <mat-option value="division">/</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div>
+            <intro-custom-input
+                [inputValue]="$any(secondNumber)"
+                (valueChange)="secondNumber = $event"
+            ></intro-custom-input>
+        </div>
+        <div>= {{ getResult() }}</div>
+    </div>
+</div>

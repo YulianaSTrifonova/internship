@@ -1,0 +1,9 @@
+<mat-form-field>
+    <input
+        matInput
+        type="number"
+        [(ngModel)]="inputValue"
+        (ngModelChange)="onValueChange($event)"
+        placeholder="Enter a number:"
+    />
+</mat-form-field>
