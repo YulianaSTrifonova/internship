@@ -1,0 +1,16 @@
+<li class="d-flex justify-content-between">
+  <div class="form-check">
+    <label class="form-check-label" [ngClass]="cssClasses">
+      <input
+        type="checkbox"
+        class="checkbox"
+        [checked]="todo.isComplete"
+        (click)="toggleDone()"
+      />
+      {{ todo.toDoText }}
+    </label>
+  </div>
+  <div>
+    <button type="button" class="btn-close" (click)="removeToDo()"></button>
+  </div>
+</li>
