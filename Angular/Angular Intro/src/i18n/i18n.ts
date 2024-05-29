@@ -1,6 +1,6 @@
 const LOCALE_STORAGE_KEY = 'app-locale';
 
-export const AVAILABLE_LOCALES = ['en-GB'] as const;
+export const AVAILABLE_LOCALES = ['en-GB', 'de-AT'] as const;
 
 export type Locale = (typeof AVAILABLE_LOCALES)[number];
 
@@ -25,6 +25,9 @@ export function setLocale(locale: Locale, storage: Storage): void {
 export function importLocale(locale: Locale) {
     let importLocalePromise;
     switch (locale) {
+        case 'de-AT':
+            importLocalePromise = import('@angular/common/locales/de-AT');
+            break;
         default:
             importLocalePromise = import('@angular/common/locales/en-GB');
             break;

@@ -1,5 +1,5 @@
 <div class="form-container">
-    <h3>Template-Driven Form</h3>
+    <h3>{{ "translations.template-form" | translate }}</h3>
     <form #form="ngForm" (ngSubmit)="onSubmit()">
         <ng-template #inputField let-field="field" let-fieldName="fieldName" let-index="index">
             <div
@@ -7,7 +7,10 @@
                 [ngClass]="{ 'input-with-error': field?.invalid && (field?.dirty || field?.touched) }"
             >
                 <mat-form-field class="full-width" appearance="outline">
-                    <mat-label>Field {{ index + 1 }}</mat-label>
+                    <mat-label>
+                        <span>{{ "translations.field" | translate }}</span>
+                        {{ index + 1 }}</mat-label
+                    >
                     <input
                         matInput
                         type="text"
@@ -18,9 +21,15 @@
                         #field="ngModel"
                     />
                     <mat-error *ngIf="field?.invalid && (field?.dirty || field?.touched)">
-                        <div *ngIf="field?.errors?.['required']">Field {{ index + 1 }} is required.</div>
+                        <div *ngIf="field?.errors?.['required']">
+                            <span>{{ "translations.field" | translate }}</span>
+                            {{ index + 1 }}
+                            <span>{{ "translations.field-required" | translate }}</span>
+                        </div>
                         <div *ngIf="field?.errors?.['minlength']">
-                            Field {{ index + 1 }} must be at least 3 characters long.
+                            <span>{{ "translations.field" | translate }}</span>
+                            {{ index + 1 }}
+                            <span>{{ "translations.field-three-chars" | translate }}</span>
                         </div>
                     </mat-error>
                 </mat-form-field>
@@ -36,12 +45,14 @@
             ></ng-container>
         </ng-container>
 
-        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Submit</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+            {{ "translations.submit" | translate }}
+        </button>
     </form>
 </div>
 
 <div class="form-container">
-    <h3>Reactive Form</h3>
+    <h3>{{ "translations.reactive-form" | translate }}</h3>
     <form [formGroup]="reactiveForm" (ngSubmit)="submitForm()">
         <ng-template #reactiveInputField let-fieldName="fieldName" let-index="index">
             <mat-form-field
@@ -53,7 +64,9 @@
                         (reactiveForm.get(fieldName)?.dirty || reactiveForm.get(fieldName)?.touched)
                 }"
             >
-                <mat-label>Field {{ index + 1 }}</mat-label>
+                <mat-label i18n="@@field-r">
+                    <span>{{ "translations.field" | translate }}</span> {{ index + 1 }}</mat-label
+                >
                 <input matInput type="text" [formControlName]="fieldName" />
                 <mat-error
                     *ngIf="
@@ -62,10 +75,14 @@
                     "
                 >
                     <div *ngIf="reactiveForm.get(fieldName)?.errors?.['required']">
-                        Field {{ index + 1 }} is required.
+                        <span>{{ "translations.field" | translate }}</span>
+                        {{ index + 1 }}
+                        <span>{{ "translations.field-required" | translate }}</span>
                     </div>
                     <div *ngIf="reactiveForm.get(fieldName)?.errors?.['pattern']">
-                        Field {{ index + 1 }} must be a number.
+                        <span>{{ "translations.field" | translate }}</span>
+                        {{ index + 1 }}
+                        <span>{{ "translations.field-number" | translate }}</span>
                     </div>
                 </mat-error>
             </mat-form-field>
@@ -80,8 +97,10 @@
         </ng-container>
 
         <div *ngIf="reactiveForm.errors?.['sumNot100']" class="error-message">
-            The sum of all fields must equal 100.
+            {{ "translations.sum-100-text" | translate }}
         </div>
-        <button mat-raised-button color="primary" type="submit" [disabled]="reactiveForm.invalid">Submit</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="reactiveForm.invalid">
+            {{ "translations.submit" | translate }}
+        </button>
     </form>
 </div>

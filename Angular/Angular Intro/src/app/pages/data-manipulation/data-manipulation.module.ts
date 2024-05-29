@@ -6,6 +6,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 
+import { TranslateModule } from '@ngx-translate/core';
 import { ColorChangeDirective } from '../directives/color-change/color-change.directive';
 import { TooltipDirective } from '../directives/tooltip/tooltip.directive';
 
@@ -25,7 +26,15 @@ import { DataManipulationComponent } from './data-manipulation.component';
         TooltipDirective,
         ColorChangeDirective,
     ],
-    imports: [FormsModule, MatInputModule, MatButton, MatSelectModule, MatFormFieldModule, MatListModule],
+    imports: [
+        TranslateModule,
+        FormsModule,
+        MatInputModule,
+        MatButton,
+        MatSelectModule,
+        MatFormFieldModule,
+        MatListModule,
+    ],
     exports: [DataManipulationComponent, TooltipDirective, ColorChangeDirective],
 })
 export class DataManipulationModule {}

@@ -1,6 +1,8 @@
-<p appTooltip="Im the tooltip this text deserves">
-    I need a tooltip
+<p appTooltip="{{ 'translations.tooltip-content' | translate }}" i18n-appTooltip>
+    {{ "translations.tooltip-text" | translate }}
     <!-- <strong>Im the tooltip this text deserves</strong> -->
 </p>
 
-<div appColorChange="green" [eventType]="'click'">I really want to turn green when im clicked</div>
+<div appColorChange [eventType]="'click'" [color]="'green'" [cssAttribute]="'color'">
+    {{ "translations.color-changing-text" | translate }}
+</div>

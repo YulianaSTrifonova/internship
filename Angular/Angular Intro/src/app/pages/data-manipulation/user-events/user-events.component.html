@@ -1,9 +1,25 @@
 <div>
-    <h1 style="text-align: center">User Events</h1>
+    <h1 style="text-align: center">{{ "translations.user-events" | translate }}</h1>
     <div>
-        <button mat-raised-button (click)="handleClick()">ALERT!</button>
+        <button mat-raised-button (click)="handleClick()">{{ "translations.alert" | translate }}</button>
         <p (keydown)="handleKeydown($event)">{{ lastPressedKey }}</p>
-        <div appColorChange [hoverClass]="'green'" [defaultClass]="'red'" [eventType]="'hover'" class="square"></div>
+        <div
+            appColorChange
+            [color]="'green'"
+            [eventType]="'hover'"
+            [cssAttribute]="'backgroundColor'"
+            class="square red"
+        ></div>
+    </div>
+    <br />
+    <div>
+        <div
+            appColorChange
+            [color]="'green'"
+            [eventType]="'hover'"
+            [cssAttribute]="'backgroundColor'"
+            class="square red"
+        ></div>
     </div>
 </div>
 

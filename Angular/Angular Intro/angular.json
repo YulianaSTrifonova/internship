@@ -11,7 +11,11 @@
                 }
             },
             "i18n": {
-                "sourceLocale": "en-x-source"
+                "sourceLocale": "en-x-source",
+                "locales": {
+                    "en-GB": "src/assets/i18n/en-GB.json",
+                    "de-AT": "src/assets/i18n/de-AT.json"
+                }
             },
             "root": "",
             "sourceRoot": "src",

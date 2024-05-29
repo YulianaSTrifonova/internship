@@ -7,10 +7,16 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { getLocale } from '@intro/i18n/i18n';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IntroAppRoutingModule as AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+    return new TranslateHttpLoader(http);
+}
 
 @NgModule({
     declarations: [AppComponent],
@@ -23,6 +29,13 @@ import { PagesModule } from './pages/pages.module';
         BrowserAnimationsModule,
         MatIconModule,
         HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient],
+            },
+        }),
     ],
     providers: [
         {
@@ -32,4 +45,10 @@ import { PagesModule } from './pages/pages.module';
     ],
     bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+    public constructor(_translateService: TranslateService) {
+        const defaultLang = localStorage.getItem('locale') || 'en-GB';
+        _translateService.setDefaultLang(defaultLang);
+        _translateService.use(defaultLang);
+    }
+}

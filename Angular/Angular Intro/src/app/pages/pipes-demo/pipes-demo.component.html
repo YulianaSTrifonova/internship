@@ -1,4 +1,8 @@
 <div style="padding: 5px">
-    <p>Text to capitalzie: {{ textToCapitalize | uppercase }}</p>
-    <p>Date Needs to be in format dd/mm/yyyy {{ date | date: "shortDate" }}</p>
+    <p>
+        {{ "translations.text-to-capitalize" | translate }} <span>{{ textToCapitalize | uppercase }}</span>
+    </p>
+    <p>
+        {{ "translations.date-format" | translate }} <span>{{ date | date: "shortDate" }}</span>
+    </p>
 </div>

@@ -1,5 +1,5 @@
 <div>
-    <h1 style="text-align: center">Data Bindings</h1>
+    <h1 style="text-align: center">{{ "translations.data-binding" | translate }}</h1>
     <div style="display: flex; align-items: center; gap: 5px">
         <div>
             <intro-custom-input
@@ -9,7 +9,7 @@
         </div>
 
         <mat-form-field>
-            <mat-label>Select an operator:</mat-label>
+            <mat-label>{{ "translations.select-operator" | translate }}</mat-label>
             <mat-select [(value)]="operator">
                 <mat-option value="addition">+</mat-option>
                 <mat-option value="subtraction">-</mat-option>
