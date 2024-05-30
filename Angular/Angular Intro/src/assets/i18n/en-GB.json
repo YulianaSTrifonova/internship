@@ -15,6 +15,7 @@
         "dog": "I'm a dog, woof!",
         "select-operator": "Select an operator:",
         "data-binding": "Data Bindings",
+        "placeholder-text": "Enter a number:",
         "displaying-data": "Displaying Data",
         "user-events": "User Events",
         "alert": "ALERT!",

@@ -1,21 +1,7 @@
 {
     "locale": "en-x-source",
     "translations": {
-        "tooltip-content": "Im the tooltip this text deserves.",
-        "tooltip-text": " I need a tooltip ",
-        "color-changing-text": " {$INTERPOLATION}\n",
-        "template-form": "Template-Driven Form",
-        "field-td": "Field {$INTERPOLATION}",
-        "field-required-td": " Field {$INTERPOLATION} is required. ",
-        "field-three-chars": " Field {$INTERPOLATION} must be at least 3 characters long. ",
-        "submit": " Submit ",
-        "reactive-form": "Reactive Form",
-        "field-required-r": " Field {$INTERPOLATION} is required. ",
-        "field-number": " Field {$INTERPOLATION} must be a number. ",
-        "sum-100-text": " The sum of all fields must equal 100. ",
-        "home-text": "",
-        "text-to-capitalize": "Text to capitalzie: {$INTERPOLATION}",
-        "date-format": "Date Needs to be in format dd/mm/yyyy {$INTERPOLATION}",
+        "field-r": "{$START_TAG_SPAN}{$INTERPOLATION}{$CLOSE_TAG_SPAN} {$INTERPOLATION_1}",
         "text-for-capitalization": " iM a RealLy Weird TexT anD i neEd CapItaliZATion",
         "select-city": "Select a City"
     }

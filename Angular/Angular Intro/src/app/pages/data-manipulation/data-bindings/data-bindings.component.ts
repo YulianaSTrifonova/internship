@@ -15,8 +15,8 @@ export class DataBindingComponent implements OnInit, AfterViewInit, OnChanges, O
 
     public ngOnInit(): void {
         console.log('OnInit');
-        this.firstNumber = this.firstNumber || 0;
-        this.secondNumber = this.secondNumber || 0;
+        this.firstNumber = this.firstNumber;
+        this.secondNumber = this.secondNumber;
     }
 
     public ngAfterViewInit(): void {

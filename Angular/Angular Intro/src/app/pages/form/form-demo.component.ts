@@ -34,9 +34,11 @@ export class FormDemoComponent implements OnInit {
     }
 
     public sumValidator: ValidatorFn = (form: AbstractControl): { [key: string]: any } | null => {
-        const sum = Object.values((form as FormGroup).controls)
-            .map((control) => parseInt(control.value, 10) || 0)
-            .reduce((acc, value) => acc + value, 0);
+        if (!(form instanceof FormGroup)) {
+            return null;
+        }
+
+        const sum = Object.values(form.controls).reduce((acc, control) => acc + (parseInt(control.value, 10) || 0), 0);
 
         return sum === 100 ? null : { sumNot100: true };
     };

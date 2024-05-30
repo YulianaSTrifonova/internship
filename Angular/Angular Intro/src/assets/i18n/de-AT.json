@@ -15,6 +15,7 @@
         "dog": "Ich bin ein Hund, wuff!",
         "select-operator": "Wählen Sie einen Operator aus:",
         "data-binding": "Datenbindungen",
+        "placeholder-text": "Geben Sie eine Zahl ein:",
         "displaying-data": "Daten anzeigen",
         "user-events": "Benutzerereignisse",
         "alert": "ALERT!",
