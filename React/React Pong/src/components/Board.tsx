@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Ball from "./Ball";
 import Paddle from "./Paddle";
 import "./board.css";
@@ -20,48 +20,53 @@ export default function Board() {
 
     const [gameStarted, setGameStarted] = useState(false);
 
-    useEffect(() => {
-        function handleKeyDown(event: KeyboardEvent) {
-            switch (event.key) {
-                case CONTROLS.UP:
-                    if (rightPaddle >= 1) {
-                        setRightPaddle(rightPaddle - 1);
-                        return;
-                    }
-                    break;
-                case CONTROLS.W:
-                    if (leftPaddle >= 1) {
-                        setLeftPaddle(leftPaddle - 1);
-                        return;
-                    }
-                    break;
-                case CONTROLS.DOWN:
-                    if (rightPaddle <= 15) {
-                        setRightPaddle(rightPaddle + 1);
-                        return;
-                    }
-                    break;
-                case CONTROLS.S:
-                    if (leftPaddle <= 15) {
-                        setLeftPaddle(leftPaddle + 1);
-                        return;
-                    }
-                    break;
-                case CONTROLS.SPACE:
-                    setGameStarted(true);
-                    break;
-            }
-        }
+    const intervalRef = useRef(0);
 
+    function handleKeyDown(event: KeyboardEvent) {
+        switch (event.key) {
+            case CONTROLS.UP:
+                if (rightPaddle >= 1) {
+                    setRightPaddle(rightPaddle - 1);
+                    return;
+                }
+                break;
+            case CONTROLS.W:
+                if (leftPaddle >= 1) {
+                    setLeftPaddle(leftPaddle - 1);
+                    return;
+                }
+                break;
+            case CONTROLS.DOWN:
+                if (rightPaddle <= 15) {
+                    setRightPaddle(rightPaddle + 1);
+                    return;
+                }
+                break;
+            case CONTROLS.S:
+                if (leftPaddle <= 15) {
+                    setLeftPaddle(leftPaddle + 1);
+                    return;
+                }
+                break;
+            case CONTROLS.SPACE:
+                setGameStarted(true);
+                break;
+        }
+    }
+
+    useEffect(() => {
         window.addEventListener("keydown", handleKeyDown);
 
         return () => {
             window.removeEventListener("keydown", handleKeyDown);
         };
-    }, [leftPaddle, rightPaddle]);
+    });
 
     function moveBall() {
-        setBall({ x: ball.x + velocity.x, y: ball.y + velocity.y });
+        setBall((prevBall) => ({
+            x: prevBall.x + velocity.x,
+            y: prevBall.y + velocity.y,
+        }));
     }
 
     function getPaddlePosition(paddle: number) {
@@ -119,7 +124,7 @@ export default function Board() {
     }
 
     function ballSpeed() {
-        if (speed > 40) {
+        if (speed > 30) {
             setSpeed(speed - 2);
         }
     }
@@ -147,17 +152,32 @@ export default function Board() {
         }
     }
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            moveBall();
-            checkCollision();
-            if (wallHit) {
-                scorePoint();
-            }
-        }, speed);
+    function tick() {
+        checkCollision();
+        moveBall();
+        if (wallHit) {
+            scorePoint();
+        }
+    }
 
-        return () => clearInterval(interval);
-    }, [ball, velocity]);
+    function startInterval() {
+        intervalRef.current = window.setInterval(tick, speed);
+    }
+
+    function stopInterval() {
+        if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+            intervalRef.current = 0;
+        }
+    }
+
+    useEffect(() => {
+        if (gameStarted && !intervalRef.current) {
+            startInterval();
+        }
+
+        return () => stopInterval();
+    });
 
     return (
         <div>
