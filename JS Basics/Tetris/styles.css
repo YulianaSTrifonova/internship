@@ -1,0 +1,60 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 95vh;
+  margin: 0;
+  overflow: hidden;
+  background-color: #D4D4D4;
+  font-family: "Pixelify Sans", sans-serif;
+}
+
+#outer-border {
+  background-color: #DCDCDC;
+  padding: 20px;
+  box-shadow: 3px 10px 10px 3px #c2c1c1;
+}
+
+#grid {
+  background-color: #F5F5F5;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(10, 40px);
+  grid-template-rows: repeat(15, 40px);
+  grid-gap: 3px;
+  box-shadow: 3px 10px 10px 3px #D4D4D4;
+}
+
+#game-over {
+  display: none;
+}
+
+#game-over-text,
+#result,
+#instruction-text,
+#init-instruction-text {
+  position: absolute;
+  color: #171a24;
+  width: 445px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 30px;
+  margin: 0;
+}
+
+#game-over-text {
+  top: 43%;
+}
+
+#instruction-text {
+  top: 48%;
+}
+
+#init-instruction-text {
+  top: 47%;
+}
+
+.scores {
+  display: flex;
+  justify-content: center;
+}
