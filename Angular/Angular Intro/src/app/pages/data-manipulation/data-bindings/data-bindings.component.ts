@@ -27,19 +27,19 @@ export class DataBindingComponent implements OnInit, AfterViewInit, OnChanges, O
         console.log('OnChanges', changes);
         if (changes['firstNumber']) {
             console.log(
-                `firstNumber changed from ${changes['firstNumber'].previousValue} to ${changes['firstNumber'].currentValue}`,
+                `First number changed from ${changes['firstNumber'].previousValue} to ${changes['firstNumber'].currentValue}`,
             );
         }
 
         if (changes['secondNumber']) {
             console.log(
-                `secondNumber changed from ${changes['secondNumber'].previousValue} to ${changes['secondNumber'].currentValue}`,
+                `Second number changed from ${changes['secondNumber'].previousValue} to ${changes['secondNumber'].currentValue}`,
             );
         }
 
         if (changes['operator']) {
             console.log(
-                `operator changed from ${changes['operator'].previousValue} to ${changes['operator'].currentValue}`,
+                `Operator changed from ${changes['operator'].previousValue} to ${changes['operator'].currentValue}`,
             );
         }
     }

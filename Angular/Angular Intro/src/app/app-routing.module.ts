@@ -7,7 +7,7 @@ import { DataManipulationComponent } from './pages/data-manipulation/data-manipu
 import { DirectivesDemoComponent } from './pages/directives-demo/directives-demo.component';
 import { PipesDemoComponent } from './pages/pipes-demo/pipes-demo.component';
 import { WeatherComponent } from './pages/weather/weather.component';
-import { FormDemoComponent } from './pages/form/form-demo.component';
+//import { FormDemoComponent } from './pages/form/form-demo.component';
 
 const routes: Routes = [
     {
@@ -41,7 +41,8 @@ const routes: Routes = [
     },
     {
         path: RouterLinksEnum.form,
-        component: FormDemoComponent,
+        loadChildren: () => import('./pages/form/form-demo.module').then((m) => m.FormDemoModule),
+        //component: FormDemoComponent,
     },
 ];
 
