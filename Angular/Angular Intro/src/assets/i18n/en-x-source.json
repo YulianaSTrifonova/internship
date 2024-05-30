@@ -1,7 +1,7 @@
 {
     "locale": "en-x-source",
     "translations": {
-        "field-r": "{$START_TAG_SPAN}{$INTERPOLATION}{$CLOSE_TAG_SPAN} {$INTERPOLATION_1}",
+        "home": "Home",
         "text-for-capitalization": " iM a RealLy Weird TexT anD i neEd CapItaliZATion",
         "select-city": "Select a City"
     }
