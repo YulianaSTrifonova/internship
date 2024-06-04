@@ -1,0 +1,20 @@
+<div class="board-border">
+  <div class="board">
+    <div *ngFor="let row of cells; let x = index">
+      <div *ngFor="let cell of row; let y = index">
+        <app-cell
+          [isMine]="cell.isMine"
+          [neighboringMines]="cell.neighborMines"
+          [opened]="cell.opened"
+          [flagged]="cell.flagged"
+          (cellClick)="revealCell(x, y)"
+          (cellFlag)="flagCell(x, y)"
+        ></app-cell>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="text">{{ text }}</div>
+<div class="new-game">
+  <button (click)="newGame()">New Game</button>
+</div>

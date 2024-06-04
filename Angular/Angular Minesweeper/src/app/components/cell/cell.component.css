@@ -1,0 +1,44 @@
+.cell {
+  width: 30px;
+  height: 30px;
+  border: 1px dashed #171a24;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cell.opened {
+  transition: ease 0.2s;
+  background-color: #171a24;
+  color: #8fbc9b;
+  cursor: default;
+}
+
+.cell.mine {
+  background-color: #c26058;
+  animation: explode 0.3s ease-in-out;
+}
+
+.cell.game-over {
+  cursor: not-allowed;
+}
+
+.cell.flagged {
+  background-color: #469566;
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
