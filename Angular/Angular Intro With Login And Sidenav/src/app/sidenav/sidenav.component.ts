@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { navbarData } from './nav-data';
 import { TranslateService } from '@ngx-translate/core';
 import { AVAILABLE_LOCALES, Locale, setLocale } from '@intro/i18n/i18n';
+import { navbarData } from './nav-data';
 
 interface SidenavToggle {
     screenWidth: number;
@@ -14,11 +14,12 @@ interface SidenavToggle {
     styleUrl: './sidenav.component.scss',
 })
 export class SidenavComponent {
-    isLanguageDropdownOpen = false;
-
     @Input() public data: { label: string };
 
     @Output() public toggleSidenav: EventEmitter<SidenavToggle> = new EventEmitter();
+
+    public isLanguageDropdownOpen = false;
+
     public collapsed = false;
     public screenWidth = 0;
     public navData = navbarData;

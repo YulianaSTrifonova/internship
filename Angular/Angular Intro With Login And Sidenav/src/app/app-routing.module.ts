@@ -7,6 +7,7 @@ import { DataManipulationComponent } from './pages/data-manipulation/data-manipu
 import { DirectivesDemoComponent } from './pages/directives-demo/directives-demo.component';
 import { PipesDemoComponent } from './pages/pipes-demo/pipes-demo.component';
 import { WeatherComponent } from './pages/weather/weather.component';
+import { LoginComponent } from './pages/login/login.component';
 //import { FormDemoComponent } from './pages/form/form-demo.component';
 
 const routes: Routes = [
@@ -14,6 +15,10 @@ const routes: Routes = [
         path: '',
         redirectTo: RouterLinksEnum.home,
         pathMatch: 'full',
+    },
+    {
+        path: RouterLinksEnum.login,
+        component: LoginComponent,
     },
     {
         path: RouterLinksEnum.home,

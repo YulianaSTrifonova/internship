@@ -1,4 +1,5 @@
 export enum RouterLinksEnum {
+    login = 'login',
     home = 'home',
     dataManipulation = 'dataManipulation',
     animals = 'animals',
