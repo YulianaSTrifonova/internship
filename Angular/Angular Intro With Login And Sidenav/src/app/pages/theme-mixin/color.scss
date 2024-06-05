@@ -1,0 +1,38 @@
+@use "@angular/material" as mat;
+@use "sass:map";
+
+@mixin color($theme) {
+    $color-config: mat.get-color-config($theme);
+
+    $primary-palette: map.get($color-config, "primary");
+    $accent-palette: map.get($color-config, "accent");
+    $warn-palette: map.get($color-config, "warn");
+
+    .accent {
+        color: mat.get-color-from-palette($accent-palette, 100);
+    }
+
+    .primary {
+        color: mat.get-color-from-palette($primary-palette);
+    }
+
+    .warn {
+        color: mat.get-color-from-palette($warn-palette);
+    }
+
+    .cook {
+        background-color: mat.get-color-from-palette($primary-palette);
+    }
+
+    .doctor {
+        background-color: mat.get-color-from-palette($accent-palette, 100);
+    }
+
+    .pilot {
+        background-color: mat.get-color-from-palette($accent-palette, 500);
+    }
+
+    .mechanic {
+        background-color: mat.get-color-from-palette($warn-palette);
+    }
+}

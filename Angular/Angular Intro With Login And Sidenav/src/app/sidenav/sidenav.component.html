@@ -1,0 +1,51 @@
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+    <div class="icon-container">
+        <button class="icon" (click)="toggleCollapse()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <div class="text" *ngIf="collapsed">{{ "translations.playground" | translate }}</div>
+        <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" *ngFor="let data of navData">
+            <a
+                class="sidenav-nav-link"
+                [routerLink]="[data.routeLink]"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+            >
+                <i class="sidenav-nav-icon">
+                    <mat-icon>{{ data.icon }}</mat-icon>
+                </i>
+                <span class="sidenav-link-text" *ngIf="collapsed">
+                    {{ getTranslationKey(data.label) | translate }}
+                </span>
+            </a>
+        </li>
+        <hr />
+        <li class="sidenav-nav-item language">
+            <a class="sidenav-nav-link" (click)="toggleLanguageDropdown()">
+                <i class="sidenav-nav-icon">
+                    <mat-icon>language</mat-icon>
+                </i>
+                <span class="sidenav-link-text" *ngIf="collapsed">
+                    {{ "translations.language" | translate }}
+                    <span
+                        [ngClass]="{ 'arrow-down': !isLanguageDropdownOpen, 'arrow-up': isLanguageDropdownOpen }"
+                    ></span>
+                </span>
+            </a>
+            <ul *ngIf="collapsed && isLanguageDropdownOpen">
+                <li
+                    *ngFor="let language of languageOptions"
+                    (click)="changeLanguage(language.locale)"
+                    class="language-opt"
+                >
+                    {{ language.label }}
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

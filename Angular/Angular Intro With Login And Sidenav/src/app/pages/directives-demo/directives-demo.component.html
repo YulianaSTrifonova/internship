@@ -1,0 +1,9 @@
+<h1>{{ "translations.directives" | translate }}</h1>
+<p appTooltip="{{ 'translations.tooltip-content' | translate }}" i18n-appTooltip>
+    {{ "translations.tooltip-text" | translate }}
+    <!-- <strong>Im the tooltip this text deserves</strong> -->
+</p>
+
+<div appColorChange [eventType]="'click'" [color]="'green'" [cssAttribute]="'color'">
+    {{ "translations.color-changing-text" | translate }}
+</div>

@@ -1,0 +1,9 @@
+<h1>{{ "translations.pipes" | translate }}</h1>
+<div style="padding: 5px">
+    <p>
+        {{ "translations.text-to-capitalize" | translate }} <span>{{ textToCapitalize | uppercase }}</span>
+    </p>
+    <p>
+        {{ "translations.date-format" | translate }} <span>{{ date | date: "shortDate" }}</span>
+    </p>
+</div>

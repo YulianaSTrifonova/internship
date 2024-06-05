@@ -1,0 +1,183 @@
+{
+    "root": true,
+    "ignorePatterns": ["projects/**/*"],
+    "overrides": [
+        {
+            "files": ["*.ts"],
+            "extends": [
+                "plugin:@angular-eslint/recommended",
+                "plugin:@angular-eslint/template/process-inline-templates",
+                "plugin:@typescript-eslint/recommended",
+                "plugin:prettier/recommended",
+                "plugin:import/recommended",
+                "plugin:import/typescript"
+            ],
+            "rules": {
+                "@angular-eslint/directive-selector": [
+                    "warn",
+                    {
+                        "type": "attribute",
+                        "prefix": "intro",
+                        "style": "camelCase"
+                    }
+                ],
+                "@angular-eslint/component-selector": [
+                    "warn",
+                    {
+                        "type": "element",
+                        "prefix": "intro",
+                        "style": "kebab-case"
+                    }
+                ],
+                "@typescript-eslint/naming-convention": [
+                    "warn",
+                    {
+                        "selector": "default",
+                        "format": ["camelCase", "strictCamelCase", "PascalCase", "StrictPascalCase", "UPPER_CASE"],
+                        "leadingUnderscore": "allow",
+                        "trailingUnderscore": "forbid"
+                    },
+                    {
+                        "selector": "interface",
+                        "format": ["PascalCase"]
+                    },
+                    {
+                        "selector": "method",
+                        "format": ["camelCase"]
+                    },
+                    {
+                        "selector": "variable",
+                        "format": ["camelCase", "UPPER_CASE"]
+                    },
+                    {
+                        "selector": ["memberLike"],
+                        "modifiers": ["private"],
+                        "leadingUnderscore": "require",
+                        "format": ["camelCase"]
+                    },
+                    {
+                        "selector": "typeLike",
+                        "format": ["PascalCase"]
+                    }
+                ],
+                "@angular-eslint/no-pipe-impure": "warn",
+                "@angular-eslint/no-attribute-decorator": "warn",
+                "@angular-eslint/use-component-view-encapsulation": "warn",
+                "@typescript-eslint/explicit-member-accessibility": "warn",
+                "@typescript-eslint/member-ordering": [
+                    "warn",
+                    {
+                        "default": [
+                            "public-static-field",
+                            "protected-static-field",
+                            "private-static-field",
+
+                            "decorated-field",
+
+                            "decorated-set",
+
+                            "public-instance-field",
+                            "protected-instance-field",
+                            "private-instance-field",
+
+                            "public-abstract-field",
+                            "protected-abstract-field",
+
+                            "public-field",
+                            "protected-field",
+                            "private-field",
+
+                            "static-field",
+                            "instance-field",
+                            "abstract-field",
+
+                            "public-constructor",
+                            "protected-constructor",
+                            "private-constructor",
+
+                            "public-static-method",
+                            "protected-static-method",
+                            "private-static-method",
+
+                            "public-instance-method",
+                            "protected-instance-method",
+                            "private-instance-method",
+
+                            "public-abstract-method",
+                            "protected-abstract-method",
+
+                            "public-method",
+                            "protected-method",
+                            "private-method",
+
+                            "static-method",
+                            "instance-method",
+                            "abstract-method"
+                        ]
+                    }
+                ],
+                "@typescript-eslint/no-shadow": "warn",
+                "@typescript-eslint/no-empty-interface": "warn",
+                "@typescript-eslint/no-use-before-define": "warn",
+                "@typescript-eslint/unified-signatures": "warn",
+                "@typescript-eslint/no-explicit-any": "warn",
+                "@typescript-eslint/explicit-function-return-type": "warn",
+                "constructor-super": "warn",
+                "no-caller": "warn",
+                "max-lines": ["warn", 500],
+                "no-debugger": "warn",
+                "no-console": "warn",
+                "no-empty": "warn",
+                "no-var": "warn",
+                "prefer-const": "warn",
+                "no-unused-vars": [
+                    "warn",
+                    {
+                        "varsIgnorePattern": "^_",
+                        "argsIgnorePattern": "^_"
+                    }
+                ],
+                "no-restricted-imports": [
+                    "warn",
+                    {
+                        "patterns": ["src/*"]
+                    }
+                ],
+                // no-unresolved is handled by TS
+                "import/no-unresolved": 0,
+                "import/order": [
+                    "warn",
+                    {
+                        "newlines-between": "ignore"
+                    }
+                ],
+                "import/no-relative-parent-imports": "warn",
+                "eqeqeq": ["warn", "always", { "null": "ignore" }],
+                "padding-line-between-statements": [
+                    "warn",
+                    { "blankLine": "always", "prev": "block", "next": "*" },
+                    { "blankLine": "always", "prev": "block-like", "next": "*" },
+                    { "blankLine": "always", "prev": "*", "next": "return" },
+                    { "blankLine": "always", "prev": "*", "next": "case" },
+                    { "blankLine": "never", "prev": "switch", "next": "case" },
+                    { "blankLine": "any", "prev": "block", "next": "return" },
+                    { "blankLine": "any", "prev": "block-like", "next": "return" },
+                    { "blankLine": "any", "prev": "block", "next": "break" },
+                    { "blankLine": "any", "prev": "block-like", "next": "break" }
+                ]
+            }
+        },
+        {
+            "files": ["*.html"],
+            "extends": ["plugin:@angular-eslint/template/recommended"],
+            "rules": {
+                "@angular-eslint/template/eqeqeq": [
+                    "warn",
+                    {
+                        "allowNullOrUndefined": true
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+<app-sidenav></app-sidenav>
+<!--
+<nav style="display: flex; justify-content: space-around; padding: 2rem">
+    <a mat-stroked-button color="primary" [routerLink]="routerLinks.home">{{ "translations.home" | translate }}</a>
+
+    <button mat-stroked-button [matMenuTriggerFor]="language">
+        <mat-icon>language</mat-icon> {{ "translations.language" | translate }}
+    </button>
+    <mat-menu #language="matMenu">
+        <button
+            mat-flat-button
+            *ngFor="let language of languageOptions"
+            style="width: 100%"
+            (click)="changeLanguage(language.locale)"
+        >
+            {{ language.label }}
+        </button>
+    </mat-menu>
+
+    <button mat-stroked-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon> {{ "translations.playground" | translate }}
+    </button>
+    <mat-menu #menu="matMenu">
+        <a mat-flat-button [routerLink]="routerLinks.animals" style="width: 100%">{{
+            "translations.animals" | translate
+        }}</a>
+        <a mat-flat-button [routerLink]="routerLinks.dataManipulation" style="width: 100%">{{
+            "translations.data-manipulation" | translate
+        }}</a>
+        <a mat-flat-button [routerLink]="routerLinks.directives" style="width: 100%">{{
+            "translations.directives" | translate
+        }}</a>
+        <a mat-flat-button [routerLink]="routerLinks.pipes" style="width: 100%">{{
+            "translations.pipes" | translate
+        }}</a>
+        <a mat-flat-button [routerLink]="routerLinks.form" style="width: 100%">{{
+            "translations.forms" | translate
+        }}</a>
+        <a mat-flat-button [routerLink]="routerLinks.weather" style="width: 100%">{{
+            "translations.weather" | translate
+        }}</a>
+    </mat-menu>
+</nav>
+-->
+<router-outlet></router-outlet>
