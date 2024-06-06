@@ -11,6 +11,7 @@ import { AuthService } from '@intro/app/services/auth.service';
 export class LoginComponent implements OnInit {
     public loginForm: FormGroup;
     public errorMessage = '';
+    public hide = true;
 
     public constructor(
         private _fb: FormBuilder,
@@ -45,5 +46,10 @@ export class LoginComponent implements OnInit {
             this.errorMessage = 'Please fill in all fields correctly.';
             this.loginForm.markAllAsTouched();
         }
+    }
+
+    public clickEvent(event: MouseEvent): void {
+        this.hide = !this.hide;
+        event.stopPropagation();
     }
 }

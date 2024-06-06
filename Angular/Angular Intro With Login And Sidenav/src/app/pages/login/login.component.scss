@@ -23,7 +23,7 @@
     padding: 5rem;
     border-radius: 10px;
     border: 3px solid #dbecf21a;
-    backdrop-filter: blur(9px);
+    backdrop-filter: blur(10px);
     box-shadow: 0.05rem 0 0.75rem 0 #263238a2;
 }
 
@@ -32,9 +32,7 @@
     margin-bottom: 15px;
     height: 85px;
 
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
+    input {
         width: 100%;
         padding: 1rem 1rem 1rem 50px;
         box-sizing: border-box;
@@ -59,6 +57,21 @@
         transform: translateY(-50%);
         pointer-events: none;
         color: #dbecf2;
+    }
+
+    .show-pass-btn {
+        position: absolute;
+        right: -165px;
+        top: -20%;
+        transform: translateY(-50%);
+        background-color: transparent;
+        border: none;
+        padding: 0;
+    }
+
+    .show-pass-btn:hover {
+        color: #fed098;
+        border: none;
     }
 }
 

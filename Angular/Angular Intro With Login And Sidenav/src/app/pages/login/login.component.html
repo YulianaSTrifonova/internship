@@ -39,8 +39,19 @@
                     id="password"
                     formControlName="password"
                     placeholder="{{ 'login.password' | translate }}"
+                    matInput
+                    [type]="hide ? 'password' : 'text'"
                 />
                 <mat-icon class="input-icon">lock</mat-icon>
+                <button
+                    class="show-pass-btn"
+                    matSuffix
+                    (click)="clickEvent($event)"
+                    [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide"
+                >
+                    <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                </button>
                 <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error">
                     <small *ngIf="loginForm.get('password')?.errors?.['required']"
                         >{{ "login.password" | translate }} {{ "login.required" | translate }}</small
