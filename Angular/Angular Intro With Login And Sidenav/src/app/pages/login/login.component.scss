@@ -1,0 +1,90 @@
+.login-background {
+    background-image: url("../../../assets/images/login-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    h1 {
+        text-align: center;
+        color: #dbecf2;
+        font-size: 40px;
+        margin-bottom: 3rem;
+        font-family: "Outfit", sans-serif;
+    }
+}
+
+.login-container {
+    width: 400px;
+    margin: 0 auto;
+    padding: 5rem;
+    border-radius: 10px;
+    border: 3px solid #dbecf21a;
+    backdrop-filter: blur(9px);
+    box-shadow: 0.05rem 0 0.75rem 0 #263238a2;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 15px;
+    height: 85px;
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        padding: 1rem 1rem 1rem 50px;
+        box-sizing: border-box;
+        border-radius: 3rem;
+        background-color: transparent;
+        border: 3px solid #dbecf21a;
+        font-family: "Outfit", sans-serif;
+        color: #dbecf2;
+        font-size: 16px;
+        box-shadow: inset 0px 0px 5px 1px #263238a2;
+        position: relative;
+
+        &::placeholder {
+            color: #dbecf2;
+        }
+    }
+
+    .input-icon {
+        position: absolute;
+        top: 34%;
+        left: 20px;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: #dbecf2;
+    }
+}
+
+button {
+    background-color: #dbecf279;
+    box-sizing: border-box;
+    border: 3px solid #dbecf21a;
+    color: #dbecf2;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 1rem;
+    width: 100%;
+    margin-top: 3rem;
+    border-radius: 3rem;
+    font-family: "Outfit", sans-serif;
+}
+
+button:hover {
+    border: 3px solid #fed098;
+    background-color: #fed098;
+    color: #263238;
+}
+
+.error {
+    color: #f33d3a;
+    margin-top: 5px;
+    text-align: center;
+    font-family: "Outfit", sans-serif;
+}

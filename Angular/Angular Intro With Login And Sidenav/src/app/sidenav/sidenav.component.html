@@ -1,9 +1,9 @@
-<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+<div *ngIf="isLoggedIn" class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
     <div class="icon-container">
         <button class="icon" (click)="toggleCollapse()">
             <mat-icon>menu</mat-icon>
         </button>
-        <div class="text" *ngIf="collapsed">{{ "translations.playground" | translate }}</div>
+        <div class="text" @fadeInOut *ngIf="collapsed">{{ "translations.playground" | translate }}</div>
         <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
             <mat-icon>close</mat-icon>
         </button>
@@ -19,7 +19,7 @@
                 <i class="sidenav-nav-icon">
                     <mat-icon>{{ data.icon }}</mat-icon>
                 </i>
-                <span class="sidenav-link-text" *ngIf="collapsed">
+                <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
                     {{ getTranslationKey(data.label) | translate }}
                 </span>
             </a>
@@ -30,7 +30,7 @@
                 <i class="sidenav-nav-icon">
                     <mat-icon>language</mat-icon>
                 </i>
-                <span class="sidenav-link-text" *ngIf="collapsed">
+                <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
                     {{ "translations.language" | translate }}
                     <span
                         [ngClass]="{ 'arrow-down': !isLanguageDropdownOpen, 'arrow-up': isLanguageDropdownOpen }"
@@ -47,5 +47,8 @@
                 </li>
             </ul>
         </li>
+        <button class="logout-btn" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+        </button>
     </ul>
 </div>

@@ -12,13 +12,13 @@ import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
     {
+        path: RouterLinksEnum.login,
+        component: LoginComponent,
+    },
+    {
         path: '',
         redirectTo: RouterLinksEnum.home,
         pathMatch: 'full',
-    },
-    {
-        path: RouterLinksEnum.login,
-        component: LoginComponent,
     },
     {
         path: RouterLinksEnum.home,

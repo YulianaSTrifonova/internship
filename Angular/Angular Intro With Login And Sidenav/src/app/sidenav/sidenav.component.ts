@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AVAILABLE_LOCALES, Locale, setLocale } from '@intro/i18n/i18n';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { AuthService } from '../services/auth.service';
 import { navbarData } from './nav-data';
 
 interface SidenavToggle {
@@ -12,11 +14,18 @@ interface SidenavToggle {
     selector: 'app-sidenav',
     templateUrl: './sidenav.component.html',
     styleUrl: './sidenav.component.scss',
+    animations: [
+        trigger('fadeInOut', [
+            transition(':enter', [style({ opacity: 0 }), animate('350ms', style({ opacity: 1 }))]),
+            transition(':leave', [style({ opacity: 1 }), animate('350ms', style({ opacity: 0 }))]),
+        ]),
+    ],
 })
 export class SidenavComponent {
     @Input() public data: { label: string };
-
     @Output() public toggleSidenav: EventEmitter<SidenavToggle> = new EventEmitter();
+
+    public isLoggedIn: boolean;
 
     public isLanguageDropdownOpen = false;
 
@@ -26,10 +35,15 @@ export class SidenavComponent {
 
     public languageOptions: ({ label: string; locale: 'en-GB' } | { label: string; locale: 'de-AT' })[];
 
-    public constructor(private _translateService: TranslateService) {}
+    public constructor(
+        private _translateService: TranslateService,
+        private _authService: AuthService,
+    ) {}
 
     public ngOnInit(): void {
-        this.screenWidth = window.innerWidth;
+        this._authService.isLoggedIn.subscribe((isLoggedIn: boolean) => {
+            this.isLoggedIn = isLoggedIn;
+        });
 
         this.languageOptions = [
             { label: 'English', locale: AVAILABLE_LOCALES[0] },
@@ -61,5 +75,9 @@ export class SidenavComponent {
 
     public toggleLanguageDropdown(): void {
         this.isLanguageDropdownOpen = !this.isLanguageDropdownOpen;
+    }
+
+    public logout(): void {
+        this._authService.logout();
     }
 }

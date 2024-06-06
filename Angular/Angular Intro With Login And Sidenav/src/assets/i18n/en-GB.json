@@ -51,5 +51,16 @@
     "userEvents": {
         "pressAnyKey": "Press any key",
         "clickedMessage": "You clicked something!"
+    },
+    "login": {
+        "login": "Login",
+        "username": "Username",
+        "password": "Password",
+        "email": "Email",
+        "required": "is required.",
+        "username-length": "Username must be at least 3 characters long.",
+        "email-format": "Invalid email format.",
+        "password-length": "Password must be at least 8 characters long.",
+        "password-char": "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character."
     }
 }
