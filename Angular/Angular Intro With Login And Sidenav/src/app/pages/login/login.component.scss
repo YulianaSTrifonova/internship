@@ -61,12 +61,13 @@
 
     .show-pass-btn {
         position: absolute;
-        right: -165px;
+        right: 20px;
         top: -20%;
         transform: translateY(-50%);
         background-color: transparent;
         border: none;
         padding: 0;
+        width: 25px;
     }
 
     .show-pass-btn:hover {
