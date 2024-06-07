@@ -31,6 +31,7 @@
     position: relative;
     margin-bottom: 15px;
     height: 85px;
+    backdrop-filter: blur(20px);
 
     input {
         width: 100%;
@@ -62,7 +63,7 @@
     .show-pass-btn {
         position: absolute;
         right: 20px;
-        top: -20%;
+        top: 35%;
         transform: translateY(-50%);
         background-color: transparent;
         border: none;
@@ -76,6 +77,24 @@
     }
 }
 
+.btn {
+    margin-top: 3rem;
+    height: 85px;
+    padding-bottom: 2rem;
+    font-family: "Outfit", sans-serif;
+
+    p {
+        color: #dbecf2;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    span {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
 button {
     background-color: #dbecf279;
     box-sizing: border-box;
@@ -85,9 +104,9 @@ button {
     cursor: pointer;
     padding: 1rem;
     width: 100%;
-    margin-top: 3rem;
     border-radius: 3rem;
     font-family: "Outfit", sans-serif;
+    margin-bottom: 1rem;
 }
 
 button:hover {
@@ -98,7 +117,17 @@ button:hover {
 
 .error {
     color: #f33d3a;
-    margin-top: 5px;
+    margin-top: 0;
     text-align: center;
     font-family: "Outfit", sans-serif;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+        opacity 0.3s ease-in,
+        margin-top 0.3s ease-in;
+}
+
+.error.show {
+    opacity: 1;
+    margin-top: 5px;
 }

@@ -10,7 +10,12 @@
                     placeholder="{{ 'login.username' | translate }}"
                 />
                 <mat-icon class="input-icon">person</mat-icon>
-                <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="error">
+                <div
+                    [ngClass]="{
+                        error: true,
+                        show: loginForm.get('username')?.invalid && loginForm.get('username')?.touched
+                    }"
+                >
                     <small *ngIf="loginForm.get('username')?.errors?.['required']"
                         >{{ "login.username" | translate }} {{ "login.required" | translate }}</small
                     >
@@ -23,7 +28,12 @@
             <div class="form-group">
                 <input type="email" id="email" formControlName="email" placeholder="{{ 'login.email' | translate }}" />
                 <mat-icon class="input-icon">email</mat-icon>
-                <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error">
+                <div
+                    [ngClass]="{
+                        error: true,
+                        show: loginForm.get('email')?.invalid && loginForm.get('email')?.touched
+                    }"
+                >
                     <small *ngIf="loginForm.get('email')?.errors?.['required']"
                         >{{ "login.email" | translate }} {{ "login.required" | translate }}</small
                     >
@@ -46,7 +56,12 @@
                 <button class="show-pass-btn" matSuffix (click)="clickEvent($event)" [attr.aria-pressed]="hide">
                     <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
                 </button>
-                <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error">
+                <div
+                    [ngClass]="{
+                        error: true,
+                        show: loginForm.get('password')?.invalid && loginForm.get('password')?.touched
+                    }"
+                >
                     <small *ngIf="loginForm.get('password')?.errors?.['required']"
                         >{{ "login.password" | translate }} {{ "login.required" | translate }}</small
                     >
@@ -59,8 +74,11 @@
                 </div>
             </div>
 
-            <button type="submit">{{ "login.login" | translate }} 🡲</button>
+            <div class="btn">
+                <button type="submit">{{ "login.login" | translate }} 🡲</button>
+                <p>Don't have an account? <span>Sign up now.</span></p>
+                <div [ngClass]="{ error: true, show: errorMessage }" class="error">{{ errorMessage }}</div>
+            </div>
         </form>
-        <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
     </div>
 </div>
