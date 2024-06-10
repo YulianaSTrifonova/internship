@@ -33,8 +33,7 @@ export class BoardComponent implements OnInit {
       }
     }
 
-    const totalMines = Math.floor(this.size);
-    for (let m = 0; m < totalMines; m++) {
+    for (let m = 0; m < this.size; m++) {
       let x, y;
       do {
         x = Math.floor(Math.random() * this.size);
@@ -73,7 +72,6 @@ export class BoardComponent implements OnInit {
       return;
     }
 
-    console.log(this.cells[x][y])
     this.cells[x][y].opened = true;
 
     if (this.cells[x][y].isMine) {
