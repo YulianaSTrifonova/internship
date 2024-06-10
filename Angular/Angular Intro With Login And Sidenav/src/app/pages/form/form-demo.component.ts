@@ -43,7 +43,7 @@ export class FormDemoComponent implements OnInit {
         return sum === 100 ? null : { sumNot100: true };
     };
 
-    public submitForm() {
+    public submitForm(): void {
         console.log(this.reactiveForm.value);
     }
 }

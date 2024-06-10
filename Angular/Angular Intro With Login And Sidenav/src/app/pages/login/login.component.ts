@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
     public errorMessage = '';
     public hide = true;
 
+    public invalid: string = $localize`:@@invalid: Invalid username, email, or password.`;
+
     public constructor(
         private _fb: FormBuilder,
         private _authService: AuthService,
@@ -39,11 +41,9 @@ export class LoginComponent implements OnInit {
             const { username, email, password } = this.loginForm.value;
             if (this._authService.login(username, email, password)) {
                 this._router.navigate(['/home']);
-            } else {
-                this.errorMessage = 'Invalid username, email, or password.';
             }
         } else {
-            this.errorMessage = 'Please fill in all fields correctly.';
+            this.errorMessage = this.invalid;
             this.loginForm.markAllAsTouched();
         }
     }

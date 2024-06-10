@@ -1,7 +1,7 @@
 <div class="login-background">
     <div class="login-container">
         <h1>{{ "login.login" | translate }}</h1>
-        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <form [formGroup]="loginForm">
             <div class="form-group">
                 <input
                     type="text"
@@ -75,9 +75,13 @@
             </div>
 
             <div class="btn">
-                <button type="submit">{{ "login.login" | translate }} 🡲</button>
-                <p>Don't have an account? <span>Sign up now.</span></p>
-                <div [ngClass]="{ error: true, show: errorMessage }" class="error">{{ errorMessage }}</div>
+                <button type="submit" (click)="onLogin()">{{ "login.login" | translate }} 🡲</button>
+                <p>
+                    {{ "login.not-registered" | translate }} <span>{{ "login.sign-up" | translate }} </span>
+                </p>
+                <div [ngClass]="{ error: true, show: errorMessage }" class="error">
+                    {{ "login.invalid" | translate }}
+                </div>
             </div>
         </form>
     </div>

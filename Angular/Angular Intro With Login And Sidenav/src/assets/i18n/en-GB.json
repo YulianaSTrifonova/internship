@@ -61,6 +61,9 @@
         "username-length": "Username must be at least 3 characters long.",
         "email-format": "Invalid email format.",
         "password-length": "Password must be at least 8 characters long.",
-        "password-char": "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character."
+        "password-char": "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character.",
+        "not-registered": "Don't have an account?",
+        "sign-up": "Sign up now.",
+        "invalid": "Invalid username, email, or password."
     }
 }

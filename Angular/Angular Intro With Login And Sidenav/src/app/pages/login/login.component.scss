@@ -18,7 +18,8 @@
 }
 
 .login-container {
-    width: 400px;
+    width: 20vw;
+    height: auto;
     margin: 0 auto;
     padding: 5rem;
     border-radius: 10px;
@@ -130,4 +131,34 @@ button:hover {
 .error.show {
     opacity: 1;
     margin-top: 5px;
+}
+
+/***** Media Queries *****/
+
+@media (max-width: 1440px) {
+    .login-container {
+        width: 30vw;
+        padding: 5rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .login-container {
+        width: 50vw;
+        padding: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        width: 60vw;
+        padding: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        width: 70vw;
+        padding: 2rem;
+    }
 }

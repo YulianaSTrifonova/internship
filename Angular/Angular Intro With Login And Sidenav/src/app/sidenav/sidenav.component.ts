@@ -30,7 +30,6 @@ export class SidenavComponent {
     public isLanguageDropdownOpen = false;
 
     public collapsed = false;
-    public screenWidth = 0;
     public navData = navbarData;
 
     public languageOptions: ({ label: string; locale: 'en-GB' } | { label: string; locale: 'de-AT' })[];
@@ -43,6 +42,7 @@ export class SidenavComponent {
     public ngOnInit(): void {
         this._authService.isLoggedIn.subscribe((isLoggedIn: boolean) => {
             this.isLoggedIn = isLoggedIn;
+            this.collapsed = false;
         });
 
         this.languageOptions = [
@@ -63,7 +63,6 @@ export class SidenavComponent {
 
     public closeSidenav(): void {
         this.collapsed = false;
-        this.toggleSidenav.emit({ collapsed: this.collapsed, screenWidth: this.screenWidth });
     }
     public toggleCollapse(): void {
         this.collapsed = !this.collapsed;
