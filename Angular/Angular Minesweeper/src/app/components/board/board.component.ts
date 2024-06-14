@@ -58,12 +58,14 @@ export class BoardComponent implements OnInit {
       for (let adjacentY = -1; adjacentY <= 1; adjacentY++) {
         const neighborX = x + adjacentX;
         const neighborY = y + adjacentY;
-        if (
+
+        const isCellInBoard =
           neighborX >= 0 &&
           neighborX < this.size &&
           neighborY >= 0 &&
-          neighborY < this.size
-        ) {
+          neighborY < this.size;
+
+        if (isCellInBoard) {
           if (this.cells[neighborX][neighborY].isMine) {
             count++;
           }
@@ -74,7 +76,10 @@ export class BoardComponent implements OnInit {
   }
 
   revealCell(x: number, y: number): void {
-    if (this.gameOver || this.cells[x][y].opened || this.cells[x][y].flagged) {
+    const cellCantBeRevealed =
+      this.gameOver || this.cells[x][y].opened || this.cells[x][y].flagged;
+
+    if (cellCantBeRevealed) {
       return;
     }
 
@@ -108,12 +113,14 @@ export class BoardComponent implements OnInit {
       for (let adjacentY = -1; adjacentY <= 1; adjacentY++) {
         const neighborX = x + adjacentX;
         const neighborY = y + adjacentY;
-        if (
+
+        const isCellInBoard =
           neighborX >= 0 &&
           neighborX < this.size &&
           neighborY >= 0 &&
-          neighborY < this.size
-        ) {
+          neighborY < this.size;
+
+        if (isCellInBoard) {
           this.revealCell(neighborX, neighborY);
         }
       }
@@ -133,10 +140,12 @@ export class BoardComponent implements OnInit {
   checkWin(): void {
     for (let x = 0; x < this.size; x++) {
       for (let y = 0; y < this.size; y++) {
-        if (
+
+        const mineNotFlagged =
           (!this.cells[x][y].isMine && !this.cells[x][y].opened) ||
-          (this.cells[x][y].isMine && !this.cells[x][y].flagged)
-        ) {
+          (this.cells[x][y].isMine && !this.cells[x][y].flagged);
+
+        if (mineNotFlagged) {
           return;
         }
       }
