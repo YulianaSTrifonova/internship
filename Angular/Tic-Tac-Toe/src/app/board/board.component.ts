@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { Lines, Player, nextMove } from '../enums';
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
-  styleUrl: './board.component.css',
+  styleUrls: ['./board.component.css'],
 })
 export class BoardComponent implements OnInit {
-  squares!: any[];
-  xIsNext!: boolean;
-  winner!: string | null;
+  squares!: Player[];
+  ticOrTac!: Player;
+  winner!: Player | null;
 
   constructor() {}
 
@@ -17,43 +18,31 @@ export class BoardComponent implements OnInit {
   }
 
   newGame() {
-    this.squares = Array(9).fill(null);
+    this.squares = Array(9).fill(Player.None);
     this.winner = null;
-    this.xIsNext = true;
-  }
-
-  get player() {
-    return this.xIsNext ? 'X' : 'O';
+    this.ticOrTac = Player.X;
   }
 
   makeMove(index: number) {
-    if (!this.squares[index]) {
-      this.squares.splice(index, 1, this.player);
-      this.xIsNext = !this.xIsNext;
+    const isPossibleMove = this.squares[index] === Player.None && !this.winner;
+
+    if (isPossibleMove) {
+      this.squares[index] = this.ticOrTac;
+      this.ticOrTac = nextMove[this.ticOrTac];
     }
 
     this.winner = this.calculateWinner();
   }
 
-  calculateWinner() {
-    const lines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
-
-    for (let i = 0; i < lines.length; i++) {
-      const [a, b, c] = lines[i];
-      if (
-        this.squares[a] &&
+  calculateWinner(): Player | null {
+    for (const [a, b, c] of Lines) {
+      
+      const someoneHasWon =
+        this.squares[a] !== Player.None &&
         this.squares[a] === this.squares[b] &&
-        this.squares[a] === this.squares[c]
-      ) {
+        this.squares[a] === this.squares[c];
+
+      if (someoneHasWon) {
         return this.squares[a];
       }
     }

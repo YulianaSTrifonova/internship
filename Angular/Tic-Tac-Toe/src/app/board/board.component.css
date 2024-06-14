@@ -1,14 +1,47 @@
-main {
+.game-container {
+  width: 430px;
+  text-align: center;
+}
+
+.board-border {
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: inset 0 0 0 10px #171a24;
+  background-color: #469566;
+  width: 390px;
+  margin-bottom: 15px;
+}
+
+.board {
   display: grid;
-  grid-template-columns: 150px 150px 150px;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 5px;
+  border: 20px dashed #171a24;
+  box-shadow: inset 0 0 0 5px hsl(226, 22%, 12%);
+  margin: 10px;
+  padding: 10px;
+  background-color: #8fbc9b;
+  border-radius: 10px;
 }
 
 app-square {
-  border: 1px solid gray;
-  height: 150px;
+  border: 1px solid #8fbc9b;
+  background-color: #469566;
 }
 
-.btn {
-  padding: 10px;
-  margin: 30px 0;
+.new-game {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #171a24;
+  color: #8fbc9b;
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 25px;
+}
+
+.result {
+  font-size: 25px;
+  padding: 20px;
+  transition: ease 0.5s;
+  font-family: "Pixelify Sans", sans-serif;
 }

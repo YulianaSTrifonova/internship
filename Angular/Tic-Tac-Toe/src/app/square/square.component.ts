@@ -1,10 +1,12 @@
 import { Component, Input } from '@angular/core';
+import { Player } from '../enums';
+
 
 @Component({
   selector: 'app-square',
   templateUrl: './square.component.html',
-  styleUrl: './square.component.css',
+  styleUrls: ['./square.component.css'],
 })
 export class SquareComponent {
-  @Input() value!: 'X' | 'O';
+  @Input() value!: Player;
 }
