@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Emoji } from '../../enums';
 
 @Component({
   selector: 'app-cell',
   templateUrl: './cell.component.html',
-  styleUrls: ['./cell.component.css'],
+  styleUrl: './cell.component.css',
 })
 export class CellComponent {
   @Input() isMine: boolean = false;
@@ -29,14 +30,14 @@ export class CellComponent {
   get cellValue(): string {
     if (this.opened) {
       return this.isMine
-        ? '💣'
+        ? Emoji.BOMB
         : this.neighboringMines === 0
         ? ''
         : this.neighboringMines.toString();
     } else if (this.flagged) {
-      return '🚩';
+      return Emoji.FLAG;
     } else {
-      return '';
+      return Emoji.EMPTY;
     }
   }
 }

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Result, Sounds } from '../../enums';
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.css'],
+  styleUrl: './board.component.css',
 })
 export class BoardComponent implements OnInit {
   size: number = 10;
@@ -57,7 +58,12 @@ export class BoardComponent implements OnInit {
       for (let adjacentY = -1; adjacentY <= 1; adjacentY++) {
         const neighborX = x + adjacentX;
         const neighborY = y + adjacentY;
-        if (neighborX >= 0 && neighborX < this.size && neighborY >= 0 && neighborY < this.size) {
+        if (
+          neighborX >= 0 &&
+          neighborX < this.size &&
+          neighborY >= 0 &&
+          neighborY < this.size
+        ) {
           if (this.cells[neighborX][neighborY].isMine) {
             count++;
           }
@@ -75,9 +81,9 @@ export class BoardComponent implements OnInit {
     this.cells[x][y].opened = true;
 
     if (this.cells[x][y].isMine) {
-      this.playAudio('explosion');
+      this.playAudio(Sounds.EXPLOSION);
       this.revealAllMines();
-      this.text = 'Game Over! 💥';
+      this.text = Result.GAME_OVER;
       this.gameOver = true;
     } else {
       const neighborMines = this.countNeighborMines(x, y);
@@ -93,7 +99,7 @@ export class BoardComponent implements OnInit {
     if (this.gameOver || this.cells[x][y].opened) {
       return;
     }
-    this.playAudio('flag');
+    this.playAudio(Sounds.FLAG);
     this.cells[x][y].flagged = !this.cells[x][y].flagged;
   }
 
@@ -102,7 +108,12 @@ export class BoardComponent implements OnInit {
       for (let adjacentY = -1; adjacentY <= 1; adjacentY++) {
         const neighborX = x + adjacentX;
         const neighborY = y + adjacentY;
-        if (neighborX >= 0 && neighborX < this.size && neighborY >= 0 && neighborY < this.size) {
+        if (
+          neighborX >= 0 &&
+          neighborX < this.size &&
+          neighborY >= 0 &&
+          neighborY < this.size
+        ) {
           this.revealCell(neighborX, neighborY);
         }
       }
@@ -130,8 +141,8 @@ export class BoardComponent implements OnInit {
         }
       }
     }
-    this.playAudio('success');
-    this.text = 'You won! 🥳';
+    this.playAudio(Sounds.SUCCESS);
+    this.text = Result.WIN;
   }
 
   playAudio(sound: string) {
@@ -144,6 +155,6 @@ export class BoardComponent implements OnInit {
   newGame(): void {
     this.generateBoard();
     this.gameOver = false;
-    this.text = '';
+    this.text = Result.EMPTY;
   }
 }
