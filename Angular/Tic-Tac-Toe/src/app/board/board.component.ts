@@ -4,7 +4,7 @@ import { Lines, Player, nextMove } from '../enums';
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.css'],
+  styleUrl: './board.component.css',
 })
 export class BoardComponent implements OnInit {
   squares!: Player[];

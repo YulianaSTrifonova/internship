@@ -41,7 +41,7 @@ app-square {
 
 .result {
   font-size: 25px;
-  padding: 20px;
+  margin-bottom: 15px;
   transition: ease 0.5s;
   font-family: "Pixelify Sans", sans-serif;
 }
