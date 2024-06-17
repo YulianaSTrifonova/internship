@@ -13,7 +13,7 @@ export default function Game() {
       <p className="score">Score: {score}</p>
       <Board tiles={tiles} />
       {gameOver && (
-        <div className="game-over">
+        <div>
           {hasWon() ? <h1>You Won!</h1> : <h1>Game Over</h1>}
           <button onClick={restartGame}>Restart</button>
         </div>
