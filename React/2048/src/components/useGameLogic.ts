@@ -40,8 +40,8 @@ export default function useGameLogic() {
   function setNewTiles(
     groupedTiles: { x: number; y: number; value: number }[][]
   ) {
-    let newTiles = [];
-    for (var i = 0; i < groupedTiles.length; i++) {
+    const newTiles = [];
+    for (let i = 0; i < groupedTiles.length; i++) {
       newTiles.push(tiles[i]);
     }
     addRandomTile(tiles);
@@ -107,14 +107,14 @@ export default function useGameLogic() {
       [DIRECTIONS.RIGHT]: { x: 1, y: 0 },
     };
 
-    return tiles.some((tile: { x: any; y: any; value: any }) => {
+    return tiles.some((tile) => {
       const { x, y, value } = tile;
       const offset = offsets[direction];
       const newX = x + offset.x;
       const newY = y + offset.y;
 
       const adjacentTile = tiles.find(
-        (adjTile: { x: any; y: any }) => adjTile.x == newX && adjTile.y == newY
+        (adjTile) => adjTile.x == newX && adjTile.y == newY
       );
 
       return (
@@ -129,10 +129,10 @@ export default function useGameLogic() {
   ) {
     // down and right
     for (let i = 0; i < groupedTiles.length; i++) {
-      let tilesInGroup = groupedTiles[i];
+      const tilesInGroup = groupedTiles[i];
       for (let j = 0; j < tilesInGroup.length - 1; j++) {
-        let tile = tilesInGroup[j];
-        let adjasentTile = tilesInGroup[j + 1];
+        const tile = tilesInGroup[j];
+        const adjasentTile = tilesInGroup[j + 1];
         if (tile.value) {
           if (tile.value == adjasentTile.value) {
             const newValue = (adjasentTile.value *= 2);
@@ -153,10 +153,10 @@ export default function useGameLogic() {
   ) {
     // up and left
     for (let i = 0; i < groupedTiles.length; i++) {
-      let tilesInGroup = groupedTiles[i];
+      const tilesInGroup = groupedTiles[i];
       for (let j = tilesInGroup.length - 1; j > 0; j--) {
-        let tile = tilesInGroup[j];
-        let adjasentTile = tilesInGroup[j - 1];
+        const tile = tilesInGroup[j];
+        const adjasentTile = tilesInGroup[j - 1];
         if (tile.value) {
           if (tile.value == adjasentTile.value) {
             const newValue = (adjasentTile.value *= 2);
@@ -173,34 +173,31 @@ export default function useGameLogic() {
   }
 
   function getGroupedTiles(groupBy: string) {
-    let groupedTiles = [];
+    const groupedTiles = [];
     for (let i = 0; i < 4; i++) {
       if (groupBy == GRID.ROW) {
-        groupedTiles.push(tiles.filter((tile: { y: number }) => tile.y == i));
+        groupedTiles.push(tiles.filter((tile) => tile.y == i));
       } else if (groupBy == GRID.COL) {
-        groupedTiles.push(tiles.filter((tile: { x: number }) => tile.x == i));
+        groupedTiles.push(tiles.filter((tile) => tile.x == i));
       }
     }
     return groupedTiles;
   }
 
   function checkGameOver() {
-    const hasMoves = tiles.some((tile: { x: any; y: any; value: any }) => {
+    const hasMoves = tiles.some((tile) => {
       const { x, y, value } = tile;
       const tileOnLeft = tiles.find(
-        (leftTile: { x: number; y: any }) =>
-          leftTile.x == x - 1 && leftTile.y == y
+        (leftTile) => leftTile.x == x - 1 && leftTile.y == y
       );
       const tileOnRight = tiles.find(
-        (rightTile: { x: any; y: any }) =>
-          rightTile.x == x + 1 && rightTile.y == y
+        (rightTile) => rightTile.x == x + 1 && rightTile.y == y
       );
       const tileOnTop = tiles.find(
-        (topTile: { x: any; y: number }) => topTile.x == x && topTile.y == y - 1
+        (topTile) => topTile.x == x && topTile.y == y - 1
       );
       const tileOnBottom = tiles.find(
-        (bottomTile: { x: any; y: any }) =>
-          bottomTile.x == x && bottomTile.y == y + 1
+        (bottomTile) => bottomTile.x == x && bottomTile.y == y + 1
       );
       return (
         (tileOnLeft && (tileOnLeft.value == value || tileOnLeft.value == 0)) ||
@@ -222,12 +219,12 @@ export default function useGameLogic() {
   }, [tiles]);
 
   function hasWon() {
-    return tiles.some((tile: { value: number }) => tile.value === 2048);
+    return tiles.some((tile) => tile.value === 2048);
   }
 
   function restartGame() {
     initializeTiles();
   }
-
+  
   return { score, tiles, gameOver, hasWon, restartGame };
 }

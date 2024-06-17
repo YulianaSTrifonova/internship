@@ -1,3 +1,5 @@
+/* eslint-disable react/react-in-jsx-scope */
+
 import Board from "../Board/Board";
 import useGameLogic from "../useGameLogic";
 import "./game.css";
