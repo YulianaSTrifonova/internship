@@ -6,4 +6,5 @@ export const navbarData = [
     { routeLink: 'pipes', icon: 'tune', label: 'pipes' },
     { routeLink: 'form', icon: 'assignment', label: 'forms' },
     { routeLink: 'weather', icon: 'wb_sunny', label: 'weather' },
+    { routeLink: 'charts', icon: 'bar_chart', label: 'charts' },
 ];

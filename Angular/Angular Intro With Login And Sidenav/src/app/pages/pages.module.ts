@@ -19,9 +19,11 @@ import { WeatherComponent } from './weather/weather.component';
 import { DataManipulationModule } from './data-manipulation/data-manipulation.module';
 import { FormDemoModule } from './form/form-demo.module';
 import { LoginComponent } from './login/login.component';
+import { ChartsModule } from './charts/charts.module';
 
 @NgModule({
     declarations: [HomeComponent, DirectivesDemoComponent, WeatherComponent, LoginComponent],
+    exports: [MatInputModule, MatButtonModule, MatFormFieldModule],
     imports: [
         DataManipulationModule,
         CommonModule,
@@ -34,11 +36,11 @@ import { LoginComponent } from './login/login.component';
         AnimalsModule,
         PipesDemoComponent,
         FormDemoModule,
+        ChartsModule,
         TranslateModule,
         ReactiveFormsModule,
         MatInputModule,
         MatIconModule,
     ],
-    exports: [MatInputModule, MatButtonModule, MatFormFieldModule],
 })
 export class PagesModule {}
