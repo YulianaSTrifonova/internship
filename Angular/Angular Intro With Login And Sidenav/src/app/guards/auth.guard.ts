@@ -6,11 +6,19 @@ import { AuthService } from '../services/auth.service';
 export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
     const authService: AuthService = inject(AuthService);
     const router: Router = inject(Router);
-    const protectedRoutes: string[] = ['/home', '/animals', '/data-manipulation', '/directives', '/form', '/weather'];
+    const protectedRoutes: string[] = [
+        '/home',
+        '/animals',
+        '/data-manipulation',
+        '/directives',
+        '/form',
+        '/weather',
+        '/charts',
+    ];
 
     if (protectedRoutes.includes(state.url)) {
         return authService.isLoggedIn.pipe(
-            take(1), //?
+            take(1),
             map((isLoggedIn: boolean) => {
                 if (isLoggedIn) {
                     return true;

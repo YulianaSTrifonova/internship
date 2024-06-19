@@ -66,5 +66,11 @@
         "not-registered": "Sie haben noch kein Konto?",
         "sign-up": "Jetzt registrieren.",
         "invalid": "Benutzername, E-Mail-Adresse oder Passwort ungültig."
+    },
+    "charts": {
+        "line-chart": "Liniendiagramm",
+        "bar-chart": "Balkendiagramm",
+        "sales": "Umsatz",
+        "profit": "Gewinn"
     }
 }

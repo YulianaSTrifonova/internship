@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
+import { TranslateService } from '@ngx-translate/core';
+import { ChartType, Colors, DATES } from '../chart.enums';
 
 @Component({
     selector: 'app-bar-chart',
@@ -7,35 +9,12 @@ import { Chart, registerables } from 'chart.js';
     styleUrl: './bar-chart.component.scss',
 })
 export class BarChartComponent implements OnInit {
-    private data = {
-        labels: [
-            '2022-05-10',
-            '2022-05-11',
-            '2022-05-12',
-            '2022-05-13',
-            '2022-05-14',
-            '2022-05-15',
-            '2022-05-16',
-            '2022-05-17',
-        ],
-        datasets: [
-            {
-                label: 'Sales',
-                data: ['467', '576', '572', '79', '92', '574', '573', '576'],
-                backgroundColor: '#0e1834',
-            },
-            {
-                label: 'Profit',
-                data: ['542', '542', '536', '327', '17', '0.00', '538', '541'],
-                backgroundColor: '#fed098',
-            },
-        ],
-    };
-    options: {
-        aspectRatio: 2.5;
-    };
-
     public chart: any;
+
+    private _labels = DATES;
+    private _data: any;
+
+    public constructor(private _translate: TranslateService) {}
 
     public ngOnInit(): void {
         this.createChart();
@@ -44,9 +23,30 @@ export class BarChartComponent implements OnInit {
     public createChart(): void {
         Chart.register(...registerables);
 
-        this.chart = new Chart('BarChart', {
-            type: 'bar',
-            data: this.data,
+        this._translate.get(['charts.sales', 'charts.profit']).subscribe((translations) => {
+            const salesLabel = translations['charts.sales'];
+            const profitLabel = translations['charts.profit'];
+
+            this._data = {
+                labels: this._labels,
+                datasets: [
+                    {
+                        label: salesLabel,
+                        data: [467, 576, 572, 79, 92, 574, 573, 576],
+                        backgroundColor: Colors.BLUE,
+                    },
+                    {
+                        label: profitLabel,
+                        data: [542, 542, 536, 327, 17, 0.0, 538, 541],
+                        backgroundColor: Colors.ORANGE,
+                    },
+                ],
+            };
+
+            this.chart = new Chart('barChart', {
+                type: ChartType.BAR,
+                data: this._data,
+            });
         });
     }
 }

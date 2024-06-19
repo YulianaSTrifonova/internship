@@ -66,5 +66,11 @@
         "not-registered": "Don't have an account?",
         "sign-up": "Sign up now.",
         "invalid": "Invalid username, email, or password."
+    },
+    "charts": {
+        "line-chart": "Line Chart",
+        "bar-chart": "Bar Chart",
+        "sales": "Sales",
+        "profit": "Profit"
     }
 }
