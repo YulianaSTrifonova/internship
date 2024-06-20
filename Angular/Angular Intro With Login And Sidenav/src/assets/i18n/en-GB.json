@@ -71,6 +71,20 @@
         "line-chart": "Line Chart",
         "bar-chart": "Bar Chart",
         "sales": "Sales",
-        "profit": "Profit"
+        "profit": "Profit",
+        "months": {
+            "january": "January",
+            "february": "February",
+            "march": "March",
+            "april": "April",
+            "may": "May",
+            "june": "June",
+            "july": "July",
+            "august": "August",
+            "september": "September",
+            "october": "October",
+            "november": "November",
+            "december": "December"
+        }
     }
 }
