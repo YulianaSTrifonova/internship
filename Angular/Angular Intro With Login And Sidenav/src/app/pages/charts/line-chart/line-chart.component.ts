@@ -1,37 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { Chart } from 'chart.js/auto';
+import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Chart } from 'chart.js/auto';
+import { ChartData } from 'chart.js';
 import { ChartType, Colors, Translations } from '../chart.enums';
-
-type LineChartData = {
-    labels: string[];
-    datasets: Array<{
-        label: string;
-        data: number[];
-        fill: boolean;
-        backgroundColor: string;
-        borderColor: string;
-        borderWidth: number;
-    }>;
-};
+import { IChartComponent } from '../types';
 
 @Component({
     selector: 'app-line-chart',
     templateUrl: './line-chart.component.html',
     styleUrl: './line-chart.component.scss',
 })
-export class LineChartComponent implements OnInit {
+export class LineChartComponent implements IChartComponent {
+    public data: ChartData;
     public chart: Chart;
 
-    private _data: LineChartData;
-
-    public constructor(private _translate: TranslateService) {}
+    public constructor(protected _translate: TranslateService) {}
 
     public ngOnInit(): void {
         this.init();
     }
 
-    private init(): void {
+    public init(): void {
         this._translate
             .stream([
                 Translations.SALES,
@@ -55,8 +44,32 @@ export class LineChartComponent implements OnInit {
             });
     }
 
-    private setChartData(salesLabel: string, profitLabel: string, translatedMonths: string[]): void {
-        this._data = {
+    public handleTranslationChange(translations: { [key: string]: string }): void {
+        const salesLabel = translations[Translations.SALES];
+        const profitLabel = translations[Translations.PROFIT];
+
+        const translatedMonths = [
+            translations[Translations.JANUARY],
+            translations[Translations.FEBRUARY],
+            translations[Translations.MARCH],
+            translations[Translations.APRIL],
+            translations[Translations.MAY],
+            translations[Translations.JUNE],
+            translations[Translations.JULY],
+            translations[Translations.AUGUST],
+            translations[Translations.SEPTEMBER],
+            translations[Translations.OCTOBER],
+            translations[Translations.NOVEMBER],
+            translations[Translations.DECEMBER],
+        ];
+
+        this.setChartData([salesLabel, profitLabel, ...translatedMonths]);
+    }
+
+    public setChartData(translations: string[]): void {
+        const [salesLabel, profitLabel, ...translatedMonths] = translations;
+
+        this.data = {
             labels: translatedMonths,
             datasets: [
                 {
@@ -79,32 +92,18 @@ export class LineChartComponent implements OnInit {
         };
     }
 
-    private handleTranslationChange(translations: { [key: string]: string }): void {
-        const salesLabel = translations[Translations.SALES];
-        const profitLabel = translations[Translations.PROFIT];
-
-        const translatedMonths = [
-            translations[Translations.JANUARY],
-            translations[Translations.FEBRUARY],
-            translations[Translations.MARCH],
-            translations[Translations.APRIL],
-            translations[Translations.MAY],
-            translations[Translations.JUNE],
-            translations[Translations.JULY],
-            translations[Translations.AUGUST],
-            translations[Translations.SEPTEMBER],
-            translations[Translations.OCTOBER],
-            translations[Translations.NOVEMBER],
-            translations[Translations.DECEMBER],
-        ];
-
-        this.setChartData(salesLabel, profitLabel, translatedMonths);
+    public createOrUpdateChart(): void {
+        if (!this.chart) {
+            this.createChart();
+        } else {
+            this.updateChart();
+        }
     }
 
-    private createChart(): void {
+    public createChart(): void {
         this.chart = new Chart('lineChart', {
             type: ChartType.LINE,
-            data: this._data,
+            data: this.data,
             options: {
                 scales: {
                     y: {
@@ -115,16 +114,8 @@ export class LineChartComponent implements OnInit {
         });
     }
 
-    private updateChart(): void {
-        this.chart.data = this._data;
-        this.chart.update();
-    }
-
-    private createOrUpdateChart(): void {
-        if (!this.chart) {
-            this.createChart();
-        } else {
-            this.updateChart();
-        }
+    public updateChart(): void {
+        this.chart.data = this.data;
+        this.chart.update('default');
     }
 }

@@ -25,6 +25,11 @@ export enum Translations {
     DECEMBER = 'charts.months.december',
 }
 
+export enum ChartId {
+    LINE = 'lineChart',
+    BAR = 'barChart',
+}
+
 export const MONTHS = [
     'January',
     'February',

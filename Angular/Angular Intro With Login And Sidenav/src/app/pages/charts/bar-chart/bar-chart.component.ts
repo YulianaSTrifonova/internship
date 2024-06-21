@@ -1,54 +1,43 @@
-import { Component, OnInit } from '@angular/core';
-import { Chart } from 'chart.js/auto';
+import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Chart } from 'chart.js/auto';
+import { ChartData } from 'chart.js';
 import { ChartType, Colors, DATES, Translations } from '../chart.enums';
-
-type BarChartData = {
-    labels: string[];
-    datasets: Array<{ label: string; data: number[]; backgroundColor: string }>;
-};
+import { IChartComponent } from '../types';
 
 @Component({
     selector: 'app-bar-chart',
     templateUrl: './bar-chart.component.html',
     styleUrl: './bar-chart.component.scss',
 })
-export class BarChartComponent implements OnInit {
+export class BarChartComponent implements IChartComponent {
+    public data: ChartData;
     public chart: Chart;
 
-    private _labels = DATES;
-    private _data: BarChartData;
-
-    public constructor(private _translate: TranslateService) {}
+    public constructor(protected _translate: TranslateService) {}
 
     public ngOnInit(): void {
         this.init();
     }
 
-    private init(): void {
+    public init(): void {
         this._translate.stream([Translations.SALES, Translations.PROFIT]).subscribe((translations) => {
             this.handleTranslationChange(translations);
             this.createOrUpdateChart();
         });
     }
 
-    private handleTranslationChange(translations: { [key: string]: string }): void {
+    public handleTranslationChange(translations: { [key: string]: string }): void {
         const salesLabel = translations[Translations.SALES];
         const profitLabel = translations[Translations.PROFIT];
-
-        this.setChartData(salesLabel, profitLabel);
+        this.setChartData([salesLabel, profitLabel]);
     }
 
-    private createOrUpdateChart(): void {
-        if (!this.chart) {
-            this.createChart();
-        } else {
-            this.updateChart();
-        }
-    }
-    private setChartData(salesLabel: string, profitLabel: string): void {
-        this._data = {
-            labels: this._labels,
+    public setChartData(translations: string[]): void {
+        const [salesLabel, profitLabel] = translations;
+
+        this.data = {
+            labels: DATES,
             datasets: [
                 {
                     label: salesLabel,
@@ -64,15 +53,23 @@ export class BarChartComponent implements OnInit {
         };
     }
 
-    private createChart(): void {
+    public createOrUpdateChart(): void {
+        if (!this.chart) {
+            this.createChart();
+        } else {
+            this.updateChart();
+        }
+    }
+
+    public createChart(): void {
         this.chart = new Chart('barChart', {
             type: ChartType.BAR,
-            data: this._data,
+            data: this.data,
         });
     }
 
-    private updateChart(): void {
-        this.chart.data = this._data;
-        this.chart.update();
+    public updateChart(): void {
+        this.chart.data = this.data;
+        this.chart.update('default');
     }
 }
