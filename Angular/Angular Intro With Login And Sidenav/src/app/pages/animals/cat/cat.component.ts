@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-cat',
+    selector: 'intro-app-cat',
     templateUrl: './cat.component.html',
     styleUrl: './cat.component.scss',
 })

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-relative-parent-imports */
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Chart } from 'chart.js/auto';
@@ -6,7 +7,7 @@ import { ChartType, Colors, DATES, Translations } from '../chart.enums';
 import { IChartComponent } from '../types';
 
 @Component({
-    selector: 'app-bar-chart',
+    selector: 'intro-app-bar-chart',
     templateUrl: './bar-chart.component.html',
     styleUrl: './bar-chart.component.scss',
 })

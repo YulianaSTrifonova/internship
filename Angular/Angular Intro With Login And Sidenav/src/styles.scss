@@ -60,3 +60,11 @@ h2 {
     font-size: 26px !important;
     color: #0e1834;
 }
+
+.dashboard-container {
+    transition: margin-left 0.5s;
+}
+
+.sidenav-open {
+    margin-left: 200px;
+}

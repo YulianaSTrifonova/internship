@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { UpperCasePipe } from '@angular/common';
+import { UpperCasePipe, CommonModule } from '@angular/common';
 import { DatePipe } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     templateUrl: './pipes-demo.component.html',
-    imports: [UpperCasePipe, DatePipe, TranslateModule],
+    imports: [UpperCasePipe, DatePipe, TranslateModule, CommonModule],
+
     standalone: true,
 })
 export class PipesDemoComponent {

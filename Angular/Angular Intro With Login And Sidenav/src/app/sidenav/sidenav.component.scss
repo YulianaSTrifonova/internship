@@ -122,6 +122,10 @@
             text-decoration: underline;
         }
 
+        .selected-language {
+            color: #fed098;
+        }
+
         .arrow-down::after {
             content: "\25BC";
             margin-left: 5px;

@@ -20,9 +20,10 @@ import { DataManipulationModule } from './data-manipulation/data-manipulation.mo
 import { FormDemoModule } from './form/form-demo.module';
 import { LoginComponent } from './login/login.component';
 import { ChartsModule } from './charts/charts.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
-    declarations: [HomeComponent, DirectivesDemoComponent, WeatherComponent, LoginComponent],
+    declarations: [HomeComponent, DirectivesDemoComponent, WeatherComponent, LoginComponent, DashboardComponent],
     exports: [MatInputModule, MatButtonModule, MatFormFieldModule],
     imports: [
         DataManipulationModule,

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-relative-parent-imports */
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Chart } from 'chart.js/auto';
@@ -6,7 +7,7 @@ import { ChartType, Colors, Translations } from '../chart.enums';
 import { IChartComponent } from '../types';
 
 @Component({
-    selector: 'app-line-chart',
+    selector: 'intro-app-line-chart',
     templateUrl: './line-chart.component.html',
     styleUrl: './line-chart.component.scss',
 })

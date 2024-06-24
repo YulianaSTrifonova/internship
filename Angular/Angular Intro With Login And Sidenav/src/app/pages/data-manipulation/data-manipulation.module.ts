@@ -1,3 +1,4 @@
+/* eslint-disable import/no-relative-parent-imports */
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -7,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 
 import { TranslateModule } from '@ngx-translate/core';
+import { CommonModule } from '@angular/common';
 import { ColorChangeDirective } from '../directives/color-change/color-change.directive';
 import { TooltipDirective } from '../directives/tooltip/tooltip.directive';
 
@@ -27,6 +29,7 @@ import { DataManipulationComponent } from './data-manipulation.component';
         ColorChangeDirective,
     ],
     imports: [
+        CommonModule,
         TranslateModule,
         FormsModule,
         MatInputModule,

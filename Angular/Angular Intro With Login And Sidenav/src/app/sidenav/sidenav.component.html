@@ -41,6 +41,7 @@
                 <li
                     *ngFor="let language of languageOptions"
                     (click)="changeLanguage(language.locale)"
+                    [ngClass]="{ 'selected-language': selectedLanguage === language.locale }"
                     class="language-opt"
                 >
                     {{ language.label }}

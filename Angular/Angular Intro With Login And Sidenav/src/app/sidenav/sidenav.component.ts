@@ -1,8 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+/* eslint-disable import/no-relative-parent-imports */
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AVAILABLE_LOCALES, Locale, setLocale } from '@intro/i18n/i18n';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AuthService } from '../services/auth.service';
+import { SidenavService } from '../services/sidenav.service';
 import { navbarData } from './nav-data';
 
 interface SidenavToggle {
@@ -11,7 +13,7 @@ interface SidenavToggle {
 }
 
 @Component({
-    selector: 'app-sidenav',
+    selector: 'intro-app-sidenav',
     templateUrl: './sidenav.component.html',
     styleUrl: './sidenav.component.scss',
     animations: [
@@ -21,22 +23,22 @@ interface SidenavToggle {
         ]),
     ],
 })
-export class SidenavComponent {
+export class SidenavComponent implements OnInit {
     @Input() public data: { label: string };
     @Output() public toggleSidenav: EventEmitter<SidenavToggle> = new EventEmitter();
 
     public isLoggedIn: boolean;
-
     public isLanguageDropdownOpen = false;
-
     public collapsed = false;
     public navData = navbarData;
+    public selectedLanguage: string;
 
     public languageOptions: ({ label: string; locale: 'en-GB' } | { label: string; locale: 'de-AT' })[];
 
     public constructor(
         private _translateService: TranslateService,
         private _authService: AuthService,
+        private _sidenavService: SidenavService,
     ) {}
 
     public ngOnInit(): void {
@@ -56,6 +58,7 @@ export class SidenavComponent {
     }
 
     public changeLanguage(locale: Locale): void {
+        this.selectedLanguage = locale;
         setLocale(locale, localStorage);
         this._translateService.use(locale);
         localStorage.setItem('locale', locale);
@@ -63,9 +66,11 @@ export class SidenavComponent {
 
     public closeSidenav(): void {
         this.collapsed = false;
+        this.emitToggleEvent();
     }
     public toggleCollapse(): void {
         this.collapsed = !this.collapsed;
+        this.emitToggleEvent();
     }
 
     public getTranslationKey(label: string): string {
@@ -78,5 +83,13 @@ export class SidenavComponent {
 
     public logout(): void {
         this._authService.logout();
+    }
+
+    private emitToggleEvent(): void {
+        this._sidenavService.toggleSidebar(this.collapsed);
+        this.toggleSidenav.emit({
+            screenWidth: window.innerWidth,
+            collapsed: this.collapsed,
+        });
     }
 }

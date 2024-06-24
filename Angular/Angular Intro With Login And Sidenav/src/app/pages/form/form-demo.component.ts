@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 
 @Component({
-    selector: 'app-form-demo',
+    selector: 'intro-app-form-demo',
     templateUrl: './form-demo.component.html',
     styleUrl: './form-demo.component.scss',
 })
@@ -22,12 +22,16 @@ export class FormDemoComponent implements OnInit {
     /* Reactive Form */
     public reactiveForm: FormGroup;
 
+    public standartFormControl() {
+        return new FormControl('', [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]);
+    }
+
     public ngOnInit(): void {
         this.reactiveForm = new FormGroup({
-            field1Control: new FormControl('', [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
-            field2Control: new FormControl('', [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
-            field3Control: new FormControl('', [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
-            field4Control: new FormControl('', [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+            field1Control: this.standartFormControl(),
+            field2Control: this.standartFormControl(),
+            field3Control: this.standartFormControl(),
+            field4Control: this.standartFormControl(),
         });
 
         this.reactiveForm.setValidators(this.sumValidator);
