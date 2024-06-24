@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
         }
     }
 
-    public clickEvent(event: MouseEvent): void {
+    public togglePasswordVisibility(event: MouseEvent): void {
         this.hide = !this.hide;
         event.stopPropagation();
     }

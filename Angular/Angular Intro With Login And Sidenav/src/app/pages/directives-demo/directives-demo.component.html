@@ -1,11 +1,10 @@
 <div style="padding: 2rem 7rem; margin-left: 2rem">
     <h2>{{ "translations.directives" | translate }}</h2>
-    <p appTooltip="{{ 'translations.tooltip-content' | translate }}" i18n-appTooltip>
+    <p introAppTooltip="{{ 'translations.tooltip-content' | translate }}" i18n-appTooltip>
         {{ "translations.tooltip-text" | translate }}
-        <!-- <strong>Im the tooltip this text deserves</strong> -->
     </p>
 
-    <div appColorChange [eventType]="'click'" [color]="'green'" [cssAttribute]="'color'">
+    <div introAppColorChange [eventType]="'click'" [color]="'green'" [cssAttribute]="'color'">
         {{ "translations.color-changing-text" | translate }}
     </div>
 </div>

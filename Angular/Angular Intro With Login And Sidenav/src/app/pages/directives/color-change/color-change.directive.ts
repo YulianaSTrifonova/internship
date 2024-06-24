@@ -1,7 +1,7 @@
 import { Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
 
 @Directive({
-    selector: '[appColorChange]',
+    selector: '[introAppColorChange]',
 })
 export class ColorChangeDirective implements OnInit {
     @Input({ required: true }) public color: string = '';

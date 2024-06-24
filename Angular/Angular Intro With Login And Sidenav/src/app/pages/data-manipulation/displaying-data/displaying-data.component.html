@@ -4,12 +4,10 @@
         @for (person of listOfPeople; track person) {
             @if (person.age > 14) {
                 <mat-list-item class="{{ person.job }}">
-                    <h3 matListItemTitle appTooltip=",  {{ person.age }}">{{ person.name }}</h3>
+                    <h3 matListItemTitle introAppTooltip=",  {{ person.age }}">{{ person.name }}</h3>
                     <span>{{ "enums." + person.job | translate }}</span>
                 </mat-list-item>
             }
         }
     </mat-list>
 </div>
-
-<!-- appTooltip="{{ person.age }}" -->

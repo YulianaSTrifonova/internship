@@ -1,6 +1,6 @@
 export enum JobEnum {
-    doctor = 'doctor',
-    cook = 'cook',
-    pilot = 'pilot',
-    mechanic = 'mechanic',
+    DOCTOR = 'doctor',
+    COOK = 'cook',
+    PILOT = 'pilot',
+    MECHANIC = 'mechanic',
 }

@@ -53,7 +53,12 @@
                     [type]="hide ? 'password' : 'text'"
                 />
                 <mat-icon class="input-icon">lock</mat-icon>
-                <button class="show-pass-btn" matSuffix (click)="clickEvent($event)" [attr.aria-pressed]="hide">
+                <button
+                    class="show-pass-btn"
+                    matSuffix
+                    (click)="togglePasswordVisibility($event)"
+                    [attr.aria-pressed]="hide"
+                >
                     <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
                 </button>
                 <div

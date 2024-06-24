@@ -4,7 +4,7 @@
         <button mat-raised-button (click)="handleClick()">{{ "translations.alert" | translate }}</button>
         <p (keydown)="handleKeydown($event)">{{ lastPressedKey }}</p>
         <div
-            appColorChange
+            introAppColorChange
             [color]="'green'"
             [eventType]="'hover'"
             [cssAttribute]="'backgroundColor'"
@@ -15,7 +15,7 @@
     <div>
         <div
             style="background-color: red"
-            appColorChange
+            introAppColorChange
             [color]="'green'"
             [eventType]="'hover'"
             [cssAttribute]="'backgroundColor'"
@@ -23,12 +23,3 @@
         ></div>
     </div>
 </div>
-
-<!--
-    <div
-            class="square"
-            [class]="isRedSquareHovered ? 'green' : 'red'"
-            (mouseover)="handleHover()"
-            (mouseout)="handleHover()"
-        ></div>
--->

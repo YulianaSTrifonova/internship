@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { MathUtilService } from '@intro/app/services/math-util.service';
-import { Operators } from './enums';
+import { LifecycleHooks, Operators, Strings } from './enums';
 
 @Component({
     selector: 'intro-data-binding',
@@ -14,38 +14,38 @@ export class DataBindingComponent implements OnInit, AfterViewInit, OnChanges, O
     public constructor(private _mathUtilService: MathUtilService) {}
 
     public ngOnInit(): void {
-        console.log('OnInit');
+        console.log(LifecycleHooks.ONINIT);
         this.firstNumber = this.firstNumber;
         this.secondNumber = this.secondNumber;
     }
 
     public ngAfterViewInit(): void {
-        console.log('AfterViewInit');
+        console.log(LifecycleHooks.AFTERVIEWINIT);
     }
 
     public ngOnChanges(changes: SimpleChanges): void {
-        console.log('OnChanges', changes);
-        if (changes['firstNumber']) {
+        console.log(LifecycleHooks.ONCHANGES, changes);
+        if (changes[Strings.FIRST_NUMBER]) {
             console.log(
-                `First number changed from ${changes['firstNumber'].previousValue} to ${changes['firstNumber'].currentValue}`,
+                `First number changed from ${changes[Strings.FIRST_NUMBER].previousValue} to ${changes[Strings.FIRST_NUMBER].currentValue}`,
             );
         }
 
-        if (changes['secondNumber']) {
+        if (changes[Strings.SECOND_NUMBER]) {
             console.log(
-                `Second number changed from ${changes['secondNumber'].previousValue} to ${changes['secondNumber'].currentValue}`,
+                `Second number changed from ${changes[Strings.SECOND_NUMBER].previousValue} to ${changes[Strings.SECOND_NUMBER].currentValue}`,
             );
         }
 
-        if (changes['operator']) {
+        if (changes[Strings.OPERATOR]) {
             console.log(
-                `Operator changed from ${changes['operator'].previousValue} to ${changes['operator'].currentValue}`,
+                `Operator changed from ${changes[Strings.OPERATOR].previousValue} to ${changes[Strings.OPERATOR].currentValue}`,
             );
         }
     }
 
     public ngOnDestroy(): void {
-        console.log('OnDestroy');
+        console.log(LifecycleHooks.ONDESTROY);
     }
 
     public getResult(): number {

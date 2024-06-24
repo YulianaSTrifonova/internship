@@ -31,7 +31,7 @@ export class SidenavComponent implements OnInit {
     public isLanguageDropdownOpen = false;
     public collapsed = false;
     public navData = navbarData;
-    public selectedLanguage: string;
+    public selectedLanguage: string = 'en-GB';
 
     public languageOptions: ({ label: string; locale: 'en-GB' } | { label: string; locale: 'de-AT' })[];
 

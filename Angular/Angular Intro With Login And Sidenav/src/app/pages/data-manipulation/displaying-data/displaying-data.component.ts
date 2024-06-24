@@ -8,14 +8,14 @@ import { JobEnum } from './job.enum';
 })
 export class DisplayingDataComponent {
     public listOfPeople: IPerson[] = [
-        { name: 'John', age: 21, job: JobEnum.cook },
-        { name: 'Jack', age: 12, job: JobEnum.doctor },
-        { name: 'Jina', age: 45, job: JobEnum.pilot },
-        { name: 'Jules', age: 12, job: JobEnum.cook },
-        { name: 'Jenny', age: 36, job: JobEnum.doctor },
-        { name: 'Jim', age: 60, job: JobEnum.mechanic },
-        { name: 'James', age: 4, job: JobEnum.cook },
-        { name: 'Juniper', age: 7, job: JobEnum.cook },
+        { name: 'John', age: 21, job: JobEnum.COOK },
+        { name: 'Jack', age: 12, job: JobEnum.DOCTOR },
+        { name: 'Jina', age: 45, job: JobEnum.PILOT },
+        { name: 'Jules', age: 12, job: JobEnum.COOK },
+        { name: 'Jenny', age: 36, job: JobEnum.DOCTOR },
+        { name: 'Jim', age: 60, job: JobEnum.MECHANIC },
+        { name: 'James', age: 4, job: JobEnum.COOK },
+        { name: 'Juniper', age: 7, job: JobEnum.COOK },
     ];
 }
 
