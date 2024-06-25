@@ -10,7 +10,6 @@ import { WeatherComponent } from './pages/weather/weather.component';
 import { LoginComponent } from './pages/login/login.component';
 import { authGuard } from './guards/auth.guard';
 import { ChartsComponent } from './pages/charts/charts.component';
-//import { FormDemoComponent } from './pages/form/form-demo.component';
 
 const routes: Routes = [
     {
@@ -55,7 +54,6 @@ const routes: Routes = [
     {
         path: RouterLinksEnum.form,
         loadChildren: () => import('./pages/form/form-demo.module').then((m) => m.FormDemoModule),
-        //component: FormDemoComponent,
         canActivate: [authGuard],
     },
     {

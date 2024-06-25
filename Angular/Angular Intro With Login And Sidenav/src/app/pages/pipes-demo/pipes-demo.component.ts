@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { UpperCasePipe, CommonModule } from '@angular/common';
-import { DatePipe } from '@angular/common';
+import { UpperCasePipe, CommonModule, DatePipe } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
