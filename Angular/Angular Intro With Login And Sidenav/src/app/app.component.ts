@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { RouterLinksEnum } from './router-links.enum';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SidenavService } from './services/sidenav.service';
+import { AuthService } from './services';
 
 @Component({
     selector: 'intro-app-root',
@@ -12,9 +13,11 @@ import { SidenavService } from './services/sidenav.service';
 export class AppComponent extends DashboardComponent implements OnInit {
     public routerLinks = RouterLinksEnum;
     public languageOptions: { label: string; locale: Locale }[] = [];
+    public isLoggedIn: boolean;
 
     public constructor(
         private _translateService: TranslateService,
+        private _authService: AuthService,
         _sidenavService: SidenavService,
     ) {
         super(_sidenavService);
@@ -32,6 +35,10 @@ export class AppComponent extends DashboardComponent implements OnInit {
 
         this._sidenavSubscription = this._sidenavService.sidenavState.subscribe((isOpen) => {
             this.isNavOpen = isOpen;
+        });
+
+        this._authService.isLoggedIn.subscribe((isLoggedIn: boolean) => {
+            this.isLoggedIn = isLoggedIn;
         });
     }
 

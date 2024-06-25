@@ -1,3 +1,4 @@
+/* eslint-disable import/no-relative-parent-imports */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -7,13 +8,13 @@ import { IWeatherData } from '../pages/weather/weatherData.interface';
 
 @Injectable({ providedIn: 'root' })
 export class WeatherService {
-    public constructor(private http: HttpClient) {}
+    public constructor(private _http: HttpClient) {}
 
     public getWeather(cityId: number): Observable<IWeatherData> {
         const lang = getLocale().slice(0, 2);
         const url = `https://api.openweathermap.org/data/2.5/weather?id=${cityId}&APPID=406496398945921f8d8da27d8efcb655&units=metric&lang=${lang}`;
 
-        return this.http.get<any>(url).pipe(
+        return this._http.get<any>(url).pipe(
             map((response) => ({
                 cityName: response.name,
                 temperature: response.main.temp,

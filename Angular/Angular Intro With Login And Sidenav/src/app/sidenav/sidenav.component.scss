@@ -18,7 +18,7 @@
 }
 
 hr {
-    width: 100%;
+    width: 90%;
     border-color: #dbecf279;
     margin-bottom: 2rem;
 }
@@ -50,10 +50,7 @@ hr {
         color: #dbecf2;
         font-family: "Outfit", sans-serif;
         opacity: 1;
-        transition:
-            opacity 0.3s ease,
-            max-height 0.3s ease;
-        max-height: 3rem;
+        transition: opacity 0.3s ease;
         white-space: nowrap;
         text-overflow: ellipsis;
     }

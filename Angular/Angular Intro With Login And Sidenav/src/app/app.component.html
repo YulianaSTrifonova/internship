@@ -1,4 +1,4 @@
 <intro-app-sidenav></intro-app-sidenav>
-<div class="dashboard-container" [ngClass]="{ 'sidenav-open': isSidenavOpen() }">
+<div class="dashboard-container" [ngClass]="{ 'sidenav-open': isSidenavOpen() && isLoggedIn }">
     <router-outlet></router-outlet>
 </div>
