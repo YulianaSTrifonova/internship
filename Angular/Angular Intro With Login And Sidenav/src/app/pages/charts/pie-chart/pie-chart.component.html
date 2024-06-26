@@ -1,0 +1,49 @@
+<div>
+    <p>{{ "translations.explanation-text" | translate }}</p>
+    <div class="chart-container">
+        <canvas id="pieChart">{{ chart }}</canvas>
+    </div>
+    <form [formGroup]="form" class="form-group">
+        <div class="input-container">
+            <div>
+                <mat-label class="label">{{ "translations.new-label" | translate }}</mat-label>
+                <input
+                    matInput
+                    formControlName="newLabels"
+                    placeholder="{{ 'translations.comma-separated' | translate }}"
+                />
+            </div>
+
+            <div>
+                <mat-label class="label">{{ "translations.new-data" | translate }}</mat-label>
+                <input
+                    matInput
+                    formControlName="newData"
+                    placeholder="{{ 'translations.comma-separated' | translate }}"
+                />
+                <div
+                    [ngClass]="{
+                        error: true,
+                        show: form.get('newData')!.hasError('commaSeparatedNumbers')
+                    }"
+                >
+                    {{ "translations.comma-error" | translate }}
+                </div>
+            </div>
+        </div>
+        <br />
+        <div
+            [ngClass]="{
+                error: true,
+                show: form.hasError('matchCommaSeparatedCount')
+            }"
+        >
+            {{ "translations.length-error" | translate }}
+        </div>
+        <div>
+            <button mat-raised-button (click)="updateChartData()" class="update-btn" [disabled]="form.invalid">
+                {{ "translations.update-chart" | translate }}
+            </button>
+        </div>
+    </form>
+</div>

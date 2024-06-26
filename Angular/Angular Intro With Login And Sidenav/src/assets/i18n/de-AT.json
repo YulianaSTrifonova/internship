@@ -41,7 +41,14 @@
         "city-hum": "Luftfeuchtigkeit: ",
         "city-weather-desc": "Wetterbeschreibung: ",
         "city-sunrise": "Sonnenaufgang: ",
-        "city-sunset": "Sonnenuntergang: "
+        "city-sunset": "Sonnenuntergang: ",
+        "explanation-text": "Geben Sie unten neue Beschriftungen und Datenwerte ein und klicken Sie auf die Schaltfläche „Diagramm aktualisieren“.",
+        "new-label": "Neue Etiketten",
+        "new-data": "Neue Daten",
+        "update-chart": "Diagramm aktualisieren",
+        "comma-separated": "(Komma getrennt)",
+        "comma-error": "Die Daten müssen eine durch Kommas getrennte Liste von Zahlen sein.",
+        "length-error": "Etiketten und Daten müssen die gleiche Anzahl an Elementen haben."
     },
     "enums": {
         "doctor": "Arzt",
@@ -70,6 +77,7 @@
     "charts": {
         "line-chart": "Liniendiagramm",
         "bar-chart": "Balkendiagramm",
+        "pie-chart": "Kuchendiagramm",
         "sales": "Umsatz",
         "profit": "Gewinn",
         "months": {

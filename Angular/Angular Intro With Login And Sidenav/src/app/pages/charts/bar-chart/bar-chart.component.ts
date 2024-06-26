@@ -71,6 +71,6 @@ export class BarChartComponent implements IChartComponent {
 
     public updateChart(): void {
         this.chart.data = this.data;
-        this.chart.update('default');
+        this.chart.update('none');
     }
 }

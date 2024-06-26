@@ -41,7 +41,14 @@
         "city-hum": "Humidity: ",
         "city-weather-desc": "Weather Description: ",
         "city-sunrise": "Sunrise: ",
-        "city-sunset": "Sunset: "
+        "city-sunset": "Sunset: ",
+        "explanation-text": "Provide new labels and data values below and click on the 'Update chart' button.",
+        "new-label": "New Labels",
+        "new-data": "New Data",
+        "update-chart": "Update Chart",
+        "comma-separated": "(comma-separated)",
+        "comma-error": "Data must be a comma-separated list of numbers.",
+        "length-error": "Labels and data must have the same number of items."
     },
     "enums": {
         "doctor": "Doctor",
@@ -70,6 +77,7 @@
     "charts": {
         "line-chart": "Line Chart",
         "bar-chart": "Bar Chart",
+        "pie-chart": "Pie Chart",
         "sales": "Sales",
         "profit": "Profit",
         "months": {
