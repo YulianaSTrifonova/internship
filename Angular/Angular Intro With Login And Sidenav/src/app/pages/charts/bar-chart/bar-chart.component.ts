@@ -15,7 +15,7 @@ export class BarChartComponent implements IChartComponent {
     public data: ChartData;
     public chart: Chart;
 
-    public constructor(protected _translate: TranslateService) {}
+    public constructor(private _translate: TranslateService) {}
 
     public ngOnInit(): void {
         this.init();

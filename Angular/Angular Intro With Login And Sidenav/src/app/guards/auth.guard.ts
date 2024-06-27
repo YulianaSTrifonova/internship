@@ -9,7 +9,7 @@ export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: R
     const protectedRoutes: string[] = [
         '/home',
         '/animals',
-        '/data-manipulation',
+        '/dataManipulation',
         '/directives',
         '/form',
         '/weather',
