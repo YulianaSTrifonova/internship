@@ -4,6 +4,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { getLocale } from '@intro/i18n/i18n';
 
@@ -30,6 +31,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
         BrowserAnimationsModule,
         MatIconModule,
         HttpClientModule,
+        MatSlideToggleModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

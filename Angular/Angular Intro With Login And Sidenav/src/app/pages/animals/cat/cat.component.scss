@@ -2,3 +2,7 @@
 @use "../../theme-mixin/color.scss" as theme;
 
 @include theme.color(styles.$angular-intro-theme);
+
+.accent {
+    color: accent;
+}

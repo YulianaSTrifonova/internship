@@ -1,4 +1,8 @@
 <intro-app-sidenav></intro-app-sidenav>
+
 <div class="dashboard-container" [ngClass]="{ 'sidenav-open': isSidenavOpen() && isLoggedIn }">
+    <div *ngIf="isLoggedIn" class="slider">
+        <mat-slide-toggle [checked]="isDark" (change)="setTheme($event.checked)"></mat-slide-toggle>
+    </div>
     <router-outlet></router-outlet>
 </div>

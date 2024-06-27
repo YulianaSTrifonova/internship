@@ -1,7 +1,7 @@
 .tooltip {
     position: absolute;
-    background-color: #333;
-    color: #fff;
+    background-color: var(--surface-300);
+    color: var(--sidenav-contrast);
     margin-left: 10px;
     padding: 0 10px;
     border-radius: 3px;

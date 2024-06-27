@@ -22,16 +22,16 @@ export class FormDemoComponent implements OnInit {
     /* Reactive Form */
     public reactiveForm: FormGroup;
 
-    public standartFormControl() {
+    public validation() {
         return new FormControl('', [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]);
     }
 
     public ngOnInit(): void {
         this.reactiveForm = new FormGroup({
-            field1Control: this.standartFormControl(),
-            field2Control: this.standartFormControl(),
-            field3Control: this.standartFormControl(),
-            field4Control: this.standartFormControl(),
+            field1Control: this.validation(),
+            field2Control: this.validation(),
+            field3Control: this.validation(),
+            field4Control: this.validation(),
         });
 
         this.reactiveForm.setValidators(this.sumValidator);

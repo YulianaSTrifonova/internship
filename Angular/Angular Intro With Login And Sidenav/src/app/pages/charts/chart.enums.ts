@@ -1,6 +1,6 @@
 export enum Colors {
     ORANGE = '#fed098',
-    BLUE = '#0e1834',
+    BLUE = '#727488',
 }
 
 export enum ChartType {

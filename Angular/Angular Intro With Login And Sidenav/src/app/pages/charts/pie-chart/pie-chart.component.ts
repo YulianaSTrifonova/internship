@@ -56,7 +56,7 @@ export class PieChartComponent implements IChartComponent {
                 {
                     data: [100, 250],
                     backgroundColor: [Colors.BLUE, Colors.ORANGE],
-                    hoverOffset: 4,
+                    borderWidth: 0,
                 },
             ],
         };

@@ -1,7 +1,7 @@
 <div class="dashboard">
     <h2>{{ "translations.weather" | translate }}</h2>
     <div style="padding: 5px">
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="weather">
             <mat-label i18n="@@select-city">Select a City</mat-label>
             <mat-select [(value)]="selectedCityId" (selectionChange)="onCityChange()">
                 <mat-option *ngFor="let city of cities" [value]="city.id">

@@ -1,24 +1,46 @@
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
+// // Custom Theming for Angular Material
+// // For more information: https://material.angular.io/guide/theming
 @use "@angular/material" as mat;
-// Plus imports for other components in your app.
+// // Plus imports for other components in your app.
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
+// // Include the common styles for Angular Material. We include this here so that you only
+// // have to load a single css file for Angular Material in your app.
+// // Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
+// // Define the palettes for your theme using the Material Design palettes available in palette.scss
+// // (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// // hue. Available color palettes: https://material.io/design/color/
+// $angular-intro-primary: mat.define-palette(mat.$indigo-palette);
+// $angular-intro-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// // The warn palette is optional (defaults to red).
+// $angular-intro-warn: mat.define-palette(mat.$red-palette);
+
+// // Create the theme object. A theme consists of configurations for individual
+// // theming systems such as "color" or "typography".
+// $angular-intro-theme: mat.define-light-theme(
+//     (
+//         color: (
+//             primary: $angular-intro-primary,
+//             accent: $angular-intro-accent,
+//             warn: $angular-intro-warn,
+//         ),
+//     )
+// );
+
+// // Include theme styles for core and each component used in your app.
+// // Alternatively, you can import and @include the theme mixins for each component
+// // that you are using.
+// @include mat.all-component-themes($angular-intro-theme);
+// /* You can add global styles to this file, and also import other style files */
+
+/****** Themes *******/
+
 $angular-intro-primary: mat.define-palette(mat.$indigo-palette);
 $angular-intro-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
 $angular-intro-warn: mat.define-palette(mat.$red-palette);
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
 $angular-intro-theme: mat.define-light-theme(
     (
         color: (
@@ -29,12 +51,81 @@ $angular-intro-theme: mat.define-light-theme(
     )
 );
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
+$angular-intro-dark-primary: mat.define-palette(mat.$deep-purple-palette);
+$angular-intro-dark-accent: mat.define-palette(mat.$green-palette);
+$angular-intro-dark-warn: mat.define-palette(mat.$red-palette);
+
+$angular-intro-dark-theme: mat.define-dark-theme(
+    (
+        color: (
+            primary: $angular-intro-dark-primary,
+            accent: $angular-intro-dark-accent,
+            warn: $angular-intro-dark-warn,
+        ),
+    )
+);
+
 @include mat.all-component-themes($angular-intro-theme);
 
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    --primary: #0e1834;
+    --accent: #fed098;
+    --warn: #f33d3a;
+}
+
+.angular-intro-dark {
+    --primary-100: #fed098;
+    --primary-200: #ffd5a3;
+    --primary-300: #ffdaaf;
+    --primary-400: #ffe0ba;
+    --primary-500: #ffe5c5;
+    --surface-100: #0e1834;
+    --surface-200: #272d48;
+    --surface-300: #3f435d;
+    --surface-400: #585b72;
+    --surface-500: #727488;
+
+    --pie-chart-fields: #3f435d;
+
+    --primary: #0e1834;
+    --accent: #fed098;
+    --warn: #f33d3a;
+    --text: #fff;
+    --sidenav-contrast: #fff;
+    @include mat.all-component-colors($angular-intro-dark-theme);
+}
+
+.angular-intro-light {
+    --primary-100: #0e1834;
+    --primary-200: #272d48;
+    --primary-300: #3f435d;
+    --primary-400: #585b72;
+    --primary-500: #727488;
+    --surface-100: #fff;
+    --surface-200: #ffd5a3;
+    --surface-300: #0e1834;
+    --surface-400: #ffe0ba;
+    --surface-500: #ffe5c5;
+
+    --pie-chart-fields: transparent;
+
+    --primary: #0e1834;
+    --accent: #fed098;
+    --warn: #f33d3a;
+    --text: #0e1834;
+    --sidenav-contrast: #dbecf2;
+    @include mat.all-component-colors($angular-intro-theme);
+}
+
+/****** Global Styles *******/
+
+$sun-path: "m5.64 17l-.71.71a1 1 0 0 0 0 1.41a1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm7-7a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1ZM5.64 7.05a1 1 0 0 0 .7.29a1 1 0 0 0 .71-.29a1 1 0 0 0 0-1.41l-.71-.71a1 1 0 0 0-1.41 1.41Zm12 .29a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.64.71a1 1 0 0 0 0 1.41a1 1 0 0 0 .66.29ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-9 8a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Zm6.36-2A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0a1 1 0 0 0 0-1.41ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 3.5-3.5a3.5 3.5 0 0 1-3.5 3.5Z";
+$moon-path: "M21.64 13a1 1 0 0 0-1.05-.14a8.05 8.05 0 0 1-3.37.73a8.15 8.15 0 0 1-8.14-8.1a8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69a1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14a9.79 9.79 0 0 0 2.1-.22a8.11 8.11 0 0 1-7.18 4.32Z";
 
 html,
 body {
@@ -45,6 +136,7 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     position: relative;
+    background-color: var(--surface-100);
 }
 
 html,
@@ -61,12 +153,14 @@ h2 {
     text-align: center;
     font-family: "Outfit", sans-serif !important;
     font-size: 26px !important;
-    color: #0e1834;
+    color: var(--primary-500);
 }
 
 .dashboard {
     padding: 2rem 7rem;
     margin-left: 2rem;
+    color: var(--text);
+    font-size: 14px;
 }
 
 .dashboard-container {
@@ -75,4 +169,96 @@ h2 {
 
 .sidenav-open {
     margin-left: 200px;
+}
+
+.slider {
+    float: right;
+    padding: 2rem 4.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.mdc-switch.mdc-switch--unselected:enabled .mdc-switch__handle::after {
+    background: #fed098 !important;
+}
+
+.mdc-switch.mdc-switch--selected:enabled .mdc-switch__handle::after {
+    background: var(--surface-300) !important;
+}
+
+.mdc-switch:enabled .mdc-switch__track::before,
+.mdc-switch:enabled .mdc-switch__track::after,
+.mdc-switch:enabled:hover .mdc-switch__track::before,
+.mdc-switch:enabled:hover .mdc-switch__track::after {
+    background: var(--primary-500) !important;
+}
+
+.mdc-switch.mdc-switch--unselected:enabled .mdc-switch__icon path {
+    d: path($sun-path);
+    fill: var(--primary-100);
+}
+
+.mdc-switch.mdc-switch--selected:enabled .mdc-switch__icon path {
+    d: path($moon-path);
+    fill: var(--primary-100);
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-text-field__input {
+    caret-color: var(--primary-100) !important;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: var(--surface-300) !important;
+}
+
+.mdc-text-field--filled .mdc-line-ripple::before {
+    background-color: var(--surface-300) !important;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
+    border-bottom-color: var(--primary-100) !important;
+}
+
+.cdk-overlay-pane:not(.mat-mdc-select-panel-above) div.mat-mdc-select-panel,
+.mat-mdc-raised-button:not(:disabled),
+div.mat-mdc-select-panel .mat-mdc-option {
+    background-color: var(--surface-300) !important;
+
+    span {
+        color: var(--sidenav-contrast);
+    }
+}
+
+.mat-mdc-select-arrow {
+    color: var(--accent) !important;
+}
+intro-custom-input {
+    input,
+    input::placeholder {
+        color: var(--sidenav-contrast) !important;
+    }
+}
+
+.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after,
+.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after,
+.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
+    color: var(--accent) !important;
+}
+
+.operation-selector mat-label {
+    color: var(--sidenav-contrast) !important;
+}
+
+.weather mat-label {
+    color: var(--primary-500) !important;
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
+    border-color: var(--accent) !important;
+}
+
+input {
+    caret-color: var(--accent) !important;
 }

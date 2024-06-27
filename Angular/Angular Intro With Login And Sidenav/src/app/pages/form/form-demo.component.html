@@ -9,7 +9,7 @@
                     [ngClass]="{ 'input-with-error': field?.invalid && (field?.dirty || field?.touched) }"
                 >
                     <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>
+                        <mat-label class="form-input">
                             <span>{{ "translations.field" | translate }}</span>
                             {{ index + 1 }}</mat-label
                         >
@@ -47,7 +47,7 @@
                 ></ng-container>
             </ng-container>
 
-            <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+            <button mat-raised-button color="primary" type="submit" class="submit" [disabled]="form.invalid">
                 {{ "translations.submit" | translate }}
             </button>
         </form>
@@ -66,7 +66,7 @@
                             (reactiveForm.get(fieldName)?.dirty || reactiveForm.get(fieldName)?.touched)
                     }"
                 >
-                    <mat-label i18n="@@field-r">
+                    <mat-label i18n="@@field-r" class="form-input">
                         <span>{{ "translations.field" | translate }}</span> {{ index + 1 }}</mat-label
                     >
                     <input matInput type="text" [formControlName]="fieldName" />
@@ -104,7 +104,7 @@
             <div *ngIf="reactiveForm.errors?.['sumNot100']" class="error-message">
                 {{ "translations.sum-100-text" | translate }}
             </div>
-            <button mat-raised-button color="primary" type="submit" [disabled]="reactiveForm.invalid">
+            <button mat-raised-button color="primary" type="submit" class="submit" [disabled]="reactiveForm.invalid">
                 {{ "translations.submit" | translate }}
             </button>
         </form>

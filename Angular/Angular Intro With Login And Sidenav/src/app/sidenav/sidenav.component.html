@@ -37,7 +37,19 @@
                     ></span>
                 </span>
             </a>
-            <ul *ngIf="collapsed && isLanguageDropdownOpen">
+            <div *ngIf="collapsed && isLanguageDropdownOpen" class="dropdown">
+                <ul>
+                    <li
+                        *ngFor="let language of languageOptions"
+                        (click)="changeLanguage(language.locale)"
+                        [ngClass]="{ 'selected-language': selectedLanguage === language.locale }"
+                        class="language-opt"
+                    >
+                        {{ language.label }}
+                    </li>
+                </ul>
+            </div>
+            <ul *ngIf="!collapsed && isLanguageDropdownOpen" @slideInOut class="side-language">
                 <li
                     *ngFor="let language of languageOptions"
                     (click)="changeLanguage(language.locale)"

@@ -40,7 +40,7 @@ canvas {
 
     .label {
         font-family: "Outfit", sans-serif;
-        color: #263238;
+        color: var(--primary-100);
     }
 
     input {
@@ -48,17 +48,17 @@ canvas {
         padding: 1rem;
         box-sizing: border-box;
         border-radius: 3rem;
-        background-color: transparent;
+        background-color: var(--pie-chart-fields);
         border: 3px solid #dbecf21a;
-        color: #0e1834;
+        color: var(--primary-100);
         font-family: "Outfit", sans-serif;
         box-shadow: inset 0px 0px 5px 1px #263238a2;
         position: relative;
     }
 }
 .error {
-    color: #f33d3a;
-    margin-bottom: 5px;
+    color: var(--warn);
+    margin-bottom: 10px;
     text-align: center;
     opacity: 0;
     overflow: hidden;
@@ -69,5 +69,5 @@ canvas {
 
 .error.show {
     opacity: 1;
-    margin-top: 5px;
+    margin-top: 10px;
 }

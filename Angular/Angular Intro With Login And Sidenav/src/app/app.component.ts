@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { AVAILABLE_LOCALES, Locale, setLocale } from '@intro/i18n/i18n';
 import { TranslateService } from '@ngx-translate/core';
 import { RouterLinksEnum } from './router-links.enum';
@@ -15,15 +15,21 @@ export class AppComponent extends DashboardComponent implements OnInit {
     public languageOptions: { label: string; locale: Locale }[] = [];
     public isLoggedIn: boolean;
 
+    public isDark: boolean = false;
+
     public constructor(
         private _translateService: TranslateService,
         private _authService: AuthService,
         _sidenavService: SidenavService,
+        private _renderer: Renderer2,
     ) {
         super(_sidenavService);
     }
 
     public ngOnInit(): void {
+        this.isDark = localStorage.getItem('theme') === 'angular-intro-dark';
+        this.setTheme(this.isDark);
+
         this.languageOptions = [
             { label: 'English', locale: AVAILABLE_LOCALES[0] },
             { label: 'Deutsch', locale: AVAILABLE_LOCALES[1] },
@@ -50,5 +56,22 @@ export class AppComponent extends DashboardComponent implements OnInit {
 
     public isSidenavOpen(): boolean {
         return this.isNavOpen;
+    }
+
+    public toggleTheme(): void {
+        this.isDark = !this.isDark;
+        this.setTheme(this.isDark);
+    }
+
+    public setTheme(isDark: boolean): void {
+        if (isDark) {
+            this._renderer.addClass(document.body, 'angular-intro-dark');
+            this._renderer.removeClass(document.body, 'angular-intro-light');
+            localStorage.setItem('theme', 'angular-intro-dark');
+        } else {
+            this._renderer.addClass(document.body, 'angular-intro-light');
+            this._renderer.removeClass(document.body, 'angular-intro-dark');
+            localStorage.setItem('theme', 'angular-intro-light');
+        }
     }
 }
