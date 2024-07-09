@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "year": 1813,
+    "publisher": "Publisher 1",
+    "id": "1719831384683-525136"
+  },
+  {
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "year": 1963,
+    "publisher": "Publisher 2",
+    "id": "1719831384683-631192"
+  },
+  {
+    "title": "Crime and Punishment",
+    "author": "Fyodor Dostoevsky",
+    "year": 1866,
+    "publisher": "Publisher 2",
+    "id": "1719831384683-411956"
+  },
+  {
+    "title": "New Book",
+    "author": "New Author",
+    "year": 2023,
+    "publisher": "New Publisher",
+    "id": "1719831384683-120537"
+  }
+]
