@@ -1,0 +1,12 @@
+<div class="dashboard">
+    <h2>{{ "translations.pipes" | translate }}</h2>
+    <div style="padding: 5px">
+        <p>
+            {{ "translations.text-to-capitalize" | translate }}
+            <span>{{ "translations.text-for-capitalization" | translate | uppercase }}</span>
+        </p>
+        <p>
+            {{ "translations.date-format" | translate }} <span>{{ date | date: "dd/MM/yyyy" }}</span>
+        </p>
+    </div>
+</div>

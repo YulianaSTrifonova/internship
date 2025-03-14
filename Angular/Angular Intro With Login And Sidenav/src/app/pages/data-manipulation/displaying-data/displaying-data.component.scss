@@ -1,0 +1,17 @@
+@use "../../../../styles.scss" as styles;
+@use "../../theme-mixin/color.scss" as theme;
+
+@include theme.color(styles.$angular-intro-theme);
+
+mat-list-item {
+    h3,
+    span {
+        color: var(--primary);
+    }
+
+    h3:hover,
+    .tooltip {
+        color: var(--primary);
+        font-weight: bold;
+    }
+}

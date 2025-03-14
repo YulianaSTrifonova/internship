@@ -1,0 +1,199 @@
+.sidenav {
+    background: var(--surface-300);
+    transition: width 0.5s ease;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 5rem;
+    height: 100vh;
+    box-shadow: 0.05rem 0 0.75rem 0 #0e1834a2;
+    padding-top: 1rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    &-collapsed {
+        width: 17rem;
+    }
+}
+
+.side-language {
+    margin-top: -2rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: var(--surface-300);
+    margin-left: 4rem;
+    width: 4rem;
+    padding: 2rem;
+    position: relative;
+    z-index: -1;
+    box-shadow: 0.05rem 0 0 0 rgba(14, 24, 52, 0.6352941176);
+
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+hr {
+    width: 90%;
+    border-color: var(--primary-500);
+    margin-bottom: 2rem;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1rem 0 1rem;
+    width: 100%;
+
+    .icon {
+        background: transparent;
+        text-align: center;
+        color: var(--sidenav-contrast);
+        width: 3rem;
+        min-width: 3rem;
+        border: transparent;
+        padding: 0.5rem;
+        cursor: pointer;
+        transition:
+            background-color 0.3s,
+            color 0.3s;
+    }
+
+    .text {
+        margin-left: 1.5rem;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--sidenav-contrast);
+        font-family: "Outfit", sans-serif;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .btn-close {
+        margin-left: 1rem;
+        cursor: pointer;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background-color: transparent;
+        border: none;
+        color: var(--sidenav-contrast);
+        transition:
+            background-color 0.3s,
+            color 0.3s;
+    }
+}
+
+.sidenav-nav {
+    list-style: none;
+    padding: 1rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100% - 3.5rem);
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+
+    .sidenav-nav-item {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+            .sidenav-nav-link {
+                background-color: var(--accent);
+                color: var(--primary);
+            }
+        }
+    }
+
+    .sidenav-nav-link {
+        display: flex;
+        padding: 0.6rem 0;
+        align-items: center;
+        color: var(--sidenav-contrast);
+        border-radius: 3rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-family: "Outfit", sans-serif;
+        margin-bottom: 1rem;
+        white-space: nowrap;
+
+        &.active {
+            background-color: var(--primary-500);
+            color: #0e1834;
+        }
+    }
+
+    .sidenav-nav-icon {
+        font-size: 20px;
+        width: 2rem;
+        min-width: 2rem;
+        margin: 0 0.5rem;
+        text-align: center;
+    }
+
+    .sidenav-nav-text {
+        margin-left: 1.5rem;
+        opacity: 1;
+        transition:
+            opacity 0.3s ease,
+            max-height 0.3s ease;
+        max-height: 3rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .language {
+        .language-opt {
+            border: none;
+            background-color: transparent;
+            color: var(--sidenav-contrast);
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem;
+            font-family: "Outfit", sans-serif;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            &.selected-language {
+                color: var(--accent);
+            }
+        }
+
+        .arrow-down::after {
+            content: "\25BC";
+            margin-left: 5px;
+        }
+
+        .arrow-up::after {
+            content: "\25B2";
+            margin-left: 5px;
+        }
+    }
+}
+
+.logout-btn {
+    position: fixed;
+    bottom: 2rem;
+    background: transparent;
+    text-align: center;
+    color: var(--sidenav-contrast);
+    width: 3rem;
+    min-width: 3rem;
+    border: transparent;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition:
+        background-color 0.3s,
+        color 0.3s;
+}

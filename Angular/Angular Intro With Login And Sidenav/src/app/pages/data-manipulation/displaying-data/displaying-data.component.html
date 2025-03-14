@@ -1,0 +1,13 @@
+<div>
+    <h1 style="text-align: center">{{ "translations.displaying-data" | translate }}</h1>
+    <mat-list>
+        @for (person of listOfPeople; track person) {
+            @if (person.age > 14) {
+                <mat-list-item class="{{ person.job }}">
+                    <h3 matListItemTitle introAppTooltip=",  {{ person.age }}">{{ person.name }}</h3>
+                    <span>{{ "enums." + person.job | translate }}</span>
+                </mat-list-item>
+            }
+        }
+    </mat-list>
+</div>

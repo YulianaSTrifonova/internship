@@ -1,0 +1,112 @@
+<div class="dashboard">
+    <h2>{{ "translations.forms" | translate }}</h2>
+    <div class="form-container">
+        <h3>{{ "translations.template-form" | translate }}</h3>
+        <form #form="ngForm" (ngSubmit)="onSubmit()">
+            <ng-template #inputField let-field="field" let-fieldName="fieldName" let-index="index">
+                <div
+                    class="form-group"
+                    [ngClass]="{ 'input-with-error': field?.invalid && (field?.dirty || field?.touched) }"
+                >
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label class="form-input">
+                            <span>{{ "translations.field" | translate }}</span>
+                            {{ index + 1 }}</mat-label
+                        >
+                        <input
+                            matInput
+                            type="text"
+                            [name]="fieldName"
+                            [(ngModel)]="templateForm[fieldName]"
+                            required
+                            minlength="3"
+                            #field="ngModel"
+                        />
+                        <mat-error *ngIf="field?.invalid && (field?.dirty || field?.touched)">
+                            <div *ngIf="field?.errors?.['required']">
+                                <span>{{ "translations.field" | translate }}</span>
+                                {{ index + 1 }}
+                                <span>{{ "translations.field-required" | translate }}</span>
+                            </div>
+                            <div *ngIf="field?.errors?.['minlength']">
+                                <span>{{ "translations.field" | translate }}</span>
+                                {{ index + 1 }}
+                                <span>{{ "translations.field-three-chars" | translate }}</span>
+                            </div>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </ng-template>
+
+            <ng-container *ngFor="let fieldName of ['field1', 'field2', 'field3', 'field4']; let i = index">
+                <ng-container
+                    *ngTemplateOutlet="
+                        inputField;
+                        context: { field: form.controls[fieldName], fieldName: fieldName, index: i }
+                    "
+                ></ng-container>
+            </ng-container>
+
+            <button mat-raised-button color="primary" type="submit" class="submit" [disabled]="form.invalid">
+                {{ "translations.submit" | translate }}
+            </button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <h3>{{ "translations.reactive-form" | translate }}</h3>
+        <form [formGroup]="reactiveForm" (ngSubmit)="submitForm()">
+            <ng-template #reactiveInputField let-fieldName="fieldName" let-index="index">
+                <mat-form-field
+                    class="form-group"
+                    appearance="outline"
+                    [ngClass]="{
+                        'input-with-error':
+                            reactiveForm.get(fieldName)?.invalid &&
+                            (reactiveForm.get(fieldName)?.dirty || reactiveForm.get(fieldName)?.touched)
+                    }"
+                >
+                    <mat-label i18n="@@field-r" class="form-input">
+                        <span>{{ "translations.field" | translate }}</span> {{ index + 1 }}</mat-label
+                    >
+                    <input matInput type="text" [formControlName]="fieldName" />
+                    <mat-error
+                        *ngIf="
+                            reactiveForm.get(fieldName)?.invalid &&
+                            (reactiveForm.get(fieldName)?.dirty || reactiveForm.get(fieldName)?.touched)
+                        "
+                    >
+                        <div *ngIf="reactiveForm.get(fieldName)?.errors?.['required']">
+                            <span>{{ "translations.field" | translate }}</span>
+                            {{ index + 1 }}
+                            <span>{{ "translations.field-required" | translate }}</span>
+                        </div>
+                        <div *ngIf="reactiveForm.get(fieldName)?.errors?.['pattern']">
+                            <span>{{ "translations.field" | translate }}</span>
+                            {{ index + 1 }}
+                            <span>{{ "translations.field-number" | translate }}</span>
+                        </div>
+                    </mat-error>
+                </mat-form-field>
+            </ng-template>
+
+            <ng-container
+                *ngFor="
+                    let field of ['field1Control', 'field2Control', 'field3Control', 'field4Control'];
+                    let i = index
+                "
+            >
+                <ng-container
+                    *ngTemplateOutlet="reactiveInputField; context: { fieldName: field, index: i }"
+                ></ng-container>
+            </ng-container>
+
+            <div *ngIf="reactiveForm.errors?.['sumNot100']" class="error-message">
+                {{ "translations.sum-100-text" | translate }}
+            </div>
+            <button mat-raised-button color="primary" type="submit" class="submit" [disabled]="reactiveForm.invalid">
+                {{ "translations.submit" | translate }}
+            </button>
+        </form>
+    </div>
+</div>

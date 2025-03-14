@@ -1,0 +1,9 @@
+<div style="padding: 5px">
+    <p>
+        {{ "translations.text-to-capitalize" | translate }}
+        <span>{{ "translations.text-for-capitalization" | translate | uppercase }}</span>
+    </p>
+    <p>
+        {{ "translations.date-format" | translate }} <span>{{ date | date: "shortDate" }}</span>
+    </p>
+</div>

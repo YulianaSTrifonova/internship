@@ -1,0 +1,9 @@
+<mat-form-field style="width: 300px">
+    <input
+        matInput
+        type="number"
+        [(ngModel)]="inputValue"
+        (ngModelChange)="onValueChange($event)"
+        placeholder="{{ 'translations.placeholder-text' | translate }}"
+    />
+</mat-form-field>

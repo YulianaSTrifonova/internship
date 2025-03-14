@@ -1,0 +1,40 @@
+<div class="dashboard">
+    <h2>{{ "translations.weather" | translate }}</h2>
+    <div style="padding: 5px">
+        <mat-form-field appearance="outline" class="weather">
+            <mat-label i18n="@@select-city">Select a City</mat-label>
+            <mat-select [(value)]="selectedCityId" (selectionChange)="onCityChange()">
+                <mat-option *ngFor="let city of cities" [value]="city.id">
+                    {{ city.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div *ngIf="cityWeather" style="text-transform: capitalize">
+            <div>
+                <span>{{ "translations.city-name" | translate }}</span>
+                <span>{{ cityWeather.cityName }}</span>
+            </div>
+            <div>
+                <span>{{ "translations.city-temp" | translate }}</span>
+                <span>{{ cityWeather.temperature }}°C</span>
+            </div>
+            <div>
+                <span>{{ "translations.city-hum" | translate }}</span>
+                <span>{{ cityWeather.humidity }}</span>
+            </div>
+            <div>
+                <span>{{ "translations.city-weather-desc" | translate }}</span>
+                <span>{{ cityWeather.weatherDescription }}</span>
+            </div>
+            <div>
+                <span>{{ "translations.city-sunrise" | translate }}</span>
+                <span>{{ cityWeather.sunrise | date: "dd/MM/yyyy HH:mm" }}</span>
+            </div>
+            <div>
+                <span>{{ "translations.city-sunset" | translate }}</span>
+                <span>{{ cityWeather.sunset | date: "dd/MM/yyyy HH:mm" }}</span>
+            </div>
+        </div>
+    </div>
+</div>
