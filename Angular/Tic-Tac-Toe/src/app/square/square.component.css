@@ -1,0 +1,9 @@
+button {
+  width: 100%;
+  height: 100%;
+  font-size: 5em;
+  background-color: transparent;
+  border: transparent;
+  font-family: "Pixelify Sans", sans-serif;
+  color: #171a24;
+}
