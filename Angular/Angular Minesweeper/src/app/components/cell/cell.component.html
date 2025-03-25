@@ -1,0 +1,10 @@
+<div
+  class="cell"
+  (click)="onClick()"
+  (contextmenu)="onRightClick($event)"
+  [class.opened]="opened"
+  [class.mine]="opened && isMine"
+  [class.flagged]="flagged"
+>
+  {{ cellValue }}
+</div>
