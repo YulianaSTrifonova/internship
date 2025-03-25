@@ -1,0 +1,15 @@
+<table>
+  <tbody>
+    <tr *ngFor="let row of calculatorKeys">
+      <ng-container *ngFor="let button of row">
+        <td [attr.colspan]="button.colspan" [attr.rowspan]="button.rowspan">
+          <app-single-key
+            [button]="button"
+            (click)="handleClick(button.displayName)"
+          >
+          </app-single-key>
+        </td>
+      </ng-container>
+    </tr>
+  </tbody>
+</table>

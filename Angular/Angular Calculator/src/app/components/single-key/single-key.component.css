@@ -1,0 +1,39 @@
+.btn {
+  text-align: center;
+  width: 40px;
+  height: 35px;
+  border-radius: 3px;
+  border: 1px solid #b1b4b8;
+  background-color: #eef4fa;
+  cursor: pointer;
+  color: #3e658b;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.btn:hover {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 250, 148, 1) 0%,
+    rgba(245, 194, 37, 1) 100%
+  );
+}
+
+.tall {
+  height: 83px;
+}
+
+.long {
+  width: 93px;
+}
+
+.disabled {
+  background-color: #d9e4f1;
+  border: 1px solid #b6c4d3;
+  cursor: not-allowed;
+  color: #d9e4f1;
+}
+
+.disabled:hover {
+  background-image: none;
+}

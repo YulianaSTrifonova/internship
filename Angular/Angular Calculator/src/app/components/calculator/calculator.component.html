@@ -1,0 +1,9 @@
+<div class="calculator">
+  <app-display
+    [previousOperand]="_calculatorService.previousOperand"
+    [currentOperand]="_calculatorService.currentOperand"
+    [operation]="_calculatorService.operation"
+  >
+  </app-display>
+  <app-keys (clickHandler)="handleKeyClick($event)"></app-keys>
+</div>

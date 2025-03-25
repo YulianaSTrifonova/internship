@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  padding: 30px;
+}
+
+.container {
+  gap: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
