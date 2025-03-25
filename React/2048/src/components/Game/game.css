@@ -1,0 +1,20 @@
+.game {
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+}
+
+.score {
+  font-size: 25px;
+}
+
+button {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #171a24;
+  color: #8fbc9b;
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 20px;
+}
