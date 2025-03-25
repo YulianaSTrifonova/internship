@@ -1,0 +1,14 @@
+<div class="container">
+    <add-to-do-form (addToDo)="items.push($event)"></add-to-do-form>
+  
+    <div class="row mt-3">
+      <to-do-filter [(filter)]="filter"></to-do-filter>
+    </div>
+  
+    <div class="row mt-3">
+      <div class="col-sm-4">
+        <to-do-list [todos]="items.filter(filter)"></to-do-list>
+      </div>
+    </div>
+  </div>
+  

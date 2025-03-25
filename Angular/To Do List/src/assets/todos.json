@@ -1,0 +1,6 @@
+[
+  { "toDoText": "Learn Angular", "isComplete": false },
+  { "toDoText": "Get Coffee", "isComplete": true },
+  { "toDoText": "Something", "isComplete": false },
+  { "toDoText": "Something_2", "isComplete": false }
+]

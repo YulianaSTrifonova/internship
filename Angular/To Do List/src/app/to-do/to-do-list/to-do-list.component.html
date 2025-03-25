@@ -1,0 +1,13 @@
+<div *ngIf="todos.length === 0; else showItems">
+  There are no items to display
+</div>
+
+<ng-template #showItems>
+  <ul class="to-do-list">
+    <to-do-list-item
+      *ngFor="let todo of todos"
+      [todo]="todo"
+    >
+    </to-do-list-item>
+  </ul>
+</ng-template>
